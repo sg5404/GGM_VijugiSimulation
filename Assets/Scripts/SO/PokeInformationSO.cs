@@ -13,9 +13,9 @@ public class PokeInformationSO : ScriptableObject
     public string PokeName { get { return pokeName; } }
 
     public int Level; //레벨
-    public PokeRarity Rarity; //희귀도
-    public PokeType MainType; //주속성
-    public PokeType SubType; //부속성
+    public Define.PokeRarity Rarity; //희귀도
+    public Define.PokeType MainType; //주속성
+    public Define.PokeType SubType; //부속성
     public int CurrentAttack; //현재 공격력
     public int CurrentDefense; //현재 방어력
     public int CurrentHP; //현재 체력

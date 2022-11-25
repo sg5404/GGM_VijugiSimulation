@@ -44,10 +44,10 @@ public class PokeArea : MonoBehaviour
         var pokeMon = poke[pokeNum];
         int basicStat = pokeMon.Rarity switch
         {
-            PokeRarity.Common => 10,
-            PokeRarity.Rare => 15,
-            PokeRarity.unique => 20,
-            PokeRarity.Legendary => 30,
+            Define.PokeRarity.Common => 10,
+            Define.PokeRarity.Rare => 15,
+            Define.PokeRarity.unique => 20,
+            Define.PokeRarity.Legendary => 30,
             _ => 10,
         };
 
