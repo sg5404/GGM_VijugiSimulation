@@ -1,0 +1,11 @@
+{
+    "enemyIsHuman": false,
+    "pokemonList": [
+        {
+            "instanceID": 27556
+        }
+    ],
+    "enemy": {
+        "instanceID": 0
+    }
+}
