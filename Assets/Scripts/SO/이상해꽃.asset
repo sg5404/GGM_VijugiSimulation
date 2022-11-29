@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ce10783d235fb4d864abd4550a1753, type: 3}
+  m_Name: "\uC774\uC0C1\uD574\uAF43"
+  m_EditorClassIdentifier: 
+  pokeName: "\uC774\uC0C1\uD574\uAF43"
+  pokeImage: {fileID: 0}
+  pokeBackImage: {fileID: 0}
+  Level: 22
+  Rarity: 2
+  MainType: 3
+  SubType: 0
+  CurrentAttack: 50
+  CurrentDefense: 37
+  CurrentHP: 86
+  pokeAttack: 1.4
+  PokeHP: 3
+  pokeDefense: 0.8

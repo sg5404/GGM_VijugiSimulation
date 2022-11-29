@@ -21,7 +21,7 @@ public class PokeArea : MonoBehaviour
         control.timer += Time.deltaTime;
         if (control.timer < 1f) return;
         control.timer = 0;
-        if (Random.Range(0, 100.0f) > 15) return;
+        if (Random.Range(0, 100.0f) > pokePercent) return;
         SetPokeMon();
         SetLevel();
         LevelStats();
@@ -30,7 +30,7 @@ public class PokeArea : MonoBehaviour
 
     void SetPokeMon() //나중에 레어리티에 따라서 나오는 확률 다르게 해줘야함
     {
-        pokeNum = Random.Range(0, poke.Count - 1);
+        pokeNum = Random.Range(0, poke.Count);
     }
 
     void SetLevel()
