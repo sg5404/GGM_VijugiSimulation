@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\uD30C\uC774\uB9AC"
   m_EditorClassIdentifier: 
   pokeName: "\uD30C\uC774\uB9AC"
-  pokeImage: {fileID: 0}
+  pokeImage: {fileID: 2800000, guid: 5e42fcc4bb99f9245870b4b1c273580c, type: 3}
   pokeBackImage: {fileID: 0}
   Level: 36
   Rarity: 2

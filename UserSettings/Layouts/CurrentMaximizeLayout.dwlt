@@ -225,9 +225,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e4deffff
-      m_LastClickedID: -8476
-      m_ExpandedIDs: 32fbffff
+      m_SelectedIDs: ecb50000
+      m_LastClickedID: 0
+      m_ExpandedIDs: e0c7ffffecc9ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -349,6 +349,28 @@ MonoBehaviour:
       id: unity-search-toolbar
       index: 1
       layout: 1
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Open Tile Palette
+      index: 2
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Tilemap Focus
+      index: 3
+      layout: 4
     - dockPosition: 0
       containerId: overlay-container--left
       floating: 0
@@ -485,12 +507,23 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 1
+      displayed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
       index: 10
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Animation Rigging
+      index: 11
       layout: 4
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
   m_Gizmos: 1
@@ -502,9 +535,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.92736727, y: 4.0751004, z: 0.9860716}
+    m_Target: {x: 1901.2238, y: 404.24823, z: 377.28503}
     speed: 2
-    m_Value: {x: -0.92736727, y: 4.0751004, z: 0.9860716}
+    m_Value: {x: 1901.2238, y: 404.24823, z: 377.28503}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -555,9 +588,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.20851737, y: 0.04750812, z: -0.010141563, w: -0.97681737}
   m_Size:
-    m_Target: 4.7179027
+    m_Target: 899.5309
     speed: 2
-    m_Value: 4.7179027
+    m_Value: 860.7951
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -676,22 +709,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Image
+    - Assets/01.Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Image
+  - Assets/01.Scenes
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\USER\Documents\CasualRun\GGM_Pokemon
+  m_LastProjectPath: C:\Users\USER\Documents\GGM_VijugiSimulation
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 725a0000
-    m_LastClickedID: 23154
-    m_ExpandedIDs: 000000004c5a000000ca9a3b
+    m_SelectedIDs: ca890000
+    m_LastClickedID: 35274
+    m_ExpandedIDs: 00000000c8890000cc89000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -719,7 +752,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004c5a000000ca9a3b
+    m_ExpandedIDs: 00000000c889000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -744,9 +777,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: e4deffff
-    m_LastClickedInstanceID: -8476
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: ecb50000
+    m_LastClickedInstanceID: 46572
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

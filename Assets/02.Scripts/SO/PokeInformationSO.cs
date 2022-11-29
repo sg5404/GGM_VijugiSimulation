@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class PokeInformationSO : ScriptableObject
 {
     [SerializeField] private string pokeName; //¿Ã∏ß
-    [SerializeField] private Image pokeImage;
-    [SerializeField] private Image pokeBackImage;
+    [SerializeField] private Texture2D pokeImage;
+    [SerializeField] private Texture2D pokeBackImage;
 
     public string PokeName { get { return pokeName; } }
 
