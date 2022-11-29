@@ -14,9 +14,10 @@ public class PokeArea : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        var control = PlayerControl.Instance;
+        PlayerControl control = other.GetComponent<PlayerControl>();
 
         if (!other.CompareTag("Player")) return;
+        if (control == null) return;
         if (control.h + control.v < 0.1f) return;
         control.timer += Time.deltaTime;
         if (control.timer < 1f) return;
@@ -28,8 +29,9 @@ public class PokeArea : MonoBehaviour
         Debug.Log($"이름:{poke[pokeNum].name}, 레벨:{poke[pokeNum].Level}, 공격력:{poke[pokeNum].CurrentAttack}, 방어력:{poke[pokeNum].CurrentDefense}, 체력:{poke[pokeNum].CurrentHP}");
         EnemyInfo info = new EnemyInfo();
         info.enemyIsHuman = false;
-        info.pokemonList.Add(poke[pokeNum]);
-        Managers.Instance.SaveJson<EnemyInfo>(info);
+        info.enemyPokemonList.Add(poke[pokeNum]);
+        Managers.Save.SaveJson<EnemyInfo>(info);
+        Managers.Scene.LoadScene(Define.Scene.Battle);
     }
 
     void SetPokeMon() //나중에 레어리티에 따라서 나오는 확률 다르게 해줘야함

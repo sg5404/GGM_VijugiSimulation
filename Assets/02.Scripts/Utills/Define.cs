@@ -31,4 +31,10 @@ public class Define
         Bgm,
         MaxCount,
     }
+
+    public enum UIEvent
+    {
+        Click,
+        Drag,
+    }
 }

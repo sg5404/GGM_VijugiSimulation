@@ -12,9 +12,9 @@ public class BattleScene : BaseScene
 
         SceneType = Define.Scene.Battle;
 
-        enemyInfo = Managers.Instance.LoadJsonFile<EnemyInfo>();
+        enemyInfo = Managers.Save.LoadJsonFile<EnemyInfo>();
 
-        foreach (var info in enemyInfo.pokemonList)
+        foreach (var info in enemyInfo.enemyPokemonList)
         {
             Debug.Log($"이름:{info.name}, 레벨:{info.Level}, 공격력:{info.CurrentAttack}, 방어력:{info.CurrentDefense}, 체력:{info.CurrentHP}");
         }
