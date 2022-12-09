@@ -33,7 +33,7 @@ public class BattleScene : BaseScene
     private UIStract _playerUIStract;
     private UIStract _enemyUIStract;
 
-    private EnemyInfo enemyInfo;
+    private BattleInfo enemyInfo;
 
     private PokeInformationSO _playerPokemon;
     private PokeInformationSO _enemyPokemon;
@@ -44,16 +44,18 @@ public class BattleScene : BaseScene
 
         SceneType = Define.Scene.Battle;
 
-        enemyInfo = Managers.Save.LoadJsonFile<EnemyInfo>();
+        enemyInfo = Managers.Save.LoadJsonFile<BattleInfo>();
+        
+        // 이거 싹다 갈아 엎어야함
 
         //foreach (var info in enemyInfo.enemyPokemonList)
         //{
         //    Debug.Log($"이름:{info.name}, 레벨:{info.Level}, 공격력:{info.CurrentAttack}, 방어력:{info.CurrentDefense}, 체력:{info.CurrentHP}");
         //}
 
-        _enemyPokemon = enemyInfo.enemyPokemonList[0];
+        //_enemyPokemon = enemyInfo.enemyPokemonList[0];
 
-        _playerUIStract = new UIStract(_enemyPokemon.name, _enemyPokemon.Level, (int)_enemyPokemon.pokeHP, _enemyPokemon.CurrentHP, _enemyInfoPanel.transform.Find("HP Bar").GetComponent<Slider>(), _enemyInfoPanel.transform.Find("Exp Bar").GetComponent<Slider>());
+        _playerUIStract = new UIStract(_enemyPokemon.name, _enemyPokemon.Level, (int)_enemyPokemon.PokeHP, _enemyPokemon.CurrentHP, _enemyInfoPanel.transform.Find("HP Bar").GetComponent<Slider>(), _enemyInfoPanel.transform.Find("Exp Bar").GetComponent<Slider>());
 
         // TODO : 1. UI에 정보 연결
         // TODO : 2. UI Amination
@@ -69,11 +71,11 @@ public class BattleScene : BaseScene
 
         if(isEnemy == true)
         {
-            _enemyInfoPanel
+            //_enemyInfoPanel
         }
         else
         {
-            _playerInfoPanel;
+            //_playerInfoPanel;
         }
     }
 

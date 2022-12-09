@@ -14,9 +14,10 @@ public class PokeArea : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        PlayerControl control = other.GetComponent<PlayerControl>();
-
         if (!other.CompareTag("Player")) return;
+        PlayerControl control = other.GetComponent<PlayerControl>();
+        Player player = other.GetComponent<Player>();
+
         if (control == null) return;
         if (control.h + control.v < 0.1f) return;
         control.timer += Time.deltaTime;
@@ -27,10 +28,14 @@ public class PokeArea : MonoBehaviour
         SetLevel();
         LevelStats();
         Debug.Log($"이름:{poke[pokeNum].name}, 레벨:{poke[pokeNum].Level}, 공격력:{poke[pokeNum].CurrentAttack}, 방어력:{poke[pokeNum].CurrentDefense}, 체력:{poke[pokeNum].CurrentHP}");
-        EnemyInfo info = new EnemyInfo();
-        info.enemyIsHuman = false;
-        info.enemyPokemonList.Add(poke[pokeNum]);
-        Managers.Save.SaveJson<EnemyInfo>(info);
+        //BattleInfo info = new BattleInfo();
+        //info.enemyIsHuman = false;
+        //info.enemyPokemonList.Add(poke[pokeNum]);
+        //Managers.Save.SaveJson<BattleInfo>(info);
+        BattleInfo info = new BattleInfo();
+        info.PlayerInfo = player.GetInfo();
+        Pokemon pokemon= new Pokemon();
+        info.EnemtInfo.PokemonList[0] = pokemon;
         Managers.Scene.LoadScene(Define.Scene.Battle);
     }
 
@@ -59,6 +64,6 @@ public class PokeArea : MonoBehaviour
 
         pokeMon.CurrentAttack = basicStat + (int)(pokeMon.Level * pokeMon.PokeAttack);
         pokeMon.CurrentDefense = basicStat + (int)(pokeMon.Level * pokeMon.PokeDefense);
-        pokeMon.CurrentHP = basicStat + (int)(pokeMon.Level * pokeMon.pokeHP);
+        pokeMon.CurrentHP = basicStat + (int)(pokeMon.Level * pokeMon.PokeHP);
     }
 }
