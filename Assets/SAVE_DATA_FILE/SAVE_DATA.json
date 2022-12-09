@@ -1,11 +1,56 @@
 {
-    "enemyIsHuman": false,
-    "pokemonList": [
-        {
-            "instanceID": 27556
+    "PlayerInfo": {
+        "PokemonList": [
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            }
+        ],
+        "position": {
+            "x": 9.599992752075196,
+            "y": 1.0,
+            "z": -1.4799996614456177
         }
-    ],
-    "enemy": {
-        "instanceID": 0
+    },
+    "EnemyInfo": {
+        "PokemonList": [
+            {
+                "instanceID": -32840
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            }
+        ],
+        "position": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+        }
     }
 }

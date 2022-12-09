@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Text;
+using Unity.VisualScripting;
 
 public class SaveManager
 {
-    private string path = "";
-    private readonly string fileName = "SAVE_DATA";
+    private string _path = "";
+    public string PATH => _path;
+    private readonly string _fileName = "SAVE_DATA";
+    public string FILENAME => _fileName;
 
     public void Init()
     {
-        path = Application.dataPath + "/SAVE_DATA_FILE";
-        if (!Directory.Exists(path))
-            Directory.CreateDirectory(path);
+        _path = Application.dataPath + "/SAVE_DATA_FILE";
+        if (!Directory.Exists(_path))
+            Directory.CreateDirectory(_path);
     }
 
     #region Save&Load
@@ -28,7 +31,7 @@ public class SaveManager
 
     public void SaveJson<T>(T value)
     {
-        SaveJson<T>(path, fileName, value);
+        SaveJson<T>(_path, _fileName, value);
     }
 
     public T LoadJsonFile<T>(string loadPath, string fileName) where T : new()
@@ -48,7 +51,23 @@ public class SaveManager
 
     public T LoadJsonFile<T>() where T : new()
     {
-        return LoadJsonFile<T>(path, fileName);
+        return LoadJsonFile<T>(_path, _fileName);
+    }
+
+    public bool DeleteFile(string path, string fileName)
+    {
+        if(File.Exists(string.Format("{0}/{1}.json", path, fileName)))
+        {
+            File.Delete(string.Format("{0}/{1}.json", path, fileName));
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool DeleteFile()
+    {
+        return DeleteFile(_path, _fileName);
     }
     #endregion
 }

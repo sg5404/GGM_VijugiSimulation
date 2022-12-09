@@ -36,7 +36,5 @@ public class PokeInformationSO : ScriptableObject
     [SerializeField]
     private List<Skill> skillList;
     public List<Skill> SkillList { get { return skillList; } }
-    [SerializeField]
-    private int skillCnt = 2;
-    public int SkillCnt => skillCnt;
+    public int SkillCnt => skillList.Count;
 }

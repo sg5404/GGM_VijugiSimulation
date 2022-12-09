@@ -32,10 +32,15 @@ public class PokeArea : MonoBehaviour
         //info.enemyIsHuman = false;
         //info.enemyPokemonList.Add(poke[pokeNum]);
         //Managers.Save.SaveJson<BattleInfo>(info);
-        BattleInfo info = new BattleInfo();
+        GameInfo info = new GameInfo();
         info.PlayerInfo = player.GetInfo();
-        Pokemon pokemon= new Pokemon();
-        info.EnemtInfo.PokemonList[0] = pokemon;
+        info.EnemyInfo = new AgentInfo();
+        Pokemon pokemon = new GameObject { name = "wildPokemon" }.AddComponent<Pokemon>();
+        pokemon.SetPokemon(poke[pokeNum]);
+        info.EnemyInfo.PokemonList[0] = pokemon;
+        info.PlayerInfo.position = other.transform.position;
+        info.wildPokemon = true;
+        Managers.Save.SaveJson(info);
         Managers.Scene.LoadScene(Define.Scene.Battle);
     }
 
@@ -65,5 +70,6 @@ public class PokeArea : MonoBehaviour
         pokeMon.CurrentAttack = basicStat + (int)(pokeMon.Level * pokeMon.PokeAttack);
         pokeMon.CurrentDefense = basicStat + (int)(pokeMon.Level * pokeMon.PokeDefense);
         pokeMon.CurrentHP = basicStat + (int)(pokeMon.Level * pokeMon.PokeHP);
+        pokeMon.CurrentSpeed = basicStat + (int)(pokeMon.Level * pokeMon.PokeSpeed);
     }
 }

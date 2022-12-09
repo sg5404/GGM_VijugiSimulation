@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MapScene : BaseScene
 {
-    private BattleInfo _battleInfo;
+    private GameInfo _gameInfo;
 
-    private Player player;
+    private Player _player;
     
     protected override void Init()
     {
@@ -14,13 +14,20 @@ public class MapScene : BaseScene
 
         SceneType = Define.Scene.Map;
 
-        _battleInfo = Managers.Save.LoadJsonFile<BattleInfo>();
+        _gameInfo = Managers.Save.LoadJsonFile<GameInfo>();
 
-        player.SetInfo(_battleInfo.PlayerInfo);
+        _player = Managers.Resource.Instantiate("Player/Player").GetComponent<Player>();
+        
+        _player.SetInfo(_gameInfo.PlayerInfo);
+        _player.transform.position = _gameInfo.PlayerInfo.position;
     }
 
     public override void Clear()
     {
-        
+        if(_player != null)
+        {
+            Managers.Pool.Push(_player.GetComponent<Poolable>());
+            _player = null;
+        }
     }
 }
