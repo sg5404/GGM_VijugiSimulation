@@ -175,6 +175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd687dd5982fa849999e2b7d8779eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nameText: {fileID: 9034610980626652487}
+  _levelText: {fileID: 9034610979578219923}
+  _hpText: {fileID: 9034610980763801500}
+  _hpBar: {fileID: 9034610980757602734}
+  _expBar: {fileID: 9034610980443353713}
 --- !u!1 &9034610979981802620
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +386,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uD30C\uC774\uB9AC"
+  m_Text: Name
 --- !u!1 &9034610980669153173
 GameObject:
   m_ObjectHideFlags: 0

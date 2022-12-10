@@ -5,86 +5,27 @@ using static Cinemachine.DocumentationSortingAttribute;
 
 public class Pokemon : MonoBehaviour
 {
-    private const int maxSkillCount = 4;
+    [SerializeField]
+    protected PokemonInfoSO _HABCDS; // Á¾Á·°ª
 
-    private int _curHp;
-    private int _maxHp;
+    protected int _hp;
+    protected int _attack;
+    protected int _block;
+    protected int _speed;
 
-    private int _level;
-    private int _curExp;
-    private int _maxExp;
+    private const int MAX_SKILL_CNT = 4;
+    protected Skill[] _skillList = new Skill[MAX_SKILL_CNT];
 
-    private int _attack;
-    private int _defence;
-    private int _speed;
+    protected int _level;
 
-    private Skill[] _skillList = new Skill[maxSkillCount];
-    private PokeInformationSO _pokemonInfo;
+    protected int _curExp;
+    protected int _maxExp;
+    protected int _accExp;
 
-    public Pokemon(int curHp, int maxHp, int level, int curExp, int maxExp, int attack, int defence, int speed, Skill[] skillList)
-    {
-        _curHp = curHp;
-        _maxHp = maxHp;
-        _level = level;
-        _curExp = curExp;
-        _maxExp = maxExp;
-        _attack = attack;
-        _defence = defence;
-        _speed = speed;
-        _skillList = skillList;
-    }
+    protected Define.PokeType _mainType;
+    protected Define.PokeType _subType;
 
-    public Pokemon(PokeInformationSO info)
-    {
-        _curHp = info.CurrentHP;
-        _maxHp = info.CurrentHP;
-        _level = info.Level;
-        _curExp = 0;
-        _maxExp = 100;
-        _attack = info.CurrentAttack;
-        _defence = info.CurrentDefense;
-        _speed = info.CurrentSpeed;
+    protected Define.PokeRarity _rarity;
 
-        int maxIdx = Mathf.Min(info.SkillList.Count, maxSkillCount);
-        for(int i = 0; i < maxIdx; i++)
-        {
-            _skillList[i] = info.SkillList[i];
-        }
-    }
-
-    public void SetPokemon(int curHp, int maxHp, int level, int curExp, int maxExp, int attack, int defence, int speed, Skill[] skillList)
-    {
-        _curHp = curHp;
-        _maxHp = maxHp;
-        _level = level;
-        _curExp = curExp;
-        _maxExp = maxExp;
-        _attack = attack;
-        _defence = defence;
-        _speed = speed;
-        _skillList = skillList;
-    }
-
-    public void SetPokemon(PokeInformationSO info)
-    {
-        _curHp = info.CurrentHP;
-        _maxHp = info.CurrentHP;
-        _level = info.Level;
-        _curExp = 0;
-        _maxExp = 100;
-        _attack = info.CurrentAttack;
-        _defence = info.CurrentDefense;
-        _speed = info.CurrentSpeed;
-
-        int maxIdx = Mathf.Min(info.SkillList.Count, maxSkillCount);
-        for (int i = 0; i < maxIdx; i++)
-        {
-            _skillList[i] = info.SkillList[i];
-        }
-    }
-
-    public void SetPokemonInfo(PokeInformationSO info)
-    {
-        _pokemonInfo = info;
-    }
+    protected string _name;
 }

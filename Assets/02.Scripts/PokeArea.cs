@@ -39,7 +39,7 @@ public class PokeArea : MonoBehaviour
         pokemon.SetPokemon(poke[pokeNum]);
         info.EnemyInfo.PokemonList[0] = pokemon;
         info.PlayerInfo.position = other.transform.position;
-        info.wildPokemon = true;
+        info.isWildPokemon = true;
         Managers.Save.SaveJson(info);
         Managers.Scene.LoadScene(Define.Scene.Battle);
     }

@@ -2,14 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
+
+[System.Serializable]
+public class UIInfo
+{
+    public string name;
+    public int level;
+    public int hp;
+    public int maxHp;
+    public int exp;
+    public int maxExp;
+}
 
 public class InfoBar : MonoBehaviour
 {
-    private Text _nameText;
-    private Text _levelText;
-    private Text _hpText;
-    private Slider _hpBar;
-    private Slider _expBar;
+    [SerializeField] private Text _nameText;
+    [SerializeField] private Text _levelText;
+    [SerializeField] private Text _hpText;
+    [SerializeField] private Slider _hpBar;
+    [SerializeField] private Slider _expBar;
 
     private int _hp;
     private int _maxHp;
@@ -33,6 +45,21 @@ public class InfoBar : MonoBehaviour
         _expBar.value = (float)exp / maxExp;
     }
 
+    public void SetInfo(UIInfo info)
+    {
+        _nameText.text = info.name;
+        _levelText.text = info.level.ToString();
+        _hpText.text = $"{info.hp} / {info.maxHp}";
+
+        _hp = info.hp;
+        _maxHp = info.maxHp;
+        _hpBar.value = (float)info.hp / info.maxHp;
+
+        _exp = info.exp;
+        _maxExp = info.maxExp;
+        _expBar.value = (float)info.exp / info.maxExp;
+    }
+
     public void SetHpBar(int hp)
     {
         _hpBar.value = (float)hp / _maxHp;
@@ -46,5 +73,10 @@ public class InfoBar : MonoBehaviour
     public void SetActiveExpBar(bool value)
     {
         _expBar.gameObject.SetActive(value);
+    }
+
+    public void UpdateUI()
+    {
+
     }
 }

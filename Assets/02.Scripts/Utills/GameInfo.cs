@@ -15,5 +15,7 @@ public class GameInfo
 {
     public AgentInfo PlayerInfo;
     public AgentInfo EnemyInfo;
-    public bool wildPokemon;
+
+    public bool isWildPokemon;
+    public Pokemon wildPokemon;
 }
