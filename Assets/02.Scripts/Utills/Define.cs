@@ -5,9 +5,23 @@ public class Define
     {
         None,
         Normal,
+        Fighting,
+        Poison,
+        Ground,
+        Flying,
+        Bug,
+        Rock,
+        Ghost,
+        Steel,
         Fire,
-        Grass,
         Water,
+        Electric,
+        Grass,
+        Ice,
+        Psychic,
+        Dragon,
+        Dark,
+        Fairy
     }
 
     public enum PokeRarity

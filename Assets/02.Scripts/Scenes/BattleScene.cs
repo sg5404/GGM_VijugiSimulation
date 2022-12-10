@@ -26,12 +26,12 @@ public class BattleScene : BaseScene
         _enemyInfo = _gameInfo.EnemyInfo;
 
         UIInfo info = new UIInfo();
-        info.name = _enemyInfo.PokemonList[0].Name;
+        //info.name = _enemyInfo.PokemonList[0].Name;
         //info.level = _enemyInfo.PokemonList[0].Level;
-        info.hp = _enemyInfo.PokemonList[0].CurHp;
-        info.maxHp = _enemyInfo.PokemonList[0].MaxHp;
-        info.exp = _enemyInfo.PokemonList[0].CurExp;
-        info.maxExp = _enemyInfo.PokemonList[0].MaxExp;
+        //info.hp = _enemyInfo.PokemonList[0].CurHp;
+        //info.maxHp = _enemyInfo.PokemonList[0].MaxHp;
+        //info.exp = _enemyInfo.PokemonList[0].CurExp;
+        //info.maxExp = _enemyInfo.PokemonList[0].MaxExp;
         _enemyInfoPanel.SetInfo(info);
         _enemyInfoPanel.SetActiveExpBar(!_gameInfo.wildPokemon);
     }

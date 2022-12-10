@@ -36,7 +36,7 @@ public class PokeArea : MonoBehaviour
         info.PlayerInfo = player.GetInfo();
         info.EnemyInfo = new AgentInfo();
         Pokemon pokemon = new GameObject { name = "wildPokemon" }.AddComponent<Pokemon>();
-        pokemon.SetPokemon(poke[pokeNum]);
+        //pokemon.SetPokemon(poke[pokeNum]);
         info.EnemyInfo.PokemonList[0] = pokemon;
         info.PlayerInfo.position = other.transform.position;
         info.isWildPokemon = true;
