@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78d6b7db96fe8a24fa1d0d135ecd3b7b, type: 3}
-  m_Name: Fire
+  m_Name: Ember
   m_EditorClassIdentifier: 
   skillName: "\uBD88\uAF43\uC138\uB840"
-  power: 60
+  power: 40
   accuracyRate: 100
   isMustHit: 0
   isInstantaneousDeath: 0

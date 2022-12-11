@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 147
+  controlID: 136
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 30
+  controlID: 135
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 19
+  controlID: 102
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 402.40002
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -389,7 +389,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e0faffff
+      m_ExpandedIDs: 946cffff1674ffff1874ffff6c9cffff64a2ffff70a5ffffa0a9ffff88b1ffff0ed1ffff86d1ffffe0faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -495,13 +495,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/02.Scripts/SO
+    - Assets/02.Scripts/Pokemon
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/02.Scripts/SO
+  - Assets/02.Scripts/Pokemon
   m_LastFoldersGridSize: 16
   m_LastProjectPath: "C:\\Users\\\uAE40\uC7AC\uD544\\Desktop\\Class\\Unity\\Unity
     Projects\\GGM_VijugiSimulation"
@@ -509,9 +509,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3e740000
-    m_LastClickedID: 29758
-    m_ExpandedIDs: 000000008e7200002e74000000ca9a3b
+    m_SelectedIDs: b4720000
+    m_LastClickedID: 29364
+    m_ExpandedIDs: 00000000907200009872000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -539,7 +539,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008e720000
+    m_ExpandedIDs: 0000000090720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -680,7 +680,7 @@ MonoBehaviour:
       width: 1846.9833
       height: 864.00006
     m_MinimalGUI: 1
-  m_defaultScale: 0.35208333
+  m_defaultScale: 0.32777774
   m_LastWindowPixelSize: {x: 756.75, y: 380.24997}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -945,9 +945,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.6260114, y: 1.238935, z: 0.48413658}
+    m_Target: {x: 4.32626, y: 0.6174499, z: 0.19738579}
     speed: 2
-    m_Value: {x: 5.6260114, y: 1.238935, z: 0.48413658}
+    m_Value: {x: 4.32626, y: 0.6174499, z: 0.19738579}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -996,11 +996,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.23797876, y: -0.013988444, z: 0.0034278128, w: -0.97116387}
     speed: 2
-    m_Value: {x: -0.23797876, y: -0.013988444, z: 0.0034278128, w: -0.97116387}
+    m_Value: {x: -0.2379787, y: -0.01398844, z: 0.003427812, w: -0.97116363}
   m_Size:
-    m_Target: 5.9377723
+    m_Target: 6.484196
     speed: 2
-    m_Value: 5.9377723
+    m_Value: 6.484196
   m_Ortho:
     m_Target: 0
     speed: 2

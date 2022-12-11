@@ -17,7 +17,7 @@ public class MapScene : BaseScene
         _gameInfo = Managers.Save.LoadJsonFile<GameInfo>();
 
         _player = Managers.Resource.Instantiate("Player/Player").GetComponent<Player>();
-        
+
         _player.SetInfo(_gameInfo.PlayerInfo);
         _player.transform.position = _gameInfo.PlayerInfo.position;
     }

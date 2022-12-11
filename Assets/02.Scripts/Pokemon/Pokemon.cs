@@ -11,6 +11,7 @@ public enum AbilityType
     SPEED,
 }
 
+[System.Serializable]
 public class Pokemon
 {
     protected PokemonInfoSO _info;
@@ -71,7 +72,7 @@ public class Pokemon
         _maxExp = _NexAccExp - _curExp;
     }
 
-    public Pokemon(Pokemon pokemon)
+    public Pokemon(Pokemon pokemon) // 복사 생성자. 이게 맞나...
     {
         _info = pokemon.Info;
         SetPokemonInfo();
@@ -929,6 +930,8 @@ public class Pokemon
         _maxExp = _NexAccExp - _CurAccExp;
 
         SetPokemonInfo();
+
+        // Update UI
     }
     #endregion
 

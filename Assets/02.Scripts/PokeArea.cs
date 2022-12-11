@@ -26,15 +26,12 @@ public class PokeArea : MonoBehaviour
         if (control.timer < 1f) return;
         control.timer = 0;
         //if (Random.Range(0, 100.0f) > 15) return;
-        // SetPokeMon();
-        // SetLevel();
-        // LevelStats();
-        //Debug.Log($"이름:{poke[pokeNum].name}, 레벨:{poke[pokeNum].Level}, 공격력:{poke[pokeNum].CurrentAttack}, 방어력:{poke[pokeNum].CurrentDefense}, 체력:{poke[pokeNum].CurrentHP}");
+        SetPokeMon();
         Pokemon wildPokemon = new Pokemon(pokemonList[pokeNum], SetLevel());
         GameInfo info = new GameInfo();
         info.PlayerInfo = player.GetInfo();
         info.isWildPokemon = true;
-        info.wildPokemon = wildPokemon; // 잘 대입됨. SO까지.
+        info.wildPokemon = wildPokemon;
         Managers.Save.SaveJson(info);
         Managers.Scene.LoadScene(Define.Scene.Battle);
     }
