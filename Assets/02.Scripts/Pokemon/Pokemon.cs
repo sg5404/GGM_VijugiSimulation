@@ -12,9 +12,8 @@ public enum AbilityType
     SPEED,
 }
 
-public class Pokemon : MonoBehaviour
+public class Pokemon
 {
-    [SerializeField]
     protected PokemonInfoSO _info;
 
     // 0 ~ 31±îÁö
