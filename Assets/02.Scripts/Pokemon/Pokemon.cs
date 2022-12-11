@@ -429,482 +429,483 @@ public class Pokemon
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 0;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 1;
                     case Define.PokeType.Poison:
-                        break;
+                        return 1;
                     case Define.PokeType.Ground:
-                        break;
+                        return 1;
                     case Define.PokeType.Flying:
-                        break;
+                        return 1;
                     case Define.PokeType.Bug:
-                        break;
+                        return 1;
                     case Define.PokeType.Rock:
-                        break;
+                        return 1;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 2;
                     case Define.PokeType.Steel:
-                        break;
+                        return 1;
                     case Define.PokeType.Fire:
-                        break;
+                        return 1;
                     case Define.PokeType.Water:
-                        break;
+                        return 1;
                     case Define.PokeType.Electric:
-                        break;
+                        return 1;
                     case Define.PokeType.Grass:
-                        break;
+                        return 1;
                     case Define.PokeType.Ice:
-                        break;
+                        return 1;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 2;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 1;
                     case Define.PokeType.Dark:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 1;
                 }
                 break;
             case Define.PokeType.Steel:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 1;
                     case Define.PokeType.Poison:
-                        break;
+                        return 1;
                     case Define.PokeType.Ground:
-                        break;
+                        return 1;
                     case Define.PokeType.Flying:
-                        break;
+                        return 1;
                     case Define.PokeType.Bug:
-                        break;
+                        return 1;
                     case Define.PokeType.Rock:
-                        break;
+                        return 2;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 1;
                     case Define.PokeType.Steel:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Fire:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Water:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Electric:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Grass:
-                        break;
+                        return 1;
                     case Define.PokeType.Ice:
-                        break;
+                        return 2;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 1;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 1;
                     case Define.PokeType.Dark:
-                        break;
+                        return 1;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 2;
                 }
                 break;
             case Define.PokeType.Fire:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 1;
                     case Define.PokeType.Poison:
-                        break;
+                        return 1;
                     case Define.PokeType.Ground:
-                        break;
+                        return 1;
                     case Define.PokeType.Flying:
-                        break;
+                        return 1;
                     case Define.PokeType.Bug:
-                        break;
+                        return 2;
                     case Define.PokeType.Rock:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 1;
                     case Define.PokeType.Steel:
-                        break;
+                        return 2;
                     case Define.PokeType.Fire:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Water:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Electric:
-                        break;
+                        return 1;
                     case Define.PokeType.Grass:
-                        break;
+                        return 2;
                     case Define.PokeType.Ice:
-                        break;
+                        return 2;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 1;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Dark:
-                        break;
+                        return 1;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 1;
                 }
                 break;
             case Define.PokeType.Water:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 1;
                     case Define.PokeType.Poison:
-                        break;
+                        return 1;
                     case Define.PokeType.Ground:
-                        break;
+                        return 2;
                     case Define.PokeType.Flying:
-                        break;
+                        return 1;
                     case Define.PokeType.Bug:
-                        break;
+                        return 1;
                     case Define.PokeType.Rock:
-                        break;
+                        return 2;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 1;
                     case Define.PokeType.Steel:
-                        break;
+                        return 1;
                     case Define.PokeType.Fire:
-                        break;
+                        return 2;
                     case Define.PokeType.Water:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Electric:
-                        break;
+                        return 1;
                     case Define.PokeType.Grass:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Ice:
-                        break;
+                        return 1;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 1;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Dark:
-                        break;
+                        return 1;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 1;
                 }
                 break;
             case Define.PokeType.Electric:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 1;
                     case Define.PokeType.Poison:
-                        break;
+                        return 1;
                     case Define.PokeType.Ground:
-                        break;
+                        return 0;
                     case Define.PokeType.Flying:
-                        break;
+                        return 2;
                     case Define.PokeType.Bug:
-                        break;
+                        return 1;
                     case Define.PokeType.Rock:
-                        break;
+                        return 1;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 1;
                     case Define.PokeType.Steel:
-                        break;
+                        return 1;
                     case Define.PokeType.Fire:
-                        break;
+                        return 1;
                     case Define.PokeType.Water:
-                        break;
+                        return 2;
                     case Define.PokeType.Electric:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Grass:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Ice:
-                        break;
+                        return 1;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 1;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Dark:
-                        break;
+                        return 1;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 1;
                 }
                 break;
             case Define.PokeType.Grass:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 1;
                     case Define.PokeType.Poison:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Ground:
-                        break;
+                        return 2;
                     case Define.PokeType.Flying:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Bug:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Rock:
-                        break;
+                        return 2;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 1;
                     case Define.PokeType.Steel:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Fire:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Water:
-                        break;
+                        return 2;
                     case Define.PokeType.Electric:
-                        break;
+                        return 1;
                     case Define.PokeType.Grass:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Ice:
-                        break;
+                        return 1;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 1;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Dark:
-                        break;
+                        return 1;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 1;
                 }
                 break;
             case Define.PokeType.Ice:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 1;
                     case Define.PokeType.Poison:
-                        break;
+                        return 1;
                     case Define.PokeType.Ground:
-                        break;
+                        return 2;
                     case Define.PokeType.Flying:
-                        break;
+                        return 2;
                     case Define.PokeType.Bug:
-                        break;
+                        return 1;
                     case Define.PokeType.Rock:
-                        break;
+                        return 1;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 1;
                     case Define.PokeType.Steel:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Fire:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Water:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Electric:
-                        break;
+                        return 1;
                     case Define.PokeType.Grass:
-                        break;
+                        return 2;
                     case Define.PokeType.Ice:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 1;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 2;
                     case Define.PokeType.Dark:
-                        break;
+                        return 1;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 1;
                 }
                 break;
             case Define.PokeType.Psychic:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 2;
                     case Define.PokeType.Poison:
-                        break;
+                        return 2;
                     case Define.PokeType.Ground:
-                        break;
+                        return 1;
                     case Define.PokeType.Flying:
-                        break;
+                        return 1;
                     case Define.PokeType.Bug:
-                        break;
+                        return 1;
                     case Define.PokeType.Rock:
-                        break;
+                        return 1;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 1;
                     case Define.PokeType.Steel:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Fire:
-                        break;
+                        return 1;
                     case Define.PokeType.Water:
-                        break;
+                        return 1;
                     case Define.PokeType.Electric:
-                        break;
+                        return 1;
                     case Define.PokeType.Grass:
-                        break;
+                        return 1;
                     case Define.PokeType.Ice:
-                        break;
+                        return 1;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 1;
                     case Define.PokeType.Dark:
-                        break;
+                        return 0;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 1;
                 }
                 break;
             case Define.PokeType.Dragon:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 1;
                     case Define.PokeType.Poison:
-                        break;
+                        return 1;
                     case Define.PokeType.Ground:
-                        break;
+                        return 1;
                     case Define.PokeType.Flying:
-                        break;
+                        return 1;
                     case Define.PokeType.Bug:
-                        break;
+                        return 1;  
                     case Define.PokeType.Rock:
-                        break;
+                        return 1;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 1;
                     case Define.PokeType.Steel:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Fire:
-                        break;
+                        return 1;
                     case Define.PokeType.Water:
-                        break;
+                        return 1;
                     case Define.PokeType.Electric:
-                        break;
+                        return 1;
                     case Define.PokeType.Grass:
-                        break;
+                        return 1;
                     case Define.PokeType.Ice:
-                        break;
+                        return 1;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 1;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 2;
                     case Define.PokeType.Dark:
-                        break;
+                        return 1;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 0;
                 }
                 break;
             case Define.PokeType.Dark:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Poison:
-                        break;
+                        return 1;
                     case Define.PokeType.Ground:
-                        break;
+                        return 1;
                     case Define.PokeType.Flying:
-                        break;
+                        return 1;
                     case Define.PokeType.Bug:
-                        break;
+                        return 1;
                     case Define.PokeType.Rock:
-                        break;
+                        return 1;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 2;
                     case Define.PokeType.Steel:
-                        break;
+                        return 1;
                     case Define.PokeType.Fire:
-                        break;
+                        return 1;
                     case Define.PokeType.Water:
-                        break;
+                        return 1;
                     case Define.PokeType.Electric:
-                        break;
+                        return 1;
                     case Define.PokeType.Grass:
-                        break;
+                        return 1;
                     case Define.PokeType.Ice:
-                        break;
+                        return 1;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 2;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 1;
                     case Define.PokeType.Dark:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 0.5f;
                 }
                 break;
             case Define.PokeType.Fairy:
                 switch (thisType)
                 {
                     case Define.PokeType.None:
-                        break;
+                        return 1;
                     case Define.PokeType.Normal:
-                        break;
+                        return 1;
                     case Define.PokeType.Fighting:
-                        break;
+                        return 2;
                     case Define.PokeType.Poison:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Ground:
-                        break;
+                        return 1;
                     case Define.PokeType.Flying:
-                        break;
+                        return 1;
                     case Define.PokeType.Bug:
-                        break;
+                        return 1;
                     case Define.PokeType.Rock:
-                        break;
+                        return 1;
                     case Define.PokeType.Ghost:
-                        break;
+                        return 1;
                     case Define.PokeType.Steel:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Fire:
-                        break;
+                        return 0.5f;
                     case Define.PokeType.Water:
-                        break;
+                        return 1;
                     case Define.PokeType.Electric:
-                        break;
+                        return 1;
                     case Define.PokeType.Grass:
-                        break;
+                        return 1;
                     case Define.PokeType.Ice:
-                        break;
+                        return 1;
                     case Define.PokeType.Psychic:
-                        break;
+                        return 1;
                     case Define.PokeType.Dragon:
-                        break;
+                        return 2;
                     case Define.PokeType.Dark:
-                        break;
+                        return 2;
                     case Define.PokeType.Fairy:
-                        break;
+                        return 1;
                 }
                 break;
         }
+
+        return 1;
     }
 
     private float TypeCompatibility(Define.PokeType type)
     {
-        //return GetValue(_info.mainType, type) * GetValue(_info.subType, type);
-        return 1f;
+        return GetValue(_info.mainType, type) * GetValue(_info.subType, type);
     }
 
     private void SetPokemonInfo()
