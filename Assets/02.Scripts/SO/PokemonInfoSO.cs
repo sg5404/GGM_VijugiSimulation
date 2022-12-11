@@ -6,7 +6,7 @@ using NaughtyAttributes;
 
 
 
-[CreateAssetMenu(menuName = "SO/Creature/Pokemon/Info")]
+[CreateAssetMenu(menuName = "SO/Creature/Pokemon/Info"), System.Serializable]
 public class PokemonInfoSO : ScriptableObject
 {
     public PokemonHABCDSSO habcds; // Á¾Á·°ª

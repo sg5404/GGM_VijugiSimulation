@@ -8,6 +8,16 @@ public class AgentInfo
     public Pokemon[] PokemonList = new Pokemon[6];
     public Dictionary<Item, int> itemDict = new Dictionary<Item, int>();
     public Vector3 position = new Vector3(0, 1, 0);
+
+    public AgentInfo()
+    {
+        for(int i = 0; i < 6; i++)
+        {
+            PokemonList[i] = new Pokemon();
+        }
+        itemDict = new Dictionary<Item, int>();
+        position = new Vector3(0, 1, 0);
+    }
 }
 
 [System.Serializable]

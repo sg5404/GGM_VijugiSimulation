@@ -14,37 +14,39 @@ public enum AbilityType
 [System.Serializable]
 public class Pokemon
 {
+    [SerializeField]
     protected PokemonInfoSO _info;
     public PokemonInfoSO Info => _info;
 
+    [SerializeField]
     // 0 ~ 31까지
     protected int _individualValue = 0; // 개체값
 
-    protected int _hp;
-    protected int _maxHp;
+    [SerializeField] protected int _hp;
+    [SerializeField] protected int _maxHp;
     public int Hp => _hp;
-    protected int _attack;
+    [SerializeField] protected int _attack;
     public int Attack => _attack;
-    protected int _block;
+    [SerializeField] protected int _block;
     public int Block => _block;
-    protected int _speed;
+    [SerializeField] protected int _speed;
     public int Speed => _speed;
 
     private const int MAX_SKILL_CNT = 4;
-    protected SkillSO[] _skillList = new SkillSO[MAX_SKILL_CNT];
+    [SerializeField] protected SkillSO[] _skillList = new SkillSO[MAX_SKILL_CNT];
 
-    protected int _level;
+    [SerializeField] protected int _level;
     public int Level => _level;
 
-    protected int _curExp; // 현재 경험치 량
+    [SerializeField] protected int _curExp; // 현재 경험치 량
     public int CurExp => _curExp;
-    protected int _maxExp; // 레벨업을 위해 벌어야할 경험치 량
+    [SerializeField] protected int _maxExp; // 레벨업을 위해 벌어야할 경험치 량
     public int MaxExp => _maxExp;
-    protected int _CurAccExp; // 현재 레벨 누적 경험치 량 (주의 ※현재까지 얻은 경험치량 아님※)
-    protected int _befAccExp; // 이전 레벨 누적 경험치 량
-    protected int _NexAccExp; // 다음 레빌 누적 경험치 량
+    [SerializeField] protected int _CurAccExp; // 현재 레벨 누적 경험치 량 (주의 ※현재까지 얻은 경험치량 아님※)
+    [SerializeField] protected int _befAccExp; // 이전 레벨 누적 경험치 량
+    [SerializeField] protected int _NexAccExp; // 다음 레빌 누적 경험치 량
 
-    protected string _name;
+    [SerializeField] protected string _name;
     public string Name => _name;
 
     //[{(종족값 * 2) + 개체값} * 레벨/100] + 10 + 레벨
@@ -65,11 +67,12 @@ public class Pokemon
         _individualValue = SetIV();
 
         _curExp = 0;
-        _befAccExp = 0;
+        int beforeLevel = _level - 1;
+        _befAccExp = (beforeLevel * beforeLevel * beforeLevel);
         _CurAccExp = (_level * _level * _level);
         int nextLevel = _level + 1;
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
-        _maxExp = _NexAccExp - _curExp;
+        _maxExp = _CurAccExp - _befAccExp;
     }
 
     public Pokemon(Pokemon pokemon) // 복사 생성자. 이게 맞나...
@@ -86,7 +89,7 @@ public class Pokemon
         _befAccExp = pokemon._befAccExp;
         _CurAccExp = pokemon._CurAccExp;
         _NexAccExp = pokemon._NexAccExp;
-        _maxExp = _NexAccExp;
+        _maxExp = _CurAccExp - _befAccExp;
     }
 
     #region Private Method
@@ -119,7 +122,7 @@ public class Pokemon
     }
 
     // thisType: 공격받는 쪽, skillType: 공격하는 쪽
-    private float GetValue(Define.PokeType thisType, Define.PokeType skillType) // 이거 개노가다하기
+    private float GetValue(Define.PokeType thisType, Define.PokeType skillType) 
     {
         switch (skillType)
         {
@@ -923,11 +926,11 @@ public class Pokemon
         _level++;
         _curExp = 0;
         _curExp += exp;
-        _befAccExp = _curExp;
+        _befAccExp = _CurAccExp;
         _CurAccExp = (_level * _level * _level);
         int nextLevel = _level + 1;
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
-        _maxExp = _NexAccExp - _CurAccExp;
+        _maxExp = _CurAccExp - _befAccExp;
 
         SetPokemonInfo();
 

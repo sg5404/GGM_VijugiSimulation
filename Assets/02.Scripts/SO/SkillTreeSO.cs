@@ -9,7 +9,7 @@ public class SkillPair
     public SkillSO skill;
 }
 
-[CreateAssetMenu(menuName = "SO/Creature/Pokemon/SkillTree")]
+[CreateAssetMenu(menuName = "SO/Creature/Pokemon/SkillTree"), System.Serializable]
 public class SkillTreeSO : ScriptableObject
 {
     public List<SkillPair> pairs;

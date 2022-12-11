@@ -10,7 +10,7 @@ public enum SkillRange
     Evenyone, // 나 포함 모두
 }
 
-[CreateAssetMenu(menuName = "SO/Creature/Pokemon/Skill")]
+[CreateAssetMenu(menuName = "SO/Creature/Pokemon/Skill"), System.Serializable]
 public class SkillSO : ScriptableObject
 {
     public string skillName;

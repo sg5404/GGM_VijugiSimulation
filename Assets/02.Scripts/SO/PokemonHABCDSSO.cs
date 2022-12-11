@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SO/Creature/Pokemon/HABCDS")]
+[CreateAssetMenu(menuName = "SO/Creature/Pokemon/HABCDS"), System.Serializable]
 public class PokemonHABCDSSO : ScriptableObject
 {
     // Á¾Á¾°ª SO
