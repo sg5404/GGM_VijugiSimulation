@@ -18,4 +18,12 @@ public class GameInfo
 
     public bool isWildPokemon;
     public Pokemon wildPokemon;
+
+    public GameInfo()
+    {
+        PlayerInfo = new AgentInfo();
+        EnemyInfo = new AgentInfo();
+        isWildPokemon = false;
+        wildPokemon = new Pokemon();
+    }
 }

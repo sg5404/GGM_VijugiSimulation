@@ -4,12 +4,13 @@ using UnityEngine;
 
 public enum SkillRange
 {
-    One, // 지정 한마리
+    OneEnemy, // 지정 한마리
     AllEnemy,  // 적 모두
     EvenyoneButMe, // 나 제외 모두
-    Evenyone // 나 포함 모두
+    Evenyone, // 나 포함 모두
 }
 
+[CreateAssetMenu(menuName = "SO/Creature/Pokemon/Skill")]
 public class SkillSO : ScriptableObject
 {
     public string skillName;
@@ -17,5 +18,5 @@ public class SkillSO : ScriptableObject
     public int accuracyRate; // 명중률
     public bool isMustHit = false; // 필중기
     public bool isInstantaneousDeath = false; // 일격필상!
-    public SkillRange skillRange = SkillRange.One;
+    public SkillRange skillRange = SkillRange.OneEnemy; // 스킬 범위
 }

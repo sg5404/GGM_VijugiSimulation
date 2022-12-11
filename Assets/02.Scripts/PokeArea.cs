@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class PokeArea : MonoBehaviour
 {
     [SerializeField] private int pokePercent;
     [SerializeField] private List<PokeInformationSO> poke;
-    [SerializeField] private int minLevel;
-    [SerializeField] private int maxLevel;
+    [SerializeField] private List<PokemonInfoSO> pokemonList;
+    [SerializeField, MinValue(1), MaxValue(100)] private int minLevel;
+    [SerializeField, MinValue(1), MaxValue(100)] private int maxLevel;
 
     private int currentLevel;
     private int pokeNum;
@@ -24,35 +26,34 @@ public class PokeArea : MonoBehaviour
         if (control.timer < 1f) return;
         control.timer = 0;
         //if (Random.Range(0, 100.0f) > 15) return;
-        SetPokeMon();
-        SetLevel();
-        LevelStats();
-        Debug.Log($"이름:{poke[pokeNum].name}, 레벨:{poke[pokeNum].Level}, 공격력:{poke[pokeNum].CurrentAttack}, 방어력:{poke[pokeNum].CurrentDefense}, 체력:{poke[pokeNum].CurrentHP}");
-        //BattleInfo info = new BattleInfo();
-        //info.enemyIsHuman = false;
-        //info.enemyPokemonList.Add(poke[pokeNum]);
-        //Managers.Save.SaveJson<BattleInfo>(info);
+        // SetPokeMon();
+        // SetLevel();
+        // LevelStats();
+        //Debug.Log($"이름:{poke[pokeNum].name}, 레벨:{poke[pokeNum].Level}, 공격력:{poke[pokeNum].CurrentAttack}, 방어력:{poke[pokeNum].CurrentDefense}, 체력:{poke[pokeNum].CurrentHP}");
+        Pokemon wildPokemon = new Pokemon(pokemonList[pokeNum], SetLevel());
         GameInfo info = new GameInfo();
         info.PlayerInfo = player.GetInfo();
-        info.EnemyInfo = new AgentInfo();
-        Pokemon pokemon = new GameObject { name = "wildPokemon" }.AddComponent<Pokemon>();
-        //pokemon.SetPokemon(poke[pokeNum]);
-        info.EnemyInfo.PokemonList[0] = pokemon;
-        info.PlayerInfo.position = other.transform.position;
         info.isWildPokemon = true;
+        info.wildPokemon = wildPokemon; // 잘 대입됨. SO까지.
         Managers.Save.SaveJson(info);
         Managers.Scene.LoadScene(Define.Scene.Battle);
     }
 
     void SetPokeMon() //나중에 레어리티에 따라서 나오는 확률 다르게 해줘야함
     {
-        pokeNum = Random.Range(0, poke.Count - 1);
+        //pokeNum = Random.Range(0, poke.Count - 1);
+        pokeNum = Random.Range(0, pokemonList.Count);
     }
 
-    void SetLevel()
+    //void SetLevel()
+    //{
+    //    currentLevel = Random.Range(minLevel, maxLevel + 1);
+    //    //poke[pokeNum].Level = currentLevel;
+    //}
+
+    int SetLevel()
     {
-        currentLevel = Random.Range(minLevel, maxLevel + 1);
-        poke[pokeNum].Level = currentLevel;
+        return Random.Range(minLevel, maxLevel + 1);
     }
 
     void LevelStats()
