@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class Player : Agent
 {
-    
+    private void Start()
+    {
+        Debug.Log($"isFull : {IsFullPokemonList()}");
+        Debug.Log($"isEmpty : {IsEmptyPokemonList()}");
+    }
 }

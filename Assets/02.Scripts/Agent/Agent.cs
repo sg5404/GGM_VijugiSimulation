@@ -103,4 +103,17 @@ public class Agent : MonoBehaviour
 
         return true;
     }
+
+    public void ClearPokemon()
+    {
+        for(int i = 0; i < maxPokemonCount; i++)
+        {
+            _pokemonList[i] = null;
+        }
+    }
+
+    public void ClearItem()
+    {
+        _itemDict.Clear();
+    }
 }

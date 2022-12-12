@@ -13,7 +13,7 @@ public class AgentInfo
     {
         for(int i = 0; i < 6; i++)
         {
-            PokemonList[i] = new Pokemon();
+            PokemonList[i] = null;
         }
         itemDict = new Dictionary<Item, int>();
         position = new Vector3(0, 1, 0);
@@ -34,6 +34,6 @@ public class GameInfo
         PlayerInfo = new AgentInfo();
         EnemyInfo = new AgentInfo();
         isWildPokemon = false;
-        wildPokemon = new Pokemon();
+        wildPokemon = null;
     }
 }

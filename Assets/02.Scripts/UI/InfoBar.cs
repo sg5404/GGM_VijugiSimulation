@@ -48,7 +48,7 @@ public class InfoBar : MonoBehaviour
     public void SetInfo(UIInfo info)
     {
         _nameText.text = info.name;
-        _levelText.text = info.level.ToString();
+        _levelText.text = "Lv. " + info.level.ToString();
         _hpText.text = $"{info.hp} / {info.maxHp}";
 
         _hp = info.hp;
