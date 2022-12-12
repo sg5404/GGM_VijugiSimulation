@@ -9,6 +9,15 @@ public class Agent : MonoBehaviour
     protected Pokemon[] _pokemonList = new Pokemon[maxPokemonCount];
     protected Dictionary<Item, int> _itemDict = new Dictionary<Item, int>();
 
+    public Agent()
+    {
+        for(int i = 0; i < _pokemonList.Length; i++)
+        {
+            _pokemonList[i] = null;
+            _itemDict.Clear();
+        }
+    }
+
     public void SetInfo(AgentInfo info)
     {
         this._pokemonList = info.PokemonList;
@@ -42,7 +51,7 @@ public class Agent : MonoBehaviour
         }
     }
 
-    public void SetPokemonOfIndex(Pokemon pokemon, int index)
+    public void SetPokemonOfIndex(Pokemon pokemon, int index = 0)
     {
         if (index < 0 || index > 5)
         {
@@ -82,6 +91,11 @@ public class Agent : MonoBehaviour
         return -1;
     }
 
+    /// <summary>
+    /// 가득 차있는지? 버그 있음.
+    /// </summary>
+    /// <returns></returns>
+    [System.Obsolete]
     public bool IsEmptyPokemonList()
     {
         for(int i = 0; i < _pokemonList.Length; i++)
@@ -93,6 +107,11 @@ public class Agent : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// 비어 있는지? 버그 있음.s
+    /// </summary>
+    /// <returns></returns>
+    [System.Obsolete]
     public bool IsFullPokemonList()
     {
         for (int i = 0; i < _pokemonList.Length; i++)

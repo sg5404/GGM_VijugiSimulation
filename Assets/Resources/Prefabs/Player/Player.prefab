@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87c4468c65c0d24aa6bb9e9423ebef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startPokemonInfo: {fileID: 11400000, guid: fecc13bf5d39e4b41b4b2c9fbe509c8b, type: 2}
 --- !u!114 &241893352312384078
 MonoBehaviour:
   m_ObjectHideFlags: 0

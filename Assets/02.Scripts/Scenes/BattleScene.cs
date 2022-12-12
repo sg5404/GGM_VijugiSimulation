@@ -30,9 +30,12 @@ public class BattleScene : BaseScene
 
     private AgentInfo _playerInfo;
     private AgentInfo _enemyInfo;
-    private Pokemon _wildPokemon = new Pokemon();
+    private Pokemon _playerPokemon = new Pokemon();
+    private Pokemon _enemyPokemon = new Pokemon();
 
     private bool isPlayerTurn = false;
+
+
 
     protected override void Init()
     {
@@ -44,16 +47,18 @@ public class BattleScene : BaseScene
         _playerInfo = _gameInfo.PlayerInfo;
         if (_gameInfo.isWildPokemon) 
         {
-            _wildPokemon = _gameInfo.wildPokemon;
-            _enemyInfoPanel.SetInfo(SetInfo(_wildPokemon));
+            _enemyPokemon = _gameInfo.wildPokemon;
+            _enemyInfoPanel.SetInfo(SetInfo(_enemyPokemon));
         }
         else
         {
             _enemyInfo = _gameInfo.EnemyInfo;
-            _enemyInfoPanel.SetInfo(SetInfo(_enemyInfo.PokemonList[0]));
+            _enemyPokemon = _enemyInfo.PokemonList[0];
+            _enemyInfoPanel.SetInfo(SetInfo(_enemyPokemon));
         }
         _enemyInfoPanel.SetActiveExpBar(!_gameInfo.isWildPokemon);
-        _playerInfoPanel.SetInfo(SetInfo(_playerInfo.PokemonList[0]));
+        _playerPokemon = _playerInfo.PokemonList[0];
+        _playerInfoPanel.SetInfo(SetInfo(_playerPokemon));
 
         
     }
@@ -96,7 +101,26 @@ public class BattleScene : BaseScene
 
         playerSpeed = _gameInfo.PlayerInfo.PokemonList[0].Speed;
 
-        isPlayerTurn = playerSpeed > enemSpeed ? true : false;
+        if(playerSpeed == enemSpeed)
+        {
+            float rand = Random.value;
+            if(rand >= 0.5f)
+            {
+                isPlayerTurn = true;
+            }
+            else
+            {
+                isPlayerTurn = false;
+            }
+        }
+        else if(playerSpeed > enemSpeed)
+        {
+            isPlayerTurn = true;
+        }
+        else
+        {
+            isPlayerTurn = false;
+        }
     }
 
     private void Update()
@@ -105,13 +129,21 @@ public class BattleScene : BaseScene
         {
             // TODO : Player Action.
             // 버튼 연걸 알잘딱
+            SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
         }
         else
         {
             // TODO : Enemy Action
+            // 약간의 딜레이 후 공격
             Debug.Log("Enemy Action!");
             isPlayerTurn = !isPlayerTurn;
         }
+
+        // Debug Code
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
+        //}
     }
 
     public void PlayerAction(int index)
@@ -173,6 +205,7 @@ public class BattleScene : BaseScene
         Managers.Save.SaveJson(_gameInfo);
         Managers.Scene.LoadScene(Define.Scene.Map);
     }
+
 
     public override void Clear()
     {
