@@ -23,6 +23,9 @@ public class BattleScene : BaseScene
     [SerializeField]
     private Text _infoText;
 
+    [SerializeField]
+    private List<GameObject> _actionPanelList;
+
     private GameInfo _gameInfo;
 
     private AgentInfo _playerInfo;
@@ -127,14 +130,17 @@ public class BattleScene : BaseScene
                 // 기술 창 열기
                 Debug.Log("배틀!");
                 // TODO : 기술 사용시 이펙트와 데미지 주기
+                SetActionPanel((int)ActionType.Fight);
                 break;
             case ActionType.Pokemon:
                 // 포켓몬 창 열기
                 Debug.Log("노예 교체");
+                SetActionPanel((int)ActionType.Pokemon);
                 break;
             case ActionType.Item:
                 // 아이테 창 열기
                 Debug.Log("아이템 사용");
+                SetActionPanel((int)ActionType.Item);
                 break;
             case ActionType.Run:
                 // 도망 가능한지 여부 판단
@@ -143,6 +149,19 @@ public class BattleScene : BaseScene
                 Debug.Log("!도망");
                 break;
         }
+    }
+
+    public void SetActionPanel(int index)
+    {
+        foreach(GameObject go in _actionPanelList)
+        {
+            if(go != null)
+            {
+                go.SetActive(false);
+            }
+        }
+
+        _actionPanelList[index]?.SetActive(true);
     }
 
     private IEnumerator BattleEnd(float delay)
