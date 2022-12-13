@@ -26,13 +26,22 @@ public class MapScene : BaseScene
 
         _player.SetInfo(_gameInfo.PlayerInfo);
         _player.transform.position = _gameInfo.PlayerInfo.position;
-        _mainCam.transform.SetParent(_player.transform);
+        if (_player != null)
+        {
+            _mainCam.transform.SetParent(_player.transform);
+        }
     }
 
     public override void Clear()
     {
         if(_player != null)
         {
+            Camera camera = _player.GetComponentInChildren<Camera>();
+            if(camera != null)
+            {
+                camera.transform.SetParent(null);
+            }
+
             Managers.Pool.Push(_player.GetComponent<Poolable>());
             _player = null;
         }
