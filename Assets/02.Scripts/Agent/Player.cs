@@ -9,11 +9,12 @@ public class Player : Agent
 
     private void Start()
     {
+        // Debug Code
         SetPokemonOfIndex(new Pokemon(_startPokemonInfo, 1));
-        for(int i = 0; i < _pokemonList.Length; i++)
-        {
-            Debug.Log($"{_pokemonList[i].Name}");
-        }
+        //for(int i = 0; i < _pokemonList.Length; i++)
+        //{
+        //    Debug.Log($"{_pokemonList[i].Name}");
+        //}
 
         //Debug.Log($"isFull : {IsFullPokemonList()}");
         //Debug.Log($"isEmpty : {IsEmptyPokemonList()}");

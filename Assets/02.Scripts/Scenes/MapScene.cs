@@ -19,12 +19,12 @@ public class MapScene : BaseScene
 
         _gameInfo = Managers.Save.LoadJsonFile<GameInfo>();
 
-        _player = Managers.Resource.Instantiate("Player/Player").GetComponent<Player>();
+        //_player = Managers.Resource.Instantiate("Player/Player").GetComponent<Player>();
 
         _cc = Camera.main.GetComponent<CameraController>();
-        _player.SetInfo(_gameInfo.PlayerInfo);
-        _player.transform.position = _gameInfo.PlayerInfo.position;
-        _cc.SetTarget(_player.transform);
+        //_player.SetInfo(_gameInfo.PlayerInfo);
+        //_player.transform.position = _gameInfo.PlayerInfo.position;
+        //_cc.SetTarget(_player.transform);
     }
 
     public override void Clear()
