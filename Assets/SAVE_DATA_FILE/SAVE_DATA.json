@@ -1,11 +1,437 @@
 {
-    "enemyIsHuman": false,
-    "pokemonList": [
-        {
-            "instanceID": 27556
+    "PlayerInfo": {
+        "PokemonList": [
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            }
+        ],
+        "position": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
         }
-    ],
-    "enemy": {
-        "instanceID": 0
+    },
+    "EnemyInfo": {
+        "PokemonList": [
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            },
+            {
+                "_info": {
+                    "instanceID": 0
+                },
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
+                "_skillList": [
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    },
+                    {
+                        "instanceID": 0
+                    }
+                ],
+                "_level": 0,
+                "_curExp": 0,
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
+            }
+        ],
+        "position": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+        }
+    },
+    "isWildPokemon": false,
+    "wildPokemon": {
+        "_info": {
+            "instanceID": 0
+        },
+        "_individualValue": 0,
+        "_hp": 0,
+        "_maxHp": 0,
+        "_attack": 0,
+        "_block": 0,
+        "_speed": 0,
+        "_skillList": [
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            },
+            {
+                "instanceID": 0
+            }
+        ],
+        "_level": 0,
+        "_curExp": 0,
+        "_maxExp": 0,
+        "_CurAccExp": 0,
+        "_befAccExp": 0,
+        "_NexAccExp": 0,
+        "_name": ""
     }
 }

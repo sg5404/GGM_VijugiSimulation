@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 9034610979757952281}
   - component: {fileID: 9034610979757952279}
   - component: {fileID: 9034610979757952280}
+  - component: {fileID: 7181252913268139672}
   m_Layer: 5
   m_Name: Info bar
   m_TagString: Untagged
@@ -162,6 +163,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7181252913268139672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034610979757952282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd687dd5982fa849999e2b7d8779eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nameText: {fileID: 9034610980626652487}
+  _levelText: {fileID: 9034610979578219923}
+  _hpText: {fileID: 9034610980763801500}
+  _hpBar: {fileID: 9034610980757602734}
+  _expBar: {fileID: 9034610980443353713}
 --- !u!1 &9034610979981802620
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +386,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uD30C\uC774\uB9AC"
+  m_Text: Name
 --- !u!1 &9034610980669153173
 GameObject:
   m_ObjectHideFlags: 0

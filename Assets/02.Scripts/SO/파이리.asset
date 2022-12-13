@@ -22,6 +22,9 @@ MonoBehaviour:
   CurrentAttack: 70
   CurrentDefense: 48
   CurrentHP: 128
+  CurrentSpeed: 0
   pokeAttack: 1.4
-  PokeHP: 3
+  pokeHP: 0
   pokeDefense: 0.8
+  pokeSpeed: 0
+  skillList: []
