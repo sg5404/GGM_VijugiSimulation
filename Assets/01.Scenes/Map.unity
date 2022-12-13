@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b82651dff31dfb4d9c8e0bca10bf24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pokePercent: 0
+  pokePercent: 100
   poke:
   - {fileID: 11400000, guid: 2e3239dc5888c4349a9f126b44872d50, type: 2}
   pokemonList:

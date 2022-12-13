@@ -59,12 +59,12 @@ public class Pokemon
     public Pokemon(PokemonInfoSO info, int level)
     {
         _info = info;
+        _level = level;
+        _individualValue = SetIV();
         SetPokemonInfo();
         _maxHp = _hp;
 
-        _level = level;
         _name = _info.name;
-        _individualValue = SetIV();
 
         _curExp = 0;
         int beforeLevel = _level - 1;
@@ -78,12 +78,12 @@ public class Pokemon
     public Pokemon(Pokemon pokemon) // 복사 생성자. 이게 맞나...
     {
         _info = pokemon.Info;
+        _level = pokemon.Level;
+        _individualValue = pokemon._individualValue;
         SetPokemonInfo();
         _maxHp = pokemon._maxHp;
 
-        _level = pokemon.Level;
         _name = _info.name;
-        _individualValue = pokemon._individualValue;
 
         _curExp = pokemon.CurExp;
         _befAccExp = pokemon._befAccExp;
@@ -113,12 +113,12 @@ public class Pokemon
 
     private int AbilityFormula(float value)
     {
-        return (int)((((value * 2) + (float)_individualValue) * (float)_level / 100) + 10 + (float)_level);
+        return Mathf.FloorToInt(((((value * 2) + (float)_individualValue) * (float)_level / 100) + 10 + (float)_level));
     }
 
     private int AbilityFormula(int value)
     {
-        return (int)(((((float)value * 2) + (float)_individualValue) * (float)_level / 100) + 10 + (float)_level);
+        return Mathf.FloorToInt((((((float)value * 2) + (float)_individualValue) * (float)_level / 100) + 10 + (float)_level));
     }
 
     // thisType: 공격받는 쪽, skillType: 공격하는 쪽

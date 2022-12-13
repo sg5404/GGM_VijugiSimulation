@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static Cinemachine.DocumentationSortingAttribute;
 
 [System.Serializable]
 public class UIInfo
@@ -29,11 +29,10 @@ public class InfoBar : MonoBehaviour
     private int _exp;
     private int _maxExp;
 
-    // 이정보 클래스든 구조체든 만들기
     public void SetInfo(string name, int level, int hp, int maxHp, int exp, int maxExp)
     {
         _nameText.text = name;
-        _levelText.text = level.ToString();
+        _levelText.text = "Lv. " + level.ToString();
         _hpText.text = $"{hp} / {maxHp}";
 
         _hp = hp;
@@ -47,17 +46,7 @@ public class InfoBar : MonoBehaviour
 
     public void SetInfo(UIInfo info)
     {
-        _nameText.text = info.name;
-        _levelText.text = "Lv. " + info.level.ToString();
-        _hpText.text = $"{info.hp} / {info.maxHp}";
-
-        _hp = info.hp;
-        _maxHp = info.maxHp;
-        _hpBar.value = (float)info.hp / info.maxHp;
-
-        _exp = info.exp;
-        _maxExp = info.maxExp;
-        _expBar.value = (float)info.exp / info.maxExp;
+        SetInfo(info.name, info.level, info.hp, info.maxHp, info.exp, info.maxExp);
     }
 
     public void SetHpBar(int hp)

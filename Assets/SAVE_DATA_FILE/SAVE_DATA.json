@@ -3,14 +3,14 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 0
+                    "instanceID": 30238
                 },
-                "_individualValue": 0,
-                "_hp": 0,
-                "_maxHp": 0,
-                "_attack": 0,
-                "_block": 0,
-                "_speed": 0,
+                "_individualValue": 21,
+                "_hp": 11,
+                "_maxHp": 11,
+                "_attack": 12,
+                "_block": 12,
+                "_speed": 12,
                 "_skillList": [
                     {
                         "instanceID": 0
@@ -25,13 +25,13 @@
                         "instanceID": 0
                     }
                 ],
-                "_level": 0,
+                "_level": 1,
                 "_curExp": 0,
-                "_maxExp": 0,
-                "_CurAccExp": 0,
+                "_maxExp": 1,
+                "_CurAccExp": 1,
                 "_befAccExp": 0,
-                "_NexAccExp": 0,
-                "_name": ""
+                "_NexAccExp": 8,
+                "_name": "파이리"
             },
             {
                 "_info": {
@@ -401,17 +401,17 @@
             "z": 0.0
         }
     },
-    "isWildPokemon": false,
+    "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 0
+            "instanceID": 30238
         },
-        "_individualValue": 0,
-        "_hp": 0,
-        "_maxHp": 0,
-        "_attack": 0,
-        "_block": 0,
-        "_speed": 0,
+        "_individualValue": 17,
+        "_hp": 88,
+        "_maxHp": 88,
+        "_attack": 98,
+        "_block": 91,
+        "_speed": 108,
         "_skillList": [
             {
                 "instanceID": 0
@@ -426,12 +426,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 0,
+        "_level": 40,
         "_curExp": 0,
-        "_maxExp": 0,
-        "_CurAccExp": 0,
-        "_befAccExp": 0,
-        "_NexAccExp": 0,
-        "_name": ""
+        "_maxExp": 4681,
+        "_CurAccExp": 64000,
+        "_befAccExp": 59319,
+        "_NexAccExp": 68921,
+        "_name": "파이리"
     }
 }

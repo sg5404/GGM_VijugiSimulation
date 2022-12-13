@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9bd34205013a84d9150169a8212bb5, type: 3}
   m_Name: Charmander HABCDS
   m_EditorClassIdentifier: 
-  hp: 0
-  attack: 0
-  defence: 0
-  speed: 0
+  hp: 39
+  attack: 52
+  block: 43
+  speed: 65
