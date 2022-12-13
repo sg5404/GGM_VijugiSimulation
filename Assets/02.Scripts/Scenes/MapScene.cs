@@ -11,6 +11,8 @@ public class MapScene : BaseScene
 
     private CameraController _cc;
 
+    private Camera _mainCam;
+
     protected override void Init()
     {
         base.Init();
@@ -19,12 +21,12 @@ public class MapScene : BaseScene
 
         _gameInfo = Managers.Save.LoadJsonFile<GameInfo>();
 
-        //_player = Managers.Resource.Instantiate("Player/Player").GetComponent<Player>();
+        _mainCam = Camera.main;
+        _player = Managers.Resource.Instantiate("Player/Player").GetComponent<Player>();
 
-        _cc = Camera.main.GetComponent<CameraController>();
-        //_player.SetInfo(_gameInfo.PlayerInfo);
-        //_player.transform.position = _gameInfo.PlayerInfo.position;
-        //_cc.SetTarget(_player.transform);
+        _player.SetInfo(_gameInfo.PlayerInfo);
+        _player.transform.position = _gameInfo.PlayerInfo.position;
+        _mainCam.transform.SetParent(_player.transform);
     }
 
     public override void Clear()
