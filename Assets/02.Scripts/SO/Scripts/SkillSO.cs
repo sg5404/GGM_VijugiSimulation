@@ -10,10 +10,13 @@ public enum SkillRange
     Evenyone, // 나 포함 모두
 }
 
-[CreateAssetMenu(menuName = "SO/Creature/Pokemon/Skill"), System.Serializable]
+[CreateAssetMenu(menuName = "SO/Creature/Pokemon/Skill/SkillData"), System.Serializable]
 public class SkillSO : ScriptableObject
 {
-    public string skillName;
+    public string skillName; // 스킬 이름
+    public string skillDescription; // 스킬 설명
+
+    public Define.PokeType type;
     public int power; // 위력
     public int accuracyRate; // 명중률
     public bool isMustHit = false; // 필중기

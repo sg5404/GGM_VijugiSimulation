@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Ember
   m_EditorClassIdentifier: 
   skillName: "\uBD88\uAF43\uC138\uB840"
+  skillDescription: "\uD06C\uC559! \uBD88\uBFDC\uAE30"
+  type: 10
   power: 40
   accuracyRate: 100
   isMustHit: 0

@@ -32,9 +32,4 @@ public class PokeInformationSO : ScriptableObject
 
     [SerializeField] private float pokeSpeed; // 레벨당 스피드
     public float PokeSpeed { get { return pokeSpeed; } }
-
-    [SerializeField]
-    private List<Skill> skillList;
-    public List<Skill> SkillList { get { return skillList; } }
-    public int SkillCnt => skillList.Count;
 }

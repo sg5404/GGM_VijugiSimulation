@@ -34,6 +34,7 @@ public class Pokemon
 
     private const int MAX_SKILL_CNT = 4;
     [SerializeField] protected SkillSO[] _skillList = new SkillSO[MAX_SKILL_CNT];
+    public SkillSO[] SkillList => _skillList;
 
     [SerializeField] protected int _level;
     public int Level => _level;
@@ -73,9 +74,11 @@ public class Pokemon
         int nextLevel = _level + 1;
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
         _maxExp = _CurAccExp - _befAccExp;
+
+        // 스킬 레벨에 따라 배움 처리
     }
 
-    public Pokemon(Pokemon pokemon) // 복사 생성자. 이게 맞나...
+    public Pokemon(Pokemon pokemon) 
     {
         _info = pokemon.Info;
         _level = pokemon.Level;
@@ -90,6 +93,8 @@ public class Pokemon
         _CurAccExp = pokemon._CurAccExp;
         _NexAccExp = pokemon._NexAccExp;
         _maxExp = _CurAccExp - _befAccExp;
+
+        // 스킬 레벨에 따라 배움 처리
     }
 
     #region Private Method
@@ -118,7 +123,7 @@ public class Pokemon
 
     private int AbilityFormula(int value)
     {
-        return Mathf.FloorToInt((((((float)value * 2) + (float)_individualValue) * (float)_level / 100) + 10 + (float)_level));
+        return AbilityFormula((float)value);
     }
 
     // thisType: 공격받는 쪽, skillType: 공격하는 쪽
@@ -936,6 +941,16 @@ public class Pokemon
 
         // Update UI
     }
+
+    private bool IsEquipSkill()
+    {
+        return true; // 미래의 내가 해주겠지
+    }
+
+    private int GetEmptySkillIndex()
+    {
+        return 0; // 미래의 내가 해주겠지 2
+    }
     #endregion
 
     #region Public Method
@@ -969,6 +984,27 @@ public class Pokemon
         if(_curExp >= _maxExp)
         {
             LevelUp();
+        }
+    }
+
+    public void SetSkill(SkillSO skill)
+    {
+        // 빈 곳에 넣기
+        if(IsEquipSkill() == true)
+        {
+            _skillList[GetEmptySkillIndex()] = skill;
+        }
+        else
+        {
+            // 스킬 배울꺼냐 창 뛰우고 알잘딱 ㅇㅋ?
+        }
+    }
+
+    public void SetSkill(SkillSO[] skillList)
+    {
+        for(int i = 0; i < MAX_SKILL_CNT; i++)
+        {
+            _skillList[i] = skillList[i];
         }
     }
     #endregion

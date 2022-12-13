@@ -3,9 +3,9 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 30238
+                    "instanceID": 31670
                 },
-                "_individualValue": 31,
+                "_individualValue": 30,
                 "_hp": 12,
                 "_maxHp": 12,
                 "_attack": 12,
@@ -404,14 +404,14 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 30238
+            "instanceID": 31670
         },
-        "_individualValue": 12,
-        "_hp": 82,
-        "_maxHp": 82,
-        "_attack": 92,
-        "_block": 85,
-        "_speed": 101,
+        "_individualValue": 22,
+        "_hp": 86,
+        "_maxHp": 86,
+        "_attack": 95,
+        "_block": 89,
+        "_speed": 105,
         "_skillList": [
             {
                 "instanceID": 0

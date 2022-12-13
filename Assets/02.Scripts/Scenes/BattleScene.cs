@@ -60,7 +60,7 @@ public class BattleScene : BaseScene
         _playerPokemon = _playerInfo.PokemonList[0];
         _playerInfoPanel.SetInfo(SetInfo(_playerPokemon));
 
-        
+        AllClosePanel();
     }
 
     private UIInfo SetInfo(Pokemon pokemon)
@@ -162,6 +162,7 @@ public class BattleScene : BaseScene
                 // 기술 창 열기
                 Debug.Log("배틀!");
                 // TODO : 기술 사용시 이펙트와 데미지 주기
+                _actionPanelList[(int)ActionType.Fight].GetComponent<SkillPanel>().SetSkill(_playerPokemon.SkillList);
                 SetActionPanel((int)ActionType.Fight);
                 break;
             case ActionType.Pokemon:
@@ -177,7 +178,35 @@ public class BattleScene : BaseScene
             case ActionType.Run:
                 // 도망 가능한지 여부 판단
                 // 배틀 종료시키기
-                StartCoroutine(BattleEnd(1.5f));
+                bool isRun = false;
+                if(_playerPokemon.Level > _enemyPokemon.Level)
+                {
+                    isRun = true;
+                }
+                else if(_playerPokemon.Level < _enemyPokemon.Level)
+                {
+                    isRun = false;
+                }
+                else
+                {
+                    float rand = Random.value;
+                    if(rand >= 0.5f)
+                    {
+                        isRun = true;
+                    }
+                    else
+                    {
+                        isRun = false;
+                    }
+                }
+                if(isRun == true)
+                {
+                    StartCoroutine(BattleEnd(1.5f));
+                }
+                else
+                {
+                    SetInfoText("도망칠 수 없다!");
+                }
                 Debug.Log("!도망");
                 break;
         }
@@ -185,15 +214,20 @@ public class BattleScene : BaseScene
 
     public void SetActionPanel(int index)
     {
-        foreach(GameObject go in _actionPanelList)
+        AllClosePanel();
+
+        _actionPanelList[index]?.SetActive(true);
+    }
+
+    public void AllClosePanel()
+    {
+        foreach (GameObject go in _actionPanelList)
         {
-            if(go != null)
+            if (go != null)
             {
                 go.SetActive(false);
             }
         }
-
-        _actionPanelList[index]?.SetActive(true);
     }
 
     private IEnumerator BattleEnd(float delay)
