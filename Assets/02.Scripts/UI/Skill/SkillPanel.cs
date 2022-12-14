@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SkillPanel : MonoBehaviour
@@ -38,20 +39,30 @@ public class SkillPanel : MonoBehaviour
     {
         for (int i = 0; i < MAX_SKILL_COUNT; i++)
         {
-            if (_skillList[i] == null)
-            {
-                _skillBtnList[i].gameObject.SetActive(false);
-            }
-            else
-            {
-                _skillBtnList[i].gameObject.SetActive(true);
-                UpdateBtnInfoOfIndex(i);
-            }
+            //if (_skillList[i] == null)
+            //{
+            //    _skillBtnList[i].gameObject.SetActive(false);
+            //}
+            //else
+            //{
+            //    _skillBtnList[i].gameObject.SetActive(true);
+            //    UpdateBtnInfoOfIndex(i);
+            //}
+
+            _skillBtnList[i].gameObject.SetActive(true);
+            UpdateBtnInfoOfIndex(i);
         }
     }
 
     private void UpdateBtnInfoOfIndex(int index)
     {
-        _skillBtnList[index].SetInfo(_skillList[index].name, _skillList[index].type);
+        if (_skillList[index] != null)
+        {
+            _skillBtnList[index].SetInfo(_skillList[index].name, _skillList[index].type);
+        }
+        else
+        {
+            _skillBtnList[index].SetInfo("", "");
+        }
     }
 }

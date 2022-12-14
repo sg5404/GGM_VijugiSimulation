@@ -67,13 +67,13 @@ public class Pokemon
 
         _name = _info.name;
 
-        _curExp = 0;
         int beforeLevel = _level - 1;
         _befAccExp = (beforeLevel * beforeLevel * beforeLevel);
+        _curExp = _befAccExp;
         _CurAccExp = (_level * _level * _level);
         int nextLevel = _level + 1;
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
-        _maxExp = _CurAccExp - _befAccExp;
+        _maxExp = _NexAccExp - _CurAccExp;
 
         // 스킬 레벨에 따라 배움 처리
     }
@@ -92,7 +92,7 @@ public class Pokemon
         _befAccExp = pokemon._befAccExp;
         _CurAccExp = pokemon._CurAccExp;
         _NexAccExp = pokemon._NexAccExp;
-        _maxExp = _CurAccExp - _befAccExp;
+        _maxExp = _NexAccExp - _CurAccExp;
 
         // 스킬 레벨에 따라 배움 처리
     }
@@ -935,7 +935,7 @@ public class Pokemon
         _CurAccExp = (_level * _level * _level);
         int nextLevel = _level + 1;
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
-        _maxExp = _CurAccExp - _befAccExp;
+        _maxExp = _NexAccExp - _CurAccExp;
 
         SetPokemonInfo();
 
@@ -951,6 +951,14 @@ public class Pokemon
     {
         return 0; // 미래의 내가 해주겠지 2
     }
+
+    private void Evolution(PokemonInfoSO pokemon)
+    {
+        this._info = pokemon;
+        _name = _info.name;
+        SetPokemonInfo();
+    }
+
     #endregion
 
     #region Public Method
@@ -969,7 +977,6 @@ public class Pokemon
     public void Damage(float power, float attack, Define.PokeType type, bool isCritical = false)
     {
         // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2
-        // amount = 위력 * 특수공격
         float typeCom = TypeCompatibility(type);
         int damage = (int)(((((((float)_level * 2 / 5) + 2) * power * attack / 50) / (float)_block) + 2) * (isCritical ? 2 : 1) * typeCom);
         this._hp -= damage;
@@ -984,13 +991,14 @@ public class Pokemon
         if(_curExp >= _maxExp)
         {
             LevelUp();
+
+            // 진화할 수 있는지 검사
         }
     }
 
     public void SetSkill(SkillSO skill)
     {
-        // 빈 곳에 넣기
-        if(IsEquipSkill() == true)
+        if (IsEquipSkill() == true)
         {
             _skillList[GetEmptySkillIndex()] = skill;
         }

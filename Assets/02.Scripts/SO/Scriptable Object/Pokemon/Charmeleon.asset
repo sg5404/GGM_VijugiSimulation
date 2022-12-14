@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9915f930327bdfb4e9277d1ee22858e4, type: 3}
-  m_Name: Charmander
+  m_Name: Charmeleon
   m_EditorClassIdentifier: 
-  habcds: {fileID: 11400000, guid: 47319a8c44b6b6447b398bca5f1ff050, type: 2}
-  name: "\uD30C\uC774\uB9AC"
-  image: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
-  prefab: {fileID: 919132149155446097, guid: fdf1a729b1572e44eaada757dc9da711, type: 3}
-  rarity: 0
+  habcds: {fileID: 11400000, guid: 0f17c7f2f0390894b8175c6eecb849de, type: 2}
+  name: "\uB9AC\uC790\uB4DC"
+  image: {fileID: 21300000, guid: daf2ab606d4db0d4f9ecf4c02137d2a8, type: 3}
+  prefab: {fileID: 919132149155446097, guid: ddaf1bf69429a7c4ba3c5b1521121428, type: 3}
+  rarity: 1
   mainType: 10
   subType: 0
   skillTree: {fileID: 11400000, guid: fde7d8055848d8944bf1eec29f0000c5, type: 2}
   evolutionTree:
-  - level: 16
-    pokemonSO: {fileID: 11400000, guid: 29c92cc7e4d1192429f91132b45ddf0a, type: 2}
+  - level: 36
+    pokemonSO: {fileID: 11400000, guid: 69aed7b6862be5242a3c111308317351, type: 2}

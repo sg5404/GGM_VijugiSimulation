@@ -76,8 +76,10 @@ public class BattleScene : BaseScene
         return info;
     }
 
-    private void SetInfoText(string msg, float duraction = 0.8f, bool isClear = true)
+    private void SetInfoText(string msg, float duraction = 0.8f, bool isClear = true) // 뭔가 문제 있음
     {
+        _infoText.DOKill();
+
         if(isClear == true)
         {
             _infoText.text = "";
@@ -125,6 +127,11 @@ public class BattleScene : BaseScene
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+        }
+
         if (isPlayerTurn)
         {
             // TODO : Player Action.
@@ -144,6 +151,11 @@ public class BattleScene : BaseScene
         //{
         //    SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
         //}
+    }
+
+    public void ChangeTurn()
+    {
+        isPlayerTurn = !isPlayerTurn;
     }
 
     public void PlayerAction(int index)
@@ -168,6 +180,7 @@ public class BattleScene : BaseScene
             case ActionType.Pokemon:
                 // 포켓몬 창 열기
                 Debug.Log("노예 교체");
+                _actionPanelList[(int)ActionType.Pokemon].GetComponent<PokemonPanel>().SetPokeon(_playerInfo.PokemonList);
                 SetActionPanel((int)ActionType.Pokemon);
                 break;
             case ActionType.Item:
@@ -201,13 +214,14 @@ public class BattleScene : BaseScene
                 }
                 if(isRun == true)
                 {
+                    Debug.Log("!도망 성공");
                     StartCoroutine(BattleEnd(1.5f));
                 }
                 else
                 {
-                    SetInfoText("도망칠 수 없다!");
+                    Debug.Log("!도망 실패");
+                    SetInfoText("도망칠 수 없다!", 0.5f);
                 }
-                Debug.Log("!도망");
                 break;
         }
     }

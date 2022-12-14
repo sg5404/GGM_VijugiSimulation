@@ -1,4 +1,4 @@
-using Cinemachine;
+ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +8,6 @@ public class MapScene : BaseScene
     private GameInfo _gameInfo;
 
     private Player _player;
-
-    private CameraController _cc;
 
     private Camera _mainCam;
 
