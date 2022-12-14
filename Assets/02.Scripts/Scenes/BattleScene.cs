@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,11 @@ public class BattleScene : BaseScene
     [SerializeField]
     private List<GameObject> _actionPanelList;
 
+    [SerializeField]
+    private Transform _playerPokemonPos;
+    [SerializeField]
+    private Transform _enemyPokemonPos;
+
     private GameInfo _gameInfo;
 
     private AgentInfo _playerInfo;
@@ -35,7 +41,8 @@ public class BattleScene : BaseScene
 
     private bool isPlayerTurn = false;
 
-
+    private Poolable _enemyPokemonPrefab;
+    private Poolable _playerPokemonPrefab;
 
     protected override void Init()
     {
@@ -61,6 +68,15 @@ public class BattleScene : BaseScene
         _playerInfoPanel.SetInfo(SetInfo(_playerPokemon));
 
         AllClosePanel();
+
+        _enemyPokemonPrefab = Managers.Resource.Instantiate($"Pokemon/{_enemyPokemon.Info.prefab.name}").GetComponent<Poolable>();
+        _enemyPokemonPrefab.transform.localPosition = _enemyPokemonPos.localPosition;
+        _enemyPokemonPrefab.transform.localRotation = _enemyPokemonPos.localRotation;
+        _enemyPokemonPrefab.transform.localScale = _enemyPokemonPos.localScale;
+        _playerPokemonPrefab = Managers.Resource.Instantiate($"Pokemon/{_playerPokemon.Info.prefab.name}").GetComponent<Poolable>();
+        _playerPokemonPrefab.transform.localPosition = _playerPokemonPos.localPosition;
+        _playerPokemonPrefab.transform.localRotation = _enemyPokemonPos.localRotation;
+        _playerPokemonPrefab.transform.localScale = _enemyPokemonPos.localScale;
     }
 
     private UIInfo SetInfo(Pokemon pokemon)
@@ -151,6 +167,11 @@ public class BattleScene : BaseScene
         //{
         //    SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
         //}
+    }
+
+    public void SpawnPokemon(PokemonInfoSO info, Transform pos, bool isEnemy)
+    {
+
     }
 
     public void ChangeTurn()

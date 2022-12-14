@@ -32,13 +32,13 @@ public class PokemonPanel : MonoBehaviour
     {
         for(int i = 0; i < MAX_POKEMON_CNT; i++)
         {
-            if(_pokemonList[i] != null)
+            if(_pokemonList[i].Info != null)
             {
-                _pokemonBtnList[i]?.SetInfo(_pokemonList[i].Name, _pokemonList[i].Info.image);
+                _pokemonBtnList[i].SetInfo(_pokemonList[i].Name, _pokemonList[i].Info.image);
             }
             else
             {
-                _pokemonBtnList[i]?.SetInfo("", null);
+                _pokemonBtnList[i].SetInfo("", null);
             }
         }
     }

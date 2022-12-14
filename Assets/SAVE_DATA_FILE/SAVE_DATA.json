@@ -3,17 +3,17 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 30254
+                    "instanceID": 30714
                 },
-                "_individualValue": 17,
-                "_hp": 11,
-                "_maxHp": 11,
+                "_individualValue": 27,
+                "_hp": 12,
+                "_maxHp": 12,
                 "_attack": 12,
                 "_block": 12,
                 "_speed": 12,
                 "_skillList": [
                     {
-                        "instanceID": 30268
+                        "instanceID": 30664
                     },
                     {
                         "instanceID": 0
@@ -404,14 +404,14 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 30254
+            "instanceID": 30714
         },
-        "_individualValue": 12,
-        "_hp": 78,
-        "_maxHp": 78,
-        "_attack": 87,
-        "_block": 81,
-        "_speed": 97,
+        "_individualValue": 6,
+        "_hp": 83,
+        "_maxHp": 83,
+        "_attack": 94,
+        "_block": 86,
+        "_speed": 104,
         "_skillList": [
             {
                 "instanceID": 0
@@ -426,12 +426,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 36,
-        "_curExp": 42875,
-        "_maxExp": 3997,
-        "_CurAccExp": 46656,
-        "_befAccExp": 42875,
-        "_NexAccExp": 50653,
+        "_level": 40,
+        "_curExp": 59319,
+        "_maxExp": 4921,
+        "_CurAccExp": 64000,
+        "_befAccExp": 59319,
+        "_NexAccExp": 68921,
         "_name": "파이리"
     }
 }

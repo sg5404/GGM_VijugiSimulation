@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   habcds: {fileID: 11400000, guid: 0f17c7f2f0390894b8175c6eecb849de, type: 2}
   name: "\uB9AC\uC790\uB4DC"
-  image: {fileID: 21300000, guid: daf2ab606d4db0d4f9ecf4c02137d2a8, type: 3}
-  prefab: {fileID: 919132149155446097, guid: ddaf1bf69429a7c4ba3c5b1521121428, type: 3}
+  image: {fileID: 21300000, guid: d16acf5814e02f041b434041aead91a3, type: 3}
+  prefab: {fileID: 3709863785419225564, guid: 45aec9423d51be342aa6c842c5f5ee25, type: 3}
   rarity: 1
   mainType: 10
   subType: 0

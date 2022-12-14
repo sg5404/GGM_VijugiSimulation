@@ -17,9 +17,9 @@ public class PokemonInfoSO : ScriptableObject
     public PokemonHABCDSSO habcds; // Á¾Á·°ª
 
     public new string name;
-    [ShowAssetPreview(32, 32)]
+    [ShowAssetPreview(64, 64)]
     public Sprite image;
-    [ShowAssetPreview(32, 32)]
+    [ShowAssetPreview(64, 64)]
     public GameObject prefab;
     public Define.PokeRarity rarity;
     public Define.PokeType mainType;

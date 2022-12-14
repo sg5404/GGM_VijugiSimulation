@@ -939,6 +939,8 @@ public class Pokemon
 
         SetPokemonInfo();
 
+        // 진화할 수 있는지 검사
+
         // Update UI
     }
 
@@ -959,10 +961,14 @@ public class Pokemon
         SetPokemonInfo();
     }
 
+    private void SkillCheck()
+    {
+        // info SO에서 SkillTree 탐색하기
+    }
+
     #endregion
 
     #region Public Method
-
     public void Damage(float amount, Define.PokeType type, bool isCritical = false)
     {
         // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2
@@ -977,9 +983,7 @@ public class Pokemon
     public void Damage(float power, float attack, Define.PokeType type, bool isCritical = false)
     {
         // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2
-        float typeCom = TypeCompatibility(type);
-        int damage = (int)(((((((float)_level * 2 / 5) + 2) * power * attack / 50) / (float)_block) + 2) * (isCritical ? 2 : 1) * typeCom);
-        this._hp -= damage;
+        Damage(power * attack, type, isCritical);
 
         // Update UI
     }
@@ -991,8 +995,6 @@ public class Pokemon
         if(_curExp >= _maxExp)
         {
             LevelUp();
-
-            // 진화할 수 있는지 검사
         }
     }
 

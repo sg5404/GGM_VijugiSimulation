@@ -4771,6 +4771,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pokemon Button
       objectReference: {fileID: 0}
+    - target: {fileID: 5324827511448346709, guid: c6568549083eee145a1122c6af64bb70, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a472c633018de8e4b8175373d038d906, type: 3}
+    - target: {fileID: 5324827511448346709, guid: c6568549083eee145a1122c6af64bb70, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6568549083eee145a1122c6af64bb70, type: 3}
 --- !u!114 &54196606 stripped
