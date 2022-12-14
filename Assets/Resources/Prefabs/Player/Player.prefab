@@ -131,7 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87c4468c65c0d24aa6bb9e9423ebef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPokemonInfo: {fileID: 11400000, guid: fecc13bf5d39e4b41b4b2c9fbe509c8b, type: 2}
+  _startPokemonInfo:
+  - {fileID: 11400000, guid: fecc13bf5d39e4b41b4b2c9fbe509c8b, type: 2}
+  - {fileID: 11400000, guid: 69aed7b6862be5242a3c111308317351, type: 2}
   _skill: {fileID: 11400000, guid: 91fe42c0ea7ab8840bb58b065f657045, type: 2}
 --- !u!114 &241893352312384078
 MonoBehaviour:

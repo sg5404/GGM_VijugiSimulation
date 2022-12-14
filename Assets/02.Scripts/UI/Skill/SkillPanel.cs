@@ -58,11 +58,11 @@ public class SkillPanel : MonoBehaviour
     {
         if (_skillList[index] != null)
         {
-            _skillBtnList[index].SetInfo(_skillList[index].name, _skillList[index].type);
+            _skillBtnList[index].SetSkill(_skillList[index]);
         }
         else
         {
-            _skillBtnList[index].SetInfo("", "");
+            _skillBtnList[index].SetSkill(null);
         }
     }
 }

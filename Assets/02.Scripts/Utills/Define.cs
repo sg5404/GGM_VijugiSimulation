@@ -32,6 +32,13 @@ public class Define
         Legendary, //단 한마리만 따로 출현하는 몬스터
     }
 
+    public enum PokeScale
+    {
+        Small, // 소형
+        Medium, // 중형
+        Large, // 대형
+    }
+
     public enum Scene
     {
         Unknown,

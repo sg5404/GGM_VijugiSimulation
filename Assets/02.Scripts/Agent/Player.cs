@@ -6,7 +6,7 @@ public class Player : Agent
 {
     // Debug Code
     [SerializeField]
-    private PokemonInfoSO _startPokemonInfo;
+    private List<PokemonInfoSO> _startPokemonInfo;
     [SerializeField]
     private SkillSO _skill;
     // Debug Code
@@ -14,9 +14,13 @@ public class Player : Agent
     private void Start()
     {
         // Debug Code
-        SetPokemonOfIndex(new Pokemon(_startPokemonInfo, 1));
+        for(int i = 0; i < _startPokemonInfo.Count; i++)
+        {
+            SetPokemonOfIndex(new Pokemon(_startPokemonInfo[i], 3), i);
+        }
 
         _pokemonList[0].SetSkill(_skill);
+        
         //for(int i = 0; i < _pokemonList.Length; i++)
         //{
         //    Debug.Log($"{_pokemonList[i].Name}");

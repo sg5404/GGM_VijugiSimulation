@@ -13,12 +13,14 @@ public class PokemonButton : MonoBehaviour
 
     private Button _btn;
 
-    private void Start()
+    private Pokemon _pokemon;
+
+    private void OnEnable()
     {
         _btn = GetComponent<Button>();
     }
 
-    public void SetInfo(string name, Sprite image)
+    private void SetInfo(string name, Sprite image)
     {
         if (name == "" || image == null || name == null)
         {
@@ -30,6 +32,19 @@ public class PokemonButton : MonoBehaviour
             _pokemonImage.gameObject.SetActive(true);
             _pokemonName.text = name;
             _pokemonImage.sprite = image;
+        }
+    }
+
+    public void SetPokemon(Pokemon pokemon)
+    {
+        this._pokemon = pokemon;
+        if(pokemon != null)
+        {
+            SetInfo(_pokemon.Name, _pokemon.Info.image);
+        }
+        else
+        {
+            SetInfo("", null);
         }
     }
 

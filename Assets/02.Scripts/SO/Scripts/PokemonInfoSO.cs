@@ -24,6 +24,7 @@ public class PokemonInfoSO : ScriptableObject
     public Define.PokeRarity rarity;
     public Define.PokeType mainType;
     public Define.PokeType subType;
+    public Define.PokeScale scale;
 
     public SkillTreeSO skillTree; // 스킬 트리
 

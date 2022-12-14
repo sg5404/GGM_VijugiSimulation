@@ -5,12 +5,12 @@
                 "_info": {
                     "instanceID": 30714
                 },
-                "_individualValue": 27,
-                "_hp": 12,
-                "_maxHp": 12,
-                "_attack": 12,
-                "_block": 12,
-                "_speed": 12,
+                "_individualValue": 10,
+                "_hp": 15,
+                "_maxHp": 15,
+                "_attack": 16,
+                "_block": 15,
+                "_speed": 17,
                 "_skillList": [
                     {
                         "instanceID": 30664
@@ -25,24 +25,24 @@
                         "instanceID": 0
                     }
                 ],
-                "_level": 1,
-                "_curExp": 0,
-                "_maxExp": 7,
-                "_CurAccExp": 1,
-                "_befAccExp": 0,
-                "_NexAccExp": 8,
+                "_level": 3,
+                "_curExp": 8,
+                "_maxExp": 37,
+                "_CurAccExp": 27,
+                "_befAccExp": 8,
+                "_NexAccExp": 64,
                 "_name": "파이리"
             },
             {
                 "_info": {
-                    "instanceID": 0
+                    "instanceID": 30690
                 },
                 "_individualValue": 0,
-                "_hp": 0,
-                "_maxHp": 0,
-                "_attack": 0,
-                "_block": 0,
-                "_speed": 0,
+                "_hp": 17,
+                "_maxHp": 17,
+                "_attack": 18,
+                "_block": 17,
+                "_speed": 19,
                 "_skillList": [
                     {
                         "instanceID": 0
@@ -57,13 +57,13 @@
                         "instanceID": 0
                     }
                 ],
-                "_level": 0,
-                "_curExp": 0,
-                "_maxExp": 0,
-                "_CurAccExp": 0,
-                "_befAccExp": 0,
-                "_NexAccExp": 0,
-                "_name": ""
+                "_level": 3,
+                "_curExp": 8,
+                "_maxExp": 37,
+                "_CurAccExp": 27,
+                "_befAccExp": 8,
+                "_NexAccExp": 64,
+                "_name": "리자몽"
             },
             {
                 "_info": {
@@ -406,12 +406,12 @@
         "_info": {
             "instanceID": 30714
         },
-        "_individualValue": 6,
-        "_hp": 83,
-        "_maxHp": 83,
-        "_attack": 94,
-        "_block": 86,
-        "_speed": 104,
+        "_individualValue": 22,
+        "_hp": 82,
+        "_maxHp": 82,
+        "_attack": 91,
+        "_block": 84,
+        "_speed": 100,
         "_skillList": [
             {
                 "instanceID": 0
@@ -426,12 +426,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 40,
-        "_curExp": 59319,
-        "_maxExp": 4921,
-        "_CurAccExp": 64000,
-        "_befAccExp": 59319,
-        "_NexAccExp": 68921,
+        "_level": 36,
+        "_curExp": 42875,
+        "_maxExp": 3997,
+        "_CurAccExp": 46656,
+        "_befAccExp": 42875,
+        "_NexAccExp": 50653,
         "_name": "파이리"
     }
 }

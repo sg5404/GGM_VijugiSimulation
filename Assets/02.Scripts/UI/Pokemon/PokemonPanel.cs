@@ -18,7 +18,7 @@ public class PokemonPanel : MonoBehaviour
         }
     }
 
-    public void SetPokeon(Pokemon[] list)
+    public void SetPokeom(Pokemon[] list)
     {
         for (int i = 0; i < MAX_POKEMON_CNT; i++)
         {
@@ -34,12 +34,18 @@ public class PokemonPanel : MonoBehaviour
         {
             if(_pokemonList[i].Info != null)
             {
-                _pokemonBtnList[i].SetInfo(_pokemonList[i].Name, _pokemonList[i].Info.image);
+                _pokemonBtnList[i].SetPokemon(_pokemonList[i]);
             }
             else
             {
-                _pokemonBtnList[i].SetInfo("", null);
+                _pokemonBtnList[i].SetPokemon(null);
             }
+
+            _pokemonBtnList[i].AddEvent(() =>
+            {
+                BattleScene scene = Managers.Scene.CurrentScene as BattleScene;
+                scene?.SwapPokemon(0, i);
+            });
         }
     }
 }

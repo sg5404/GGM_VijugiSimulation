@@ -19,5 +19,6 @@ MonoBehaviour:
   rarity: 2
   mainType: 10
   subType: 5
+  scale: 2
   skillTree: {fileID: 11400000, guid: fde7d8055848d8944bf1eec29f0000c5, type: 2}
   evolutionTree: []

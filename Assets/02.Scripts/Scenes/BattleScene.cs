@@ -1,9 +1,11 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum ActionType
 {
@@ -35,11 +37,14 @@ public class BattleScene : BaseScene
     private GameInfo _gameInfo;
 
     private AgentInfo _playerInfo;
+    public AgentInfo PlayerInfo => _playerInfo;
     private AgentInfo _enemyInfo;
+    public AgentInfo EnemyInfo => _enemyInfo;
     private Pokemon _playerPokemon = new Pokemon();
     private Pokemon _enemyPokemon = new Pokemon();
 
-    private bool isPlayerTurn = false;
+    private bool _isPlayerTurn = false;
+    private bool _isBattleStart = false;
 
     private Poolable _enemyPokemonPrefab;
     private Poolable _playerPokemonPrefab;
@@ -69,14 +74,51 @@ public class BattleScene : BaseScene
 
         AllClosePanel();
 
-        _enemyPokemonPrefab = Managers.Resource.Instantiate($"Pokemon/{_enemyPokemon.Info.prefab.name}").GetComponent<Poolable>();
-        _enemyPokemonPrefab.transform.localPosition = _enemyPokemonPos.localPosition;
-        _enemyPokemonPrefab.transform.localRotation = _enemyPokemonPos.localRotation;
-        _enemyPokemonPrefab.transform.localScale = _enemyPokemonPos.localScale;
-        _playerPokemonPrefab = Managers.Resource.Instantiate($"Pokemon/{_playerPokemon.Info.prefab.name}").GetComponent<Poolable>();
-        _playerPokemonPrefab.transform.localPosition = _playerPokemonPos.localPosition;
-        _playerPokemonPrefab.transform.localRotation = _enemyPokemonPos.localRotation;
-        _playerPokemonPrefab.transform.localScale = _enemyPokemonPos.localScale;
+        SetTurn();
+
+        StartCoroutine(SpawnPokemon());
+    }
+
+    private IEnumerator SpawnPokemon()
+    {
+        yield return new WaitForSeconds(0.1f);
+        SpawnPokemon(_enemyPokemon, ref _enemyPokemonPrefab, _enemyPokemonPos, true);
+        
+        yield return new WaitForSeconds(1f);
+        SpawnPokemon(_playerPokemon, ref _playerPokemonPrefab, _playerPokemonPos, false);
+    }
+
+    private void SpawnPokemon(Pokemon pokemon, ref Poolable prefab, Transform pos, bool isEnemy)
+    {
+        prefab = Managers.Resource.Instantiate($"Pokemon/{pokemon.Info.prefab.name}").GetComponent<Poolable>();
+        prefab.transform.localPosition = pos.localPosition;
+        prefab.transform.localRotation = pos.localRotation;
+        Vector3 scale = prefab.transform.localScale;
+        scale *= pokemon.Info.scale switch
+        {
+            Define.PokeScale.Small => isEnemy == true ? 5 : 4,
+            Define.PokeScale.Medium => isEnemy == true ? 4 : 3,
+            Define.PokeScale.Large => isEnemy == true ? 3 : 2,
+            _ => isEnemy == true ? 5 : 4,
+        };
+        prefab.transform.localScale = scale;
+
+        SpawnEffect(ref prefab, isEnemy == true ? null : () => _isBattleStart = true);
+    }
+
+    private void SpawnEffect(ref Poolable prefab, Action action = null)
+    {
+        // 이펙트
+        prefab.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutBack).From();
+
+        action?.Invoke();
+    }
+
+    private void DestroyEffect(ref Poolable prefab, Action action = null)
+    {
+        // 이펙트
+
+        action?.Invoke();
     }
 
     private UIInfo SetInfo(Pokemon pokemon)
@@ -124,21 +166,40 @@ public class BattleScene : BaseScene
             float rand = Random.value;
             if(rand >= 0.5f)
             {
-                isPlayerTurn = true;
+                ChangeTurn(true);
             }
             else
             {
-                isPlayerTurn = false;
+                ChangeTurn(false);
             }
         }
         else if(playerSpeed > enemSpeed)
         {
-            isPlayerTurn = true;
+            ChangeTurn(true);
         }
         else
         {
-            isPlayerTurn = false;
+            ChangeTurn(false);
         }
+    }
+
+    public void ChangeTurn(bool value)
+    {
+        _isPlayerTurn = value;
+
+        if(value == true)
+        {
+            SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
+        }
+        else
+        {
+            SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
+        }
+    }
+
+    public void ChangeTurn()
+    {
+        ChangeTurn(!_isPlayerTurn);
     }
 
     private void Update()
@@ -148,18 +209,18 @@ public class BattleScene : BaseScene
 
         }
 
-        if (isPlayerTurn)
+        if (_isPlayerTurn)
         {
             // TODO : Player Action.
             // 버튼 연걸 알잘딱
-            SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
+            //SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f, false);
         }
         else
         {
             // TODO : Enemy Action
             // 약간의 딜레이 후 공격
             Debug.Log("Enemy Action!");
-            isPlayerTurn = !isPlayerTurn;
+            ChangeTurn();
         }
 
         // Debug Code
@@ -167,16 +228,6 @@ public class BattleScene : BaseScene
         //{
         //    SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
         //}
-    }
-
-    public void SpawnPokemon(PokemonInfoSO info, Transform pos, bool isEnemy)
-    {
-
-    }
-
-    public void ChangeTurn()
-    {
-        isPlayerTurn = !isPlayerTurn;
     }
 
     public void PlayerAction(int index)
@@ -201,7 +252,7 @@ public class BattleScene : BaseScene
             case ActionType.Pokemon:
                 // 포켓몬 창 열기
                 Debug.Log("노예 교체");
-                _actionPanelList[(int)ActionType.Pokemon].GetComponent<PokemonPanel>().SetPokeon(_playerInfo.PokemonList);
+                _actionPanelList[(int)ActionType.Pokemon].GetComponent<PokemonPanel>().SetPokeom(_playerInfo.PokemonList);
                 SetActionPanel((int)ActionType.Pokemon);
                 break;
             case ActionType.Item:
@@ -247,6 +298,18 @@ public class BattleScene : BaseScene
         }
     }
 
+    public void SwapPokemon(int fIdx, int sIdx) // 6이 나와버리는데...
+    {
+        if (fIdx < 0 || sIdx < 0 || fIdx > 5 || sIdx > 5) return;
+        if (fIdx == sIdx) return;
+        if (_playerInfo.PokemonList[fIdx] == null || _playerInfo.PokemonList[sIdx] == null) return;
+
+        Pokemon temp = _playerInfo.PokemonList[fIdx];
+        _playerInfo.PokemonList[fIdx] = _playerInfo.PokemonList[sIdx];
+        _playerInfo.PokemonList[sIdx] = temp;
+        // 교체 이펙트
+    }
+
     public void SetActionPanel(int index)
     {
         AllClosePanel();
@@ -278,6 +341,16 @@ public class BattleScene : BaseScene
 
     public override void Clear()
     {
-        
+        if(_playerPokemonPrefab != null)
+        {
+            _playerPokemonPrefab.transform.localScale = Vector3.one;
+            Managers.Pool.Push(_playerPokemonPrefab);
+        }
+
+        if(_enemyPokemonPrefab != null)
+        {
+            _enemyPokemonPrefab.transform.localScale = Vector3.one;
+            Managers.Pool.Push(_enemyPokemonPrefab);
+        }
     }
 }
