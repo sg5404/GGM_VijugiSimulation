@@ -9,6 +9,9 @@ public class Player : Agent
     private List<PokemonInfoSO> _startPokemonInfo;
     [SerializeField]
     private SkillSO _skill;
+    [SerializeField]
+    private ItemSO _item;
+    public int _cnt = 5;
     // Debug Code
 
     private void Start()
@@ -20,6 +23,8 @@ public class Player : Agent
         }
 
         _pokemonList[0].SetSkill(_skill);
+
+        SetItem(_item, _cnt);
         
         //for(int i = 0; i < _pokemonList.Length; i++)
         //{

@@ -7,7 +7,7 @@ public class Agent : MonoBehaviour
     private const int maxPokemonCount = 6;
 
     protected Pokemon[] _pokemonList = new Pokemon[maxPokemonCount];
-    protected Dictionary<Item, int> _itemDict = new Dictionary<Item, int>();
+    protected Dictionary<ItemSO, int> _itemDict = new Dictionary<ItemSO, int>();
 
     public Agent()
     {
@@ -31,6 +31,18 @@ public class Agent : MonoBehaviour
         info.itemDict = this._itemDict;
 
         return info;
+    }
+
+    public void SetItem(ItemSO item, int cnt = 1)
+    {
+        if (_itemDict.ContainsKey(item))
+        {
+            this._itemDict[item] += cnt;
+        }
+        else
+        {
+            this._itemDict.Add(item, cnt);
+        }
     }
 
     public void SetPokemon(Pokemon[] list)

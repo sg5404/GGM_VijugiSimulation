@@ -994,6 +994,16 @@ public class Pokemon
         Damage(power * attack, type, isCritical);
     }
 
+    public void Heal(int heal)
+    {
+        this._hp += heal;
+        this._hp = Mathf.Min(_hp, _maxHp);
+
+        // 이거 다른쪽으로 옮기기
+        BattleScene scene = Managers.Scene.CurrentScene as BattleScene;
+        scene.UpdateUI();
+    }
+
     public void AddExp(int exp)
     {
         _curExp += exp;

@@ -45,10 +45,10 @@ public class PokemonPanel : MonoBehaviour
             _pokemonBtnList[index].AddEvent(() =>
             {
                 BattleScene scene = Managers.Scene.CurrentScene as BattleScene;
+
+                if (scene.IsPlayerTurn == false) return;
                 scene?.SwapPokemon(0, index); // i가 클로저ㅗ디서 계속 살아 있으니까 6으로 인식되는 듯
                 SetPokeom(scene.PlayerInfo.PokemonList);
-                Debug.Log(scene);
-                Debug.Log("페켓몬 교체");
                 scene?.ChangeTurn();
                 scene?.AllClosePanel();
             });

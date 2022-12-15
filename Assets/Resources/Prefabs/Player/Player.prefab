@@ -135,6 +135,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fecc13bf5d39e4b41b4b2c9fbe509c8b, type: 2}
   - {fileID: 11400000, guid: 69aed7b6862be5242a3c111308317351, type: 2}
   _skill: {fileID: 11400000, guid: 91fe42c0ea7ab8840bb58b065f657045, type: 2}
+  _item: {fileID: 11400000, guid: de03ab29f460b0a4780ad8d385ceb0b5, type: 2}
+  _cnt: 5
 --- !u!114 &241893352312384078
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine;
 public class AgentInfo
 {
     public Pokemon[] PokemonList = new Pokemon[6];
-    public Dictionary<Item, int> itemDict = new Dictionary<Item, int>();
+    public Dictionary<ItemSO, int> itemDict = new Dictionary<ItemSO, int>();
     public Vector3 position = new Vector3(0, 1, 0);
 
     public AgentInfo()
@@ -15,7 +15,7 @@ public class AgentInfo
         {
             PokemonList[i] = null;
         }
-        itemDict = new Dictionary<Item, int>();
+        itemDict = new Dictionary<ItemSO, int>();
         position = new Vector3(0, 1, 0);
     }
 }
