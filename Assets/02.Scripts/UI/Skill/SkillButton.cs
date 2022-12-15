@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class SkillButton : MonoBehaviour
 {
@@ -19,7 +20,25 @@ public class SkillButton : MonoBehaviour
 
     private void OnEnable()
     {
-        _btn= GetComponent<Button>();
+        _btn = GetComponent<Button>();
+
+        _btn.onClick.RemoveAllListeners();
+        _btn.onClick.AddListener(() => Attack());
+    }
+
+    private void Attack()
+    {
+        if (_skill == null) return;
+
+        BattleScene scene = Managers.Scene.CurrentScene as BattleScene;
+        bool isCritical = Random.value <= 0.3f ? true : false;
+        scene.EnemyPokemon.Damage(_skill.power, scene.PlayerPokemon.Attack, _skill.type, isCritical);
+
+        scene.UpdateUI();
+        scene.ChangeTurn();
+        scene.AllClosePanel();
+
+        Debug.Log("АјАн!!!!!!!!!!!!!!1");
     }
 
     private void SetInfo(string name, Define.PokeType type)
@@ -43,7 +62,7 @@ public class SkillButton : MonoBehaviour
     {
         _skill = skill;
 
-        if(skill != null)
+        if (skill != null)
         {
             SetInfo(_skill.skillName, _skill.type);
         }
@@ -55,9 +74,9 @@ public class SkillButton : MonoBehaviour
 
     private Color GetColor(Define.PokeType type)
     {
-        foreach(var color in _skillColor.colorList)
+        foreach (var color in _skillColor.colorList)
         {
-            if(color.type == type)
+            if (color.type == type)
                 return color.color;
         }
 

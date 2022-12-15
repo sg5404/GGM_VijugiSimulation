@@ -64,8 +64,9 @@ public class InfoBar : MonoBehaviour
         _expBar.gameObject.SetActive(value);
     }
 
-    public void UpdateUI()
-    {
 
+    public void SetActiveHpText(bool value)
+    {
+        _hpText.gameObject.SetActive(value);
     }
 }

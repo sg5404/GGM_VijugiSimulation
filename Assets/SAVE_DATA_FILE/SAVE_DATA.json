@@ -3,17 +3,17 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 30714
+                    "instanceID": 31894
                 },
-                "_individualValue": 10,
-                "_hp": 15,
-                "_maxHp": 15,
-                "_attack": 16,
-                "_block": 15,
+                "_individualValue": 30,
+                "_hp": 16,
+                "_maxHp": 16,
+                "_attack": 17,
+                "_block": 16,
                 "_speed": 17,
                 "_skillList": [
                     {
-                        "instanceID": 30664
+                        "instanceID": 31898
                     },
                     {
                         "instanceID": 0
@@ -35,13 +35,13 @@
             },
             {
                 "_info": {
-                    "instanceID": 30690
+                    "instanceID": 31896
                 },
-                "_individualValue": 0,
-                "_hp": 17,
-                "_maxHp": 17,
+                "_individualValue": 13,
+                "_hp": 18,
+                "_maxHp": 18,
                 "_attack": 18,
-                "_block": 17,
+                "_block": 18,
                 "_speed": 19,
                 "_skillList": [
                     {
@@ -404,14 +404,14 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 30714
+            "instanceID": 31894
         },
         "_individualValue": 22,
-        "_hp": 82,
-        "_maxHp": 82,
-        "_attack": 91,
-        "_block": 84,
-        "_speed": 100,
+        "_hp": 58,
+        "_maxHp": 58,
+        "_attack": 64,
+        "_block": 59,
+        "_speed": 70,
         "_skillList": [
             {
                 "instanceID": 0
@@ -426,12 +426,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 36,
-        "_curExp": 42875,
-        "_maxExp": 3997,
-        "_CurAccExp": 46656,
-        "_befAccExp": 42875,
-        "_NexAccExp": 50653,
+        "_level": 24,
+        "_curExp": 12167,
+        "_maxExp": 1801,
+        "_CurAccExp": 13824,
+        "_befAccExp": 12167,
+        "_NexAccExp": 15625,
         "_name": "파이리"
     }
 }

@@ -35,13 +35,16 @@ public class BattleScene : BaseScene
     private Transform _enemyPokemonPos;
 
     private GameInfo _gameInfo;
+    public GameInfo GameInfo => _gameInfo;
 
     private AgentInfo _playerInfo;
     public AgentInfo PlayerInfo => _playerInfo;
     private AgentInfo _enemyInfo;
     public AgentInfo EnemyInfo => _enemyInfo;
     private Pokemon _playerPokemon = new Pokemon();
+    public Pokemon PlayerPokemon => _playerPokemon;
     private Pokemon _enemyPokemon = new Pokemon();
+    public Pokemon EnemyPokemon => _enemyPokemon;
 
     private bool _isPlayerTurn = false;
     private bool _isBattleStart = false;
@@ -66,17 +69,24 @@ public class BattleScene : BaseScene
         {
             _enemyInfo = _gameInfo.EnemyInfo;
             _enemyPokemon = _enemyInfo.PokemonList[0];
-            _enemyInfoPanel.SetInfo(SetInfo(_enemyPokemon));
         }
-        _enemyInfoPanel.SetActiveExpBar(!_gameInfo.isWildPokemon);
+        _enemyInfoPanel.SetActiveExpBar(false);
+        _enemyInfoPanel.SetActiveHpText(false);
         _playerPokemon = _playerInfo.PokemonList[0];
-        _playerInfoPanel.SetInfo(SetInfo(_playerPokemon));
+        
+        UpdateUI();
 
         AllClosePanel();
 
         SetTurn();
 
         StartCoroutine(SpawnPokemon());
+    }
+
+    public void UpdateUI()
+    {
+        _enemyInfoPanel.SetInfo(SetInfo(_enemyPokemon));
+        _playerInfoPanel.SetInfo(SetInfo(_playerPokemon));
     }
 
     private IEnumerator SpawnPokemon()
@@ -118,6 +128,10 @@ public class BattleScene : BaseScene
     {
         // 이펙트
 
+        prefab.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutBack);
+        Managers.Pool.Push(prefab); // 이럼 안되지
+        SpawnPokemon(_playerPokemon, ref _playerPokemonPrefab, _playerPokemonPos, false);
+
         action?.Invoke();
     }
 
@@ -134,7 +148,7 @@ public class BattleScene : BaseScene
         return info;
     }
 
-    private void SetInfoText(string msg, float duraction = 0.8f, bool isClear = true) // 뭔가 문제 있음
+    private void SetInfoText(string msg, float duraction = 0.8f, bool isClear = true, Action action = null) // 뭔가 문제 있음
     {
         _infoText.DOKill();
 
@@ -142,7 +156,7 @@ public class BattleScene : BaseScene
         {
             _infoText.text = "";
         }
-        _infoText.DOText(msg, duraction);
+        _infoText.DOText(msg, duraction).OnComplete(() => action?.Invoke());
     }
 
     private void SetTurn()
@@ -193,7 +207,7 @@ public class BattleScene : BaseScene
         }
         else
         {
-            SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
+            SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);  // 적의 행동 쓰기
         }
     }
 
@@ -208,6 +222,8 @@ public class BattleScene : BaseScene
         {
 
         }
+
+        if (_isBattleStart == false) return;
 
         if (_isPlayerTurn)
         {
@@ -307,7 +323,16 @@ public class BattleScene : BaseScene
         Pokemon temp = _playerInfo.PokemonList[fIdx];
         _playerInfo.PokemonList[fIdx] = _playerInfo.PokemonList[sIdx];
         _playerInfo.PokemonList[sIdx] = temp;
+
+        _playerPokemon = _playerInfo.PokemonList[fIdx];
+
+        _playerInfoPanel.SetInfo(SetInfo(_playerPokemon));
+
+        Debug.Log($"{_playerInfo.PokemonList[fIdx]}");
+        Debug.Log($"{_playerInfo.PokemonList[sIdx]}");
         // 교체 이펙트
+
+        DestroyEffect(ref _playerPokemonPrefab, () => ChangeTurn());
     }
 
     public void SetActionPanel(int index)

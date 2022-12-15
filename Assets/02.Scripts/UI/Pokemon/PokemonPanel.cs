@@ -32,19 +32,25 @@ public class PokemonPanel : MonoBehaviour
     {
         for(int i = 0; i < MAX_POKEMON_CNT; i++)
         {
-            if(_pokemonList[i].Info != null)
+            int index = i;
+            if(_pokemonList[index].Info != null)
             {
-                _pokemonBtnList[i].SetPokemon(_pokemonList[i]);
+                _pokemonBtnList[index].SetPokemon(_pokemonList[i]);
             }
             else
             {
-                _pokemonBtnList[i].SetPokemon(null);
+                _pokemonBtnList[index].SetPokemon(null);
             }
 
-            _pokemonBtnList[i].AddEvent(() =>
+            _pokemonBtnList[index].AddEvent(() =>
             {
                 BattleScene scene = Managers.Scene.CurrentScene as BattleScene;
-                scene?.SwapPokemon(0, i);
+                scene?.SwapPokemon(0, index); // i가 클로저ㅗ디서 계속 살아 있으니까 6으로 인식되는 듯
+                SetPokeom(scene.PlayerInfo.PokemonList);
+                Debug.Log(scene);
+                Debug.Log("페켓몬 교체");
+                scene?.ChangeTurn();
+                scene?.AllClosePanel();
             });
         }
     }

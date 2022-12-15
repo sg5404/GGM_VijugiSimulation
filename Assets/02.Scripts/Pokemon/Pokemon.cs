@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum AbilityType
 {
@@ -63,7 +64,7 @@ public class Pokemon
         _level = level;
         _individualValue = SetIV();
         SetPokemonInfo();
-        _maxHp = _hp;
+        _hp = _maxHp;
 
         _name = _info.name;
 
@@ -919,7 +920,7 @@ public class Pokemon
 
     private void SetPokemonInfo()
     {
-        _hp = GetAbilityValue(AbilityType.HP);
+        _maxHp = GetAbilityValue(AbilityType.HP);
         _attack = GetAbilityValue(AbilityType.ATTACK);
         _block = GetAbilityValue(AbilityType.BLOCK);
         _speed = GetAbilityValue(AbilityType.SPEED);
@@ -939,7 +940,13 @@ public class Pokemon
 
         SetPokemonInfo();
 
-        // 진화할 수 있는지 검사
+        _info.evolutionTree.ForEach(e =>
+        {
+            if(e.level == _level)
+            {
+                Evolution(e.pokemonSO);
+            }
+        });
 
         // Update UI
     }
@@ -971,21 +978,19 @@ public class Pokemon
     #region Public Method
     public void Damage(float amount, Define.PokeType type, bool isCritical = false)
     {
-        // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2
+        // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2 * 자속 보정
         // amount = 위력 * 특수공격
         float typeCom = TypeCompatibility(type);
-        int damage = (int)(((((((float)_level * 2 / 5) + 2) * amount / 50) / (float)_block) + 2) * (isCritical ? 2 : 1) * typeCom);
+        bool mfx = (type == _info.mainType) || (type == _info.subType);
+        int damage = (int)(((((((float)_level * 2 / 5) + 2) * amount / 50) / (float)_block) + 2) * (isCritical ? 2 : 1) * typeCom * (mfx ? 1.5f : 1));
+        damage = Mathf.Max(damage, 1);
         this._hp -= damage;
-
-        // Update UI
     }
 
     public void Damage(float power, float attack, Define.PokeType type, bool isCritical = false)
     {
-        // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2
+        // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2 * 자속 보정
         Damage(power * attack, type, isCritical);
-
-        // Update UI
     }
 
     public void AddExp(int exp)

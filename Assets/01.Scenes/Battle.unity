@@ -140,7 +140,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy Pokemon Pos
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -260,11 +260,11 @@ PrefabInstance:
       objectReference: {fileID: 2121618617}
     - target: {fileID: 54078262942888359, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54078262942888359, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54078262949128624, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 2121618617}
     - target: {fileID: 54078263015232747, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54078263175901335, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_Name
@@ -280,7 +280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54078263175901335, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 54078263175901339, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_Pivot.x
@@ -374,17 +374,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2121618617}
+    - target: {fileID: 9052654392955745572, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9052654393140107358, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9052654393327811858, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9052654393327811858, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68c5beaa9a573274cac5c682548659d0, type: 3}
@@ -630,7 +634,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player Pokemon Pos
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
