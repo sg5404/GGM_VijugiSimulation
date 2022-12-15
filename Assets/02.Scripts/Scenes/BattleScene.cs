@@ -141,7 +141,7 @@ public class BattleScene : BaseScene
         info.name = pokemon.Name;
         info.level = pokemon.Level;
         info.hp = pokemon.Hp;
-        info.maxHp = pokemon.Hp;
+        info.maxHp = pokemon.MaxHp;
         info.exp = pokemon.CurExp;
         info.maxExp = pokemon.MaxExp;
 

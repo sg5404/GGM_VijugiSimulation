@@ -26,6 +26,7 @@ public class Pokemon
     [SerializeField] protected int _hp;
     [SerializeField] protected int _maxHp;
     public int Hp => _hp;
+    public int MaxHp => _maxHp;
     [SerializeField] protected int _attack;
     public int Attack => _attack;
     [SerializeField] protected int _block;
@@ -982,7 +983,7 @@ public class Pokemon
         // amount = 위력 * 특수공격
         float typeCom = TypeCompatibility(type);
         bool mfx = (type == _info.mainType) || (type == _info.subType);
-        int damage = (int)(((((((float)_level * 2 / 5) + 2) * amount / 50) / (float)_block) + 2) * (isCritical ? 2 : 1) * typeCom * (mfx ? 1.5f : 1));
+        int damage = (int)(((((((float)_level * 2f / 5f) + 2f) * amount / 50f) / (float)_block) + 2f) * (isCritical ? 2f : 1f) * typeCom * (mfx ? 2f : 1f));
         damage = Mathf.Max(damage, 1);
         this._hp -= damage;
     }
