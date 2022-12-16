@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9915f930327bdfb4e9277d1ee22858e4, type: 3}
+  m_Name: "\uC544\uBCF4"
+  m_EditorClassIdentifier: 
+  habcds: {fileID: 11400000, guid: 2a1b075df1bfdbb40ad3320d5d174811, type: 2}
+  name: "\uC544\uBCF4"
+  image: {fileID: 21300000, guid: e0ba8e0fa3910eb448e9e9e3355225a6, type: 3}
+  prefab: {fileID: 1023107473936301627, guid: 65cbea7edb6f8d14dba01ea2bd0b471c, type: 3}
+  rarity: 0
+  mainType: 3
+  subType: 0
+  scale: 0
+  skillTree: {fileID: 0}
+  evolutionTree:
+  - level: 22
+    pokemonSO: {fileID: 11400000, guid: 677fd78cca63503489213d410974a382, type: 2}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a9bd34205013a84d9150169a8212bb5, type: 3}
-  m_Name: Bulbasaur HABCDS
+  m_Name: "\uD53C\uCE74\uCE04 HABCDS"
   m_EditorClassIdentifier: 
-  hp: 45
-  attack: 49
-  block: 49
-  speed: 45
+  hp: 35
+  attack: 55
+  block: 30
+  speed: 90

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9bd34205013a84d9150169a8212bb5, type: 3}
+  m_Name: "600\uC871 \uB2E8\uB370\uAE30 HABCDS"
+  m_EditorClassIdentifier: 
+  hp: 150
+  attack: 50
+  block: 300
+  speed: 100
