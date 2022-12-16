@@ -1,0 +1,5 @@
+btl_G_gym_Hika01_mat needs to be mirrored
+
+for blender users:
+
+Texture Tab > Image Mapping > Check Mirror X/Y
