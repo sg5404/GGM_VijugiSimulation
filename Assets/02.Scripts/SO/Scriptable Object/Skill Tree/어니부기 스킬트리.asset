@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d6bbc89870a6042ba1574f3e538a0d, type: 3}
+  m_Name: "\uC5B4\uB2C8\uBD80\uAE30 \uC2A4\uD0AC\uD2B8\uB9AC"
+  m_EditorClassIdentifier: 
+  pairs:
+  - level: 1
+    skill: {fileID: 11400000, guid: e7420f774eaee1a4392e055d483fa9d4, type: 2}
+  - level: 1
+    skill: {fileID: 11400000, guid: eb194cd6b583ac04d9ea64973ec747dd, type: 2}
+  - level: 7
+    skill: {fileID: 11400000, guid: eb194cd6b583ac04d9ea64973ec747dd, type: 2}
+  - level: 13
+    skill: {fileID: 11400000, guid: 240c24f7bfbd6a8459b6cdf18835e886, type: 2}
+  - level: 16
+    skill: {fileID: 11400000, guid: e11e2fc31a3cc444780561913239e62e, type: 2}
+  - level: 20
+    skill: {fileID: 11400000, guid: 1f47d62f86c7e144588591c18f9a3fb8, type: 2}
+  - level: 28
+    skill: {fileID: 11400000, guid: 0007feeb149dfd341a940efbc21e1299, type: 2}
+  - level: 32
+    skill: {fileID: 11400000, guid: f9dfb5f8cdc9eed4baaf591407f7d443, type: 2}
+  - level: 44
+    skill: {fileID: 11400000, guid: d8200ad3387dc944289259db27296fd6, type: 2}

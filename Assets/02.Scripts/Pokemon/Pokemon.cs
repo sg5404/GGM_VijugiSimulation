@@ -52,6 +52,8 @@ public class Pokemon
     [SerializeField] protected string _name;
     public string Name => _name;
 
+
+
     //[{(종족값 * 2) + 개체값} * 레벨/100] + 10 + 레벨
 
     public Pokemon()
@@ -932,12 +934,12 @@ public class Pokemon
         int exp = _curExp - _maxExp;
         _level++;
         _curExp = 0;
-        _curExp += exp;
         _befAccExp = _CurAccExp;
         _CurAccExp = (_level * _level * _level);
         int nextLevel = _level + 1;
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
         _maxExp = _NexAccExp - _CurAccExp;
+        AddExp(exp);
 
         SetPokemonInfo();
 
@@ -1006,9 +1008,10 @@ public class Pokemon
 
     public void AddExp(int exp)
     {
-        _curExp += exp;
+        if (_level < 100)
+            _curExp += exp;
 
-        if(_curExp >= _maxExp)
+        if(_curExp >= _maxExp && _level < 100)
         {
             LevelUp();
         }
