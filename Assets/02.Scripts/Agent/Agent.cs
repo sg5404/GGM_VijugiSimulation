@@ -7,42 +7,75 @@ public class Agent : MonoBehaviour
     private const int maxPokemonCount = 6;
 
     protected Pokemon[] _pokemonList = new Pokemon[maxPokemonCount];
-    protected Dictionary<ItemSO, int> _itemDict = new Dictionary<ItemSO, int>();
+    //protected Dictionary<ItemSO, int> _itemDict = new Dictionary<ItemSO, int>();
+    protected List<ItemPair> _itemList = new List<ItemPair>();
 
     public Agent()
     {
         for(int i = 0; i < _pokemonList.Length; i++)
         {
             _pokemonList[i] = null;
-            _itemDict.Clear();
+            //_itemDict.Clear();
+            _itemList.Clear();
         }
     }
 
     public void SetInfo(AgentInfo info)
     {
         this._pokemonList = info.PokemonList;
-        this._itemDict = info.itemDict;
+        //this._itemDict = info.itemDict;
+        this._itemList = info.itemList;
     }
 
     public AgentInfo GetInfo()
     {
         AgentInfo info = new AgentInfo();
         info.PokemonList = this._pokemonList;
-        info.itemDict = this._itemDict;
+        //info.itemDict = this._itemDict;
+        this._itemList = info.itemList;
 
         return info;
     }
 
     public void SetItem(ItemSO item, int cnt = 1)
     {
-        if (_itemDict.ContainsKey(item))
+        //if (_itemDict.ContainsKey(item))
+        //{
+        //    this._itemDict[item] += cnt;
+        //}
+        //else
+        //{
+        //    this._itemDict.Add(item, cnt);
+        //}
+
+        if (IsGetItem(item) == true)
         {
-            this._itemDict[item] += cnt;
+            _itemList[IsGetItemIndex(item)].cnt += cnt;
         }
         else
         {
-            this._itemDict.Add(item, cnt);
+            _itemList.Add(new ItemPair(item, cnt));
         }
+    }
+
+    private bool IsGetItem(ItemSO item)
+    {
+        foreach(var i in _itemList)
+        {
+            if (i.item == item) return true;
+        }
+
+        return false;
+    }
+
+    private int IsGetItemIndex(ItemSO item)
+    {
+        for(int i = 0; i < _itemList.Count; i++)
+        {
+            if (_itemList[i].item == item) return i;
+        }
+
+        return -1;
     }
 
     public void SetPokemon(Pokemon[] list)
@@ -145,6 +178,7 @@ public class Agent : MonoBehaviour
 
     public void ClearItem()
     {
-        _itemDict.Clear();
+        //_itemDict.Clear();
+        _itemList.Clear();
     }
 }

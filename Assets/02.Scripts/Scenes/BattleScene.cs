@@ -288,7 +288,7 @@ public class BattleScene : BaseScene
             case ActionType.Item:
                 // 아이테 창 열기
                 Debug.Log("아이템 사용");
-                _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().SetDict(_playerInfo.itemDict);
+                //_actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().SetDict(_playerInfo.itemDict);
                 SetActionPanel((int)ActionType.Item);
                 break;
             case ActionType.Run:

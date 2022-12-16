@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemPanel : MonoBehaviour
 {
-    private Dictionary<ItemSO, int> _itemDict = new Dictionary<ItemSO, int>();
+    private List<ItemPair> _itemDict = new List<ItemPair>();
 
     [SerializeField]
     private Transform _parent;
@@ -19,9 +19,10 @@ public class ItemPanel : MonoBehaviour
         CreateItem();
     }
 
-    public void SetDict(Dictionary<ItemSO, int> dict)
+    public void SetDict(List<ItemPair> list)
     {
-        _itemDict = dict;
+        //_itemDict = dict;
+        _itemDict = list;
 
         Clear();
 
@@ -30,32 +31,34 @@ public class ItemPanel : MonoBehaviour
 
     public void AddItem(ItemSO item)
     {
-        if(_itemDict.ContainsKey(item))
-        {
-            _itemDict[item]++;
-        }
-        else
-        {
-            _itemDict.Add(item, 1);
-        }
+        //if(_itemDict.ContainsKey(item))
+        //{
+        //    _itemDict[item]++;
+        //}
+        //else
+        //{
+        //    _itemDict.Add(item, 1);
+        //}
+
+        
     }
 
     public void RemveItem(ItemSO item, int cnt = 1)
     {
-        if (_itemDict.ContainsKey(item))
-        {
-            _itemDict[item] -= cnt;
-        }
+        //if (_itemDict.ContainsKey(item))
+        //{
+        //    _itemDict[item] -= cnt;
+        //}
     }
 
     public void CreateItem()
     {
-        foreach(var item in _itemDict)
-        {
-            Item i = Managers.Resource.Instantiate("UI/Item", _parent).GetComponent<Item>();
-            i.SetItem(item.Key, item.Value);
-            _itemList.Add(i);
-        }
+        //foreach(var item in _itemDict)
+        //{
+        //    Item i = Managers.Resource.Instantiate("UI/Item", _parent).GetComponent<Item>();
+        //    i.SetItem(item.Key, item.Value);
+        //    _itemList.Add(i);
+        //}
     }
 
     public void Clear()

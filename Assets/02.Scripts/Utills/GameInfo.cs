@@ -3,10 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+public class ItemPair
+{
+    public ItemSO item;
+    public int cnt;
+
+    public ItemPair(ItemSO item, int cnt)
+    {
+        this.item = item;
+        this.cnt = cnt;
+    }
+}
+
+[System.Serializable]
 public class AgentInfo
 {
     public Pokemon[] PokemonList = new Pokemon[6];
-    public Dictionary<ItemSO, int> itemDict = new Dictionary<ItemSO, int>();
+    //public Dictionary<ItemSO, int> itemDict = new Dictionary<ItemSO, int>(); // µñ¼Å³Ê¸®´Â Á÷·ÄÈ­ ¾ÈµÊ
+    public List<ItemPair> itemList = new List<ItemPair>();
     public Vector3 position = new Vector3(0, 1, 0);
 
     public AgentInfo()
@@ -15,7 +29,8 @@ public class AgentInfo
         {
             PokemonList[i] = null;
         }
-        itemDict = new Dictionary<ItemSO, int>();
+        //itemDict = new Dictionary<ItemSO, int>();
+        itemList = new List<ItemPair>();
         position = new Vector3(0, 1, 0);
     }
 }
