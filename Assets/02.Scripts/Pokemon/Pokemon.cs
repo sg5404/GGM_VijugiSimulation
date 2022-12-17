@@ -974,6 +974,10 @@ public class Pokemon
     private void SkillCheck()
     {
         // info SO에서 SkillTree 탐색하기
+        foreach(var skill in _info.skillTree.pairs)
+        {
+            // 여기서 할거 하기
+        }
     }
 
     #endregion
