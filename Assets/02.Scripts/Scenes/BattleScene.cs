@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public enum ActionType
@@ -76,7 +77,8 @@ public class BattleScene : BaseScene
         _enemyInfoPanel.SetActiveExpBar(false);
         _enemyInfoPanel.SetActiveHpText(false);
         _playerPokemon = _playerInfo.PokemonList[0];
-        
+
+        SetInfoText("");
         UpdateUI();
 
         AllClosePanel();
@@ -84,6 +86,8 @@ public class BattleScene : BaseScene
         SetTurn();
 
         StartCoroutine(SpawnPokemon());
+
+        // 스폰 이펙트 끝난다음으로 미루기
 
         _battleCoroutine = StartCoroutine(BattleCoroutine());
     }
@@ -118,7 +122,15 @@ public class BattleScene : BaseScene
         };
         prefab.transform.localScale = scale;
 
-        SpawnEffect(ref prefab, isEnemy == true ? null : () => _isBattleStart = true);
+        SpawnEffect(
+            ref prefab,
+            () =>
+            {
+                if(isEnemy == true)
+                {
+                    _isBattleStart = true;
+                }
+            });
     }
 
     private void SpawnEffect(ref Poolable prefab, Action action = null)
@@ -214,16 +226,6 @@ public class BattleScene : BaseScene
     public void ChangeTurn(bool value)
     {
         _isPlayerTurn = value;
-
-        //if(_isPlayerTurn == true)
-        //{
-        //    SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?");
-        //}
-        //else
-        //{
-        //    //SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);  // 적의 행동 쓰기
-        //    StartCoroutine(EnemyAction(0.5f));
-        //}
     }
 
     public void ChangeTurn()
@@ -246,16 +248,21 @@ public class BattleScene : BaseScene
 
         while (true)
         {
+            if (_isBattleStart == false) yield return null;
+
             yield return new WaitUntil(() => _isPlayerTurn == false);
 
             // TODO : Enemy Action
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
             SetInfoText($"{_enemyPokemon.Name}의 차례!");
 
             yield return new WaitForSeconds(1f);
             SetInfoText($"{_enemyPokemon.Name}은 (사용한 스킬 이름)를 사용했다.");
 
             ChangeTurn();
+
+            yield return new WaitForSeconds(0.5f);
+            SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?");
         }
     }
 
@@ -265,38 +272,6 @@ public class BattleScene : BaseScene
         {
 
         }
-
-        if (_isBattleStart == false) return;
-
-        // Coroutine으로 짤꺼임
-        //if (_isPlayerTurn)
-        //{
-        //    // TODO : Player Action.
-        //    // 버튼 연걸 알잘딱
-        //    //SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f, false);
-        //}
-        //else
-        //{
-        //    // TODO : Enemy Action
-        //    // 약간의 딜레이 후 공격
-        //    //EnemyAction();
-        //    //ChangeTurn();
-        //    //StartCoroutine(EnemyAction(2f));
-        //}
-
-        // Debug Code
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SetInfoText($"{_playerPokemon.Name}은(는) 무엇을 할까?", 0.4f);
-        //}
-    }
-
-    public IEnumerator EnemyAction(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        SetInfoText("크앙!!! 울부짖었다. 효과는... 없었다...", () => ChangeTurn()); // 수정해야겠지
-        //ChangeTurn();
     }
 
     public void PlayerAction(int index)
@@ -315,19 +290,16 @@ public class BattleScene : BaseScene
                 // 기술 창 열기
                 // TODO : 기술 사용시 이펙트와 데미지 주기
                 _actionPanelList[(int)ActionType.Fight].GetComponent<SkillPanel>().SetSkill(_playerPokemon.SkillList);
-                SetInfoText("");
                 SetActionPanel((int)ActionType.Fight);
                 break;
             case ActionType.Pokemon:
                 // 포켓몬 창 열기
-                Debug.Log("노예 교체");
                 _actionPanelList[(int)ActionType.Pokemon].GetComponent<PokemonPanel>().SetPokeom(_playerInfo.PokemonList);
                 SetActionPanel((int)ActionType.Pokemon);
                 break;
             case ActionType.Item:
                 // 아이테 창 열기
-                Debug.Log("아이템 사용");
-                //_actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().SetDict(_playerInfo.itemDict);
+                _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().SetList(_playerInfo.itemList);
                 SetActionPanel((int)ActionType.Item);
                 break;
             case ActionType.Run:
@@ -367,7 +339,42 @@ public class BattleScene : BaseScene
         }
     }
 
-    public void SwapPokemon(int fIdx, int sIdx) // 6이 나와버리는데...
+    public void Attack(SkillSO skill)
+    {
+        bool isCritical = Random.value <= 0.06f ? true : false;
+        DamageType type = _enemyPokemon.Damage(skill.power, _playerPokemon.Attack, skill.type, isCritical);
+
+        SetInfoText($"{PlayerPokemon.Name}의 {skill.skillName}!");
+        StartCoroutine(ChangeTurnCoroutine(type));
+        UpdateUI();
+        AllClosePanel();
+    }
+
+    private IEnumerator ChangeTurnCoroutine(DamageType type)
+    {
+        Debug.Log("Enter the Coroutine!");
+        // 코루틴에 들어오긴 하는데 다음 행동이 실행이 안되네
+        yield return new WaitForSeconds(0f); // 여기서 멈춤
+        switch (type)
+        {
+            case DamageType.GREAT:
+                SetInfoText("효과가 굉장했다.");
+                break;
+            case DamageType.MEDIOCRE:
+                SetInfoText("Normal.");
+                break;
+            case DamageType.NOTGOOD:
+                SetInfoText("효과가 별로다.");
+                break;
+            case DamageType.NO:
+                SetInfoText("효과가 없다.");
+                break;
+        }
+        ChangeTurn();
+        Debug.Log("Exit the Coroutine");
+    }
+
+    public void SwapPokemon(int fIdx, int sIdx)
     {
         if (fIdx < 0 || sIdx < 0 || fIdx > 5 || sIdx > 5) return;
         if (fIdx == sIdx) return;
@@ -383,7 +390,7 @@ public class BattleScene : BaseScene
 
         // 교체 이펙트
 
-        DestroyEffect(ref _playerPokemonPrefab, () => ChangeTurn());
+        DestroyEffect(ref _playerPokemonPrefab);
     }
 
     public void SetActionPanel(int index)

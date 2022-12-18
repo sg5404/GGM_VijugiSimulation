@@ -5,27 +5,24 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
+    [SerializeField]
     protected Button _btn;
 
-    protected Image _image;
-    protected Text _itemName;
-    protected Text _itemCnt;
+    
+    [SerializeField] protected Image _iamgeImage;
+    [SerializeField] protected Text _itemName;
+    [SerializeField] protected Text _itemCnt;
 
     private ItemSO _itemSO;
     private int _cnt;
-
-    protected virtual void OnEnable()
-    {
-        _btn = transform.Find("bg").GetComponent<Button>();
-    }
 
     public void SetItem(ItemSO item, int cnt = 1)
     {
         _itemSO = item;
         _cnt = cnt;
 
-        _itemCnt.text = cnt.ToString();
-        _image = _itemSO.image;
+        _itemCnt.text = _cnt.ToString();
+        _iamgeImage.sprite = _itemSO.image;
         _itemName.text = _itemSO.name;
     }
 }

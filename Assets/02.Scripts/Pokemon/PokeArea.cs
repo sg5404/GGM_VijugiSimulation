@@ -5,8 +5,7 @@ using NaughtyAttributes;
 
 public class PokeArea : MonoBehaviour
 {
-    [SerializeField] private int pokePercent;
-    [SerializeField] private List<PokeInformationSO> poke;
+    [SerializeField, MinValue(0), MaxValue(100)] private int pokePercent;
     [SerializeField] private List<PokemonInfoSO> pokemonList;
     [SerializeField, MinValue(1), MaxValue(100)] private int minLevel;
     [SerializeField, MinValue(1), MaxValue(100)] private int maxLevel;
@@ -53,21 +52,21 @@ public class PokeArea : MonoBehaviour
         return Random.Range(minLevel, maxLevel + 1);
     }
 
-    void LevelStats()
-    {
-        var pokeMon = poke[pokeNum];
-        int basicStat = pokeMon.Rarity switch
-        {
-            Define.PokeRarity.Common => 10,
-            Define.PokeRarity.Rare => 15,
-            Define.PokeRarity.unique => 20,
-            Define.PokeRarity.Legendary => 30,
-            _ => 10,
-        };
+    //void LevelStats()
+    //{
+    //    var pokeMon = poke[pokeNum];
+    //    int basicStat = pokeMon.Rarity switch
+    //    {
+    //        Define.PokeRarity.Common => 10,
+    //        Define.PokeRarity.Rare => 15,
+    //        Define.PokeRarity.unique => 20,
+    //        Define.PokeRarity.Legendary => 30,
+    //        _ => 10,
+    //    };
 
-        pokeMon.CurrentAttack = basicStat + (int)(pokeMon.Level * pokeMon.PokeAttack);
-        pokeMon.CurrentDefense = basicStat + (int)(pokeMon.Level * pokeMon.PokeDefense);
-        pokeMon.CurrentHP = basicStat + (int)(pokeMon.Level * pokeMon.PokeHP);
-        pokeMon.CurrentSpeed = basicStat + (int)(pokeMon.Level * pokeMon.PokeSpeed);
-    }
+    //    pokeMon.CurrentAttack = basicStat + (int)(pokeMon.Level * pokeMon.PokeAttack);
+    //    pokeMon.CurrentDefense = basicStat + (int)(pokeMon.Level * pokeMon.PokeDefense);
+    //    pokeMon.CurrentHP = basicStat + (int)(pokeMon.Level * pokeMon.PokeHP);
+    //    pokeMon.CurrentSpeed = basicStat + (int)(pokeMon.Level * pokeMon.PokeSpeed);
+    //}
 }

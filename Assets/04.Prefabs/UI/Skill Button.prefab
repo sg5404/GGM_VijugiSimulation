@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 967291194664444527}
   - component: {fileID: 3013621442927166730}
   m_Layer: 5
-  m_Name: Skilll Button
+  m_Name: Skill Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

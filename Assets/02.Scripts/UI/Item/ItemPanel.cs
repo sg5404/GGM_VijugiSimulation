@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ItemPanel : MonoBehaviour
 {
@@ -19,7 +20,27 @@ public class ItemPanel : MonoBehaviour
         CreateItem();
     }
 
-    public void SetDict(List<ItemPair> list)
+    private bool IsGetItem(ItemSO item)
+    {
+        foreach (var i in _itemDict)
+        {
+            if (i.item == item) return true;
+        }
+
+        return false;
+    }
+
+    private int IsGetItemIndex(ItemSO item)
+    {
+        for (int i = 0; i < _itemDict.Count; i++)
+        {
+            if (_itemDict[i].item == item) return i;
+        }
+
+        return -1;
+    }
+
+    public void SetList(List<ItemPair> list)
     {
         //_itemDict = dict;
         _itemDict = list;
@@ -29,7 +50,7 @@ public class ItemPanel : MonoBehaviour
         CreateItem();
     }
 
-    public void AddItem(ItemSO item)
+    public void AddItem(ItemSO item, int cnt = 1)
     {
         //if(_itemDict.ContainsKey(item))
         //{
@@ -40,7 +61,14 @@ public class ItemPanel : MonoBehaviour
         //    _itemDict.Add(item, 1);
         //}
 
-        
+        if(IsGetItem(item) == true)
+        {
+            _itemDict[IsGetItemIndex(item)].cnt += cnt;
+        }
+        else
+        {
+            _itemDict.Add(new ItemPair(item, cnt));
+        }
     }
 
     public void RemveItem(ItemSO item, int cnt = 1)
@@ -49,16 +77,21 @@ public class ItemPanel : MonoBehaviour
         //{
         //    _itemDict[item] -= cnt;
         //}
+
+        if(IsGetItem(item) == true)
+        {
+            _itemDict[IsGetItemIndex(item)].cnt -= cnt;
+        }
     }
 
     public void CreateItem()
     {
-        //foreach(var item in _itemDict)
-        //{
-        //    Item i = Managers.Resource.Instantiate("UI/Item", _parent).GetComponent<Item>();
-        //    i.SetItem(item.Key, item.Value);
-        //    _itemList.Add(i);
-        //}
+        for(int i = 0; i < _itemList.Count; i++)
+        {
+            Item item = Managers.Resource.Instantiate("UI/Item", _parent).GetComponent<Item>();
+            item.SetItem(_itemDict[i].item, _itemDict[i].cnt);
+            _itemList.Add(item);
+        }
     }
 
     public void Clear()

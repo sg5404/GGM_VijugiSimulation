@@ -81,7 +81,7 @@ public class Pokemon
 
         int beforeLevel = _level - 1;
         _befAccExp = (beforeLevel * beforeLevel * beforeLevel);
-        _curExp = _befAccExp;
+        _curExp = 0;
         _CurAccExp = (_level * _level * _level);
         int nextLevel = _level + 1;
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
@@ -949,6 +949,9 @@ public class Pokemon
         _maxExp = _NexAccExp - _CurAccExp;
         AddExp(exp);
 
+        // 레빌이 만족하면 스킬 얻기
+        SkillCheck();
+
         SetPokemonInfo();
 
         _info.evolutionTree.ForEach(e =>
@@ -962,14 +965,30 @@ public class Pokemon
         // Update UI
     }
 
-    private bool IsEquipSkill()
+    private bool IsEquipSkill() // 빈 스킬공간 있음?
     {
-        return true; // 미래의 내가 해주겠지
+        for (int i = 0; i < MAX_SKILL_CNT; i++)
+        {
+            if (_skillList[i] == null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    private int GetEmptySkillIndex()
+    private int GetEmptySkillIndex() // 빈스킬 공간 인덱스
     {
-        return 0; // 미래의 내가 해주겠지 2
+        for (int i = 0; i < MAX_SKILL_CNT; i++)
+        {
+            if (_skillList[i] == null)
+            {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     private void Evolution(PokemonInfoSO pokemon)
@@ -984,8 +1003,24 @@ public class Pokemon
         // info SO에서 SkillTree 탐색하기
         foreach(var skill in _info.skillTree.pairs)
         {
-            // 여기서 할거 하기
+            if(skill.level <= _level)
+            {
+                if (IsEquipSkill())
+                {
+                    SetSkill(skill.skill);
+                }
+                else
+                {
+                    int idx = Random.Range(0, MAX_SKILL_CNT);
+                    SetSkill(skill.skill, idx);
+                }
+            }
         }
+    }
+
+    private void SetSkill(SkillSO skill, int index)
+    {
+        _skillList[index] = skill;
     }
 
     #endregion

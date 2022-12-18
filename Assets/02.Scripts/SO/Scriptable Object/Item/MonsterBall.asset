@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Monster Ball
   description: "\uBAAC\uC2A4\uD130 \uBCFC\uC774\uB2E4!!!!!!!!!!!!!!!!!"
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 8397fd9b78286ae42a1e08980c6f2a3e, type: 3}

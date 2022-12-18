@@ -8,6 +8,12 @@ public class ItemPair
     public ItemSO item;
     public int cnt;
 
+    public ItemPair()
+    {
+        this.item = null;
+        this.cnt = 0;
+    }
+
     public ItemPair(ItemSO item, int cnt)
     {
         this.item = item;
