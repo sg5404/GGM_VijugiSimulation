@@ -48,6 +48,8 @@ public class PokemonPanel : MonoBehaviour
 
                 if (scene == null) return;
                 if (scene.IsPlayerTurn == false) return;
+                if (0 == index) return;
+
                 scene.SwapPokemon(0, index);
                 SetPokeom(scene.PlayerInfo.PokemonList);
                 scene.ChangeTurn();

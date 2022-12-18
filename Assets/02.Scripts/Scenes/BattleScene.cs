@@ -35,6 +35,9 @@ public class BattleScene : BaseScene
     [SerializeField]
     private Transform _enemyPokemonPos;
 
+    [SerializeField]
+    private GameObject _inputIgnorePanel;
+
     private GameInfo _gameInfo;
     public GameInfo GameInfo => _gameInfo;
 
@@ -235,6 +238,8 @@ public class BattleScene : BaseScene
 
     private IEnumerator BattleCoroutine()
     {
+        _inputIgnorePanel.SetActive(true);
+
         yield return new WaitForSeconds(0.1f);
 
         if (_gameInfo.isWildPokemon)
@@ -249,8 +254,10 @@ public class BattleScene : BaseScene
         while (true)
         {
             if (_isBattleStart == false) yield return null;
+            _inputIgnorePanel.SetActive(false);
 
             yield return new WaitUntil(() => _isPlayerTurn == false);
+            _inputIgnorePanel.SetActive(true);
 
             // TODO : Enemy Action
             yield return new WaitForSeconds(0.5f);
@@ -289,18 +296,18 @@ public class BattleScene : BaseScene
             case ActionType.Fight:
                 // 기술 창 열기
                 // TODO : 기술 사용시 이펙트와 데미지 주기
-                _actionPanelList[(int)ActionType.Fight].GetComponent<SkillPanel>().SetSkill(_playerPokemon.SkillList);
                 SetActionPanel((int)ActionType.Fight);
+                _actionPanelList[(int)ActionType.Fight].GetComponent<SkillPanel>().SetSkill(_playerPokemon.SkillList);
                 break;
             case ActionType.Pokemon:
                 // 포켓몬 창 열기
-                _actionPanelList[(int)ActionType.Pokemon].GetComponent<PokemonPanel>().SetPokeom(_playerInfo.PokemonList);
                 SetActionPanel((int)ActionType.Pokemon);
+                _actionPanelList[(int)ActionType.Pokemon].GetComponent<PokemonPanel>().SetPokeom(_playerInfo.PokemonList);
                 break;
             case ActionType.Item:
                 // 아이테 창 열기
-                _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().SetList(_playerInfo.itemList);
                 SetActionPanel((int)ActionType.Item);
+                _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().SetList(_playerInfo.itemList);
                 break;
             case ActionType.Run:
                 // 도망 가능한지 여부 판단
@@ -339,6 +346,23 @@ public class BattleScene : BaseScene
         }
     }
 
+    private IEnumerator BattleVictory()
+    {
+        StopCoroutine(_battleCoroutine);
+        _isPlayerTurn = false;
+        _isBattleStart = false;
+
+        SetInfoText($"{_enemyPokemon.Name}은 쓰러졌다.");
+        yield return new WaitForSeconds(0.5f);
+
+        _gameInfo.wildPokemon = null;
+        _playerInfo.PokemonList[0] = _playerPokemon;
+        _gameInfo.PlayerInfo = _playerInfo;
+        Managers.Save.SaveJson(_gameInfo);
+
+        Managers.Scene.LoadScene(Define.Scene.Map);
+    }
+
     public void Attack(SkillSO skill)
     {
         bool isCritical = Random.value <= 0.06f ? true : false;
@@ -352,26 +376,35 @@ public class BattleScene : BaseScene
 
     private IEnumerator ChangeTurnCoroutine(DamageType type)
     {
-        Debug.Log("Enter the Coroutine!");
-        // 코루틴에 들어오긴 하는데 다음 행동이 실행이 안되네
-        yield return new WaitForSeconds(0f); // 여기서 멈춤
         switch (type)
         {
             case DamageType.GREAT:
+                yield return new WaitForSeconds(0.5f);
                 SetInfoText("효과가 굉장했다.");
                 break;
             case DamageType.MEDIOCRE:
-                SetInfoText("Normal.");
                 break;
             case DamageType.NOTGOOD:
+                yield return new WaitForSeconds(0.5f);
                 SetInfoText("효과가 별로다.");
                 break;
             case DamageType.NO:
+                yield return new WaitForSeconds(0.5f);
                 SetInfoText("효과가 없다.");
                 break;
         }
+
+        if (_enemyPokemon.Hp <= 0)
+        {
+            int exp = Mathf.Max((_enemyPokemon.Level - _playerPokemon.Level) * (_playerPokemon.Level / 2), 1) + 5;
+            _playerPokemon.AddExp(exp);
+
+            StartCoroutine(BattleVictory());
+            yield break;
+            // 경험치 공식?
+            // MAX((B2 - A2) * (A2 / 2), 1) + 5
+        }
         ChangeTurn();
-        Debug.Log("Exit the Coroutine");
     }
 
     public void SwapPokemon(int fIdx, int sIdx)
@@ -425,6 +458,12 @@ public class BattleScene : BaseScene
 
     public override void Clear()
     {
+        _isPlayerTurn = false;
+        _isBattleStart = false;
+
+        _playerPokemon = null;
+        _enemyPokemon = null;
+
         StopCoroutine(_battleCoroutine);
 
         if(_playerPokemonPrefab != null)

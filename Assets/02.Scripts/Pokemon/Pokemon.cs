@@ -87,7 +87,7 @@ public class Pokemon
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
         _maxExp = _NexAccExp - _CurAccExp;
 
-        // 스킬 레벨에 따라 배움 처리
+        SkillCheck();
     }
 
     public Pokemon(Pokemon pokemon) 
@@ -106,7 +106,7 @@ public class Pokemon
         _NexAccExp = pokemon._NexAccExp;
         _maxExp = _NexAccExp - _CurAccExp;
 
-        // 스킬 레벨에 따라 배움 처리
+        SkillCheck();
     }
 
     #region Private Method
@@ -998,11 +998,26 @@ public class Pokemon
         SetPokemonInfo();
     }
 
+    private bool IsGetSkill(SkillSO skill)
+    {
+        for(int i = 0; i < MAX_SKILL_CNT; i++)
+        {
+            if (_skillList[i] == skill)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private void SkillCheck()
     {
         // info SO에서 SkillTree 탐색하기
         foreach(var skill in _info.skillTree.pairs)
         {
+            if (IsGetSkill(skill.skill) == true) return;
+
             if(skill.level <= _level)
             {
                 if (IsEquipSkill())
@@ -1077,6 +1092,8 @@ public class Pokemon
 
     public void SetSkill(SkillSO skill)
     {
+        if (IsGetSkill(skill) == true) return;
+
         if (IsEquipSkill() == true)
         {
             _skillList[GetEmptySkillIndex()] = skill;
