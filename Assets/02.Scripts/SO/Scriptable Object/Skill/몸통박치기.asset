@@ -15,7 +15,7 @@ MonoBehaviour:
   skillName: "\uBAB8\uD1A4\uBC15\uCE58\uAE30"
   skillDescription: "\uBAB8\uD1B5!\uBC15\uCE58\uAE30!"
   type: 1
-  power: 40
+  power: 35
   accuracyRate: 100
   isMustHit: 0
   isInstantaneousDeath: 0

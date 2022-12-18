@@ -31,14 +31,36 @@ public class SkillButton : MonoBehaviour
         if (_skill == null) return;
 
         BattleScene scene = Managers.Scene.CurrentScene as BattleScene;
+        if (scene == null) return;
         if (scene.IsPlayerTurn == false) return;
          
         bool isCritical = Random.value <= 0.06f ? true : false;
-        scene.EnemyPokemon.Damage(_skill.power, scene.PlayerPokemon.Attack, _skill.type, isCritical);
+        DamageType type = scene.EnemyPokemon.Damage(_skill.power, scene.PlayerPokemon.Attack, _skill.type, isCritical);
 
+        scene.SetInfoText($"{scene.PlayerPokemon.Name}의 {_skill.skillName}!");
+        StartCoroutine(ChangeTurn(scene, type));
         scene.UpdateUI();
-        scene.ChangeTurn();
         scene.AllClosePanel();
+    }
+
+    private IEnumerator ChangeTurn(BattleScene scene, DamageType type)
+    {
+        yield return new WaitForSeconds(0.5f);
+        switch (type)
+        {
+            case DamageType.GREAT:
+                scene.SetInfoText("효과가 굉장했다.");
+                break;
+            case DamageType.MEDIOCRE:
+                break;
+            case DamageType.NOTGOOD:
+                scene.SetInfoText("효과가 별로다.");
+                break;
+            case DamageType.NO:
+                scene.SetInfoText("효과가 없다.");
+                break;
+        }
+        scene.ChangeTurn();
     }
 
     private void SetInfo(string name, Define.PokeType type)

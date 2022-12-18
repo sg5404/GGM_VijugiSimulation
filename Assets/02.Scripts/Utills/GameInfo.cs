@@ -18,6 +18,7 @@ public class ItemPair
 [System.Serializable]
 public class AgentInfo
 {
+    public string Name;
     public Pokemon[] PokemonList = new Pokemon[6];
     //public Dictionary<ItemSO, int> itemDict = new Dictionary<ItemSO, int>(); // µñ¼Å³Ê¸®´Â Á÷·ÄÈ­ ¾ÈµÊ
     public List<ItemPair> itemList = new List<ItemPair>();
@@ -25,6 +26,8 @@ public class AgentInfo
 
     public AgentInfo()
     {
+        Name = "ºñÁÖ±â";
+
         for(int i = 0; i < 6; i++)
         {
             PokemonList[i] = null;

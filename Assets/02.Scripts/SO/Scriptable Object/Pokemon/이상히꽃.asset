@@ -20,5 +20,5 @@ MonoBehaviour:
   mainType: 13
   subType: 3
   scale: 2
-  skillTree: {fileID: 0}
+  skillTree: {fileID: 11400000, guid: 73c7bd1abcfc63a429a872251e62dbf4, type: 2}
   evolutionTree: []

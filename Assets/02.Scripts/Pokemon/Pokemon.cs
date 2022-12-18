@@ -12,6 +12,14 @@ public enum AbilityType
     SPEED,
 }
 
+public enum DamageType
+{
+    GREAT, // 효과가 굉장했다!
+    MEDIOCRE, // 효과가 평범했다!
+    NOTGOOD, // 효과가 별로였다.
+    NO // 효과가 없다.
+}
+
 [System.Serializable]
 public class Pokemon
 {
@@ -983,7 +991,7 @@ public class Pokemon
     #endregion
 
     #region Public Method
-    public void Damage(float amount, Define.PokeType type, bool isCritical = false)
+    public DamageType Damage(float amount, Define.PokeType type, bool isCritical = false)
     {
         // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2 * 자속 보정
         // amount = 위력 * 특수공격
@@ -992,12 +1000,23 @@ public class Pokemon
         int damage = (int)(((((((float)_level * 2f / 5f) + 2f) * amount / 50f) / (float)_block) + 2f) * (isCritical ? 2f : 1f) * typeCom * (mfx ? 2f : 1f));
         damage = Mathf.Max(damage, 1);
         this._hp -= damage;
+
+        return typeCom switch
+        {
+            0.25f => DamageType.NOTGOOD,
+            0.5f => DamageType.NOTGOOD,
+            1f => DamageType.MEDIOCRE,
+            2f => DamageType.GREAT,
+            4f => DamageType.GREAT,
+            0f => DamageType.NO,
+            _ => DamageType.MEDIOCRE,
+        };
     }
 
-    public void Damage(float power, float attack, Define.PokeType type, bool isCritical = false)
+    public DamageType Damage(float power, float attack, Define.PokeType type, bool isCritical = false)
     {
         // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2 * 자속 보정
-        Damage(power * attack, type, isCritical);
+        return Damage(power * attack, type, isCritical);
     }
 
     public void Heal(int heal)

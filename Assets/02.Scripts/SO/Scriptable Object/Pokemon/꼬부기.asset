@@ -20,7 +20,7 @@ MonoBehaviour:
   mainType: 11
   subType: 0
   scale: 0
-  skillTree: {fileID: 0}
+  skillTree: {fileID: 11400000, guid: 73c7bd1abcfc63a429a872251e62dbf4, type: 2}
   evolutionTree:
   - level: 16
     pokemonSO: {fileID: 11400000, guid: dbed11d5bf9196c468ad8a91cfaaf5e5, type: 2}
