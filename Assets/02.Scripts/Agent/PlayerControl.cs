@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
+using NaughtyAttributes;
 
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotSpeed;
+
+    [SerializeField]
+    private Vector3 topCameraPosOffset;
 
     private bool isMoveAble = false;
     private Rigidbody rigid;
@@ -16,11 +20,12 @@ public class PlayerControl : MonoBehaviour
     float rotationX = 0f;
 
     private Camera playerCam;
+    private object playerCamtransform;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        playerCam = transform.GetComponentInChildren<Camera>();
+        playerCam = Camera.main;
         Init();
     }
 
@@ -49,10 +54,8 @@ public class PlayerControl : MonoBehaviour
 
         rigid.velocity = moveDirection * Time.deltaTime;
 
-        rotationX += -Input.GetAxis("Mouse Y") * rotSpeed;
-        rotationX = Mathf.Clamp(rotationX, -60, 60);
-        playerCam.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * rotSpeed, 0);
+        playerCam.transform.position = Vector3.Lerp(playerCam.transform.position, transform.position + topCameraPosOffset, 0.6f);
+        playerCam.transform.LookAt(this.transform);
     }
 
     //private void OnTriggerStay(Collider other)

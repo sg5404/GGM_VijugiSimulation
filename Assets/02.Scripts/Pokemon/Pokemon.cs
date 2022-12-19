@@ -959,6 +959,7 @@ public class Pokemon
             if(e.level == _level)
             {
                 Evolution(e.pokemonSO);
+                return;
             }
         });
 
@@ -1011,12 +1012,12 @@ public class Pokemon
         return false;
     }
 
-    private void SkillCheck()
+    private void SkillCheck(bool isFirst = true)
     {
         // info SO에서 SkillTree 탐색하기
         foreach(var skill in _info.skillTree.pairs)
         {
-            if (IsGetSkill(skill.skill) == true) return;
+            if (IsGetSkill(skill.skill) == true) continue;
 
             if(skill.level <= _level)
             {
@@ -1026,8 +1027,11 @@ public class Pokemon
                 }
                 else
                 {
-                    int idx = Random.Range(0, MAX_SKILL_CNT);
-                    SetSkill(skill.skill, idx);
+                    if (isFirst == true)
+                    {
+                        int idx = Random.Range(0, MAX_SKILL_CNT);
+                        SetSkill(skill.skill, idx);
+                    }
                 }
             }
         }
@@ -1041,7 +1045,7 @@ public class Pokemon
     #endregion
 
     #region Public Method
-    public DamageType Damage(float amount, Define.PokeType type, bool isCritical = false)
+    public DamageType Damage (float amount, Define.PokeType type, bool isCritical = false)
     {
         // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2 * 자속 보정
         // amount = 위력 * 특수공격

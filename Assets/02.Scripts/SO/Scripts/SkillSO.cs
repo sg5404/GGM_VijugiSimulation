@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,4 +23,7 @@ public class SkillSO : ScriptableObject
     public bool isMustHit = false; // 필중기
     public bool isInstantaneousDeath = false; // 일격필상!
     public SkillRange skillRange = SkillRange.OneEnemy; // 스킬 범위
+
+    [ShowAssetPreview]
+    public GameObject skillEffectPrefab;
 }

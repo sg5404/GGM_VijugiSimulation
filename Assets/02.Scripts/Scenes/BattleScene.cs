@@ -365,13 +365,22 @@ public class BattleScene : BaseScene
 
     public void Attack(SkillSO skill)
     {
-        bool isCritical = Random.value <= 0.06f ? true : false;
-        DamageType type = _enemyPokemon.Damage(skill.power, _playerPokemon.Attack, skill.type, isCritical);
+        // ¸íÁß È®·ü ºñ±³
+        int rand = Random.Range(0, 101);
+        if (rand <= skill.accuracyRate)
+        {
+            bool isCritical = Random.value <= 0.06f ? true : false;
+            DamageType type = _enemyPokemon.Damage(skill.power, _playerPokemon.Attack, skill.type, isCritical);
 
-        SetInfoText($"{PlayerPokemon.Name}ÀÇ {skill.skillName}!");
-        StartCoroutine(ChangeTurnCoroutine(type));
-        UpdateUI();
-        AllClosePanel();
+            SetInfoText($"{PlayerPokemon.Name}ÀÇ {skill.skillName}!");
+            StartCoroutine(ChangeTurnCoroutine(type));
+            UpdateUI();
+            AllClosePanel();
+        }
+        else
+        {
+            SetInfoText($"{PlayerPokemon.Name}ÀÇ {skill.skillName}Àº ºû³ª°¬´Ù!");
+        }
     }
 
     private IEnumerator ChangeTurnCoroutine(DamageType type)

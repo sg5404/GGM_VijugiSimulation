@@ -4,17 +4,17 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 36418
+                    "instanceID": 43494
                 },
-                "_individualValue": 22,
+                "_individualValue": 31,
                 "_hp": 16,
                 "_maxHp": 16,
-                "_attack": 16,
+                "_attack": 17,
                 "_block": 16,
                 "_speed": 17,
                 "_skillList": [
                     {
-                        "instanceID": 36458
+                        "instanceID": 43536
                     },
                     {
                         "instanceID": 0
@@ -36,9 +36,9 @@
             },
             {
                 "_info": {
-                    "instanceID": 36420
+                    "instanceID": 43496
                 },
-                "_individualValue": 8,
+                "_individualValue": 4,
                 "_hp": 17,
                 "_maxHp": 17,
                 "_attack": 18,
@@ -46,16 +46,16 @@
                 "_speed": 19,
                 "_skillList": [
                     {
-                        "instanceID": 58230
+                        "instanceID": 30412
                     },
                     {
-                        "instanceID": 36422
+                        "instanceID": 43556
                     },
                     {
-                        "instanceID": 58234
+                        "instanceID": 43538
                     },
                     {
-                        "instanceID": 36458
+                        "instanceID": 43536
                     }
                 ],
                 "_level": 3,
@@ -201,6 +201,18 @@
                     "instanceID": 36424
                 },
                 "cnt": 145
+            },
+            {
+                "item": {
+                    "instanceID": 43246
+                },
+                "cnt": 15
+            },
+            {
+                "item": {
+                    "instanceID": 43498
+                },
+                "cnt": 10
             }
         ],
         "position": {
@@ -415,20 +427,20 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 57974
+            "instanceID": 30334
         },
-        "_individualValue": 24,
-        "_hp": 21,
-        "_maxHp": 21,
-        "_attack": 24,
-        "_block": 21,
-        "_speed": 26,
+        "_individualValue": 29,
+        "_hp": 22,
+        "_maxHp": 22,
+        "_attack": 23,
+        "_block": 22,
+        "_speed": 24,
         "_skillList": [
             {
-                "instanceID": 58250
+                "instanceID": 30376
             },
             {
-                "instanceID": 58278
+                "instanceID": 0
             },
             {
                 "instanceID": 0
@@ -443,6 +455,6 @@
         "_CurAccExp": 216,
         "_befAccExp": 125,
         "_NexAccExp": 343,
-        "_name": "꼬렛"
+        "_name": "구구"
     }
 }
