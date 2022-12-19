@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9915f930327bdfb4e9277d1ee22858e4, type: 3}
-  m_Name: Charmander
+  m_Name: "\uD30C\uC774\uB9AC"
   m_EditorClassIdentifier: 
   habcds: {fileID: 11400000, guid: 47319a8c44b6b6447b398bca5f1ff050, type: 2}
   name: "\uD30C\uC774\uB9AC"
@@ -19,6 +19,7 @@ MonoBehaviour:
   rarity: 0
   mainType: 10
   subType: 0
+  scale: 0
   skillTree: {fileID: 11400000, guid: fde7d8055848d8944bf1eec29f0000c5, type: 2}
   evolutionTree:
   - level: 16

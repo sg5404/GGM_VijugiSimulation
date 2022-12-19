@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9915f930327bdfb4e9277d1ee22858e4, type: 3}
-  m_Name: Charizard
+  m_Name: "\uB9AC\uC790\uB4DC"
   m_EditorClassIdentifier: 
-  habcds: {fileID: 11400000, guid: 389a47b1201e4464b8411a71f4431e33, type: 2}
-  name: "\uB9AC\uC790\uBABD"
-  image: {fileID: 21300000, guid: 8950dc2942be71d4f9ec27278b761822, type: 3}
-  prefab: {fileID: 6015134537784609270, guid: 546fbf42152783244a390896bbdcc944, type: 3}
-  rarity: 2
+  habcds: {fileID: 11400000, guid: 0f17c7f2f0390894b8175c6eecb849de, type: 2}
+  name: "\uB9AC\uC790\uB4DC"
+  image: {fileID: 21300000, guid: d16acf5814e02f041b434041aead91a3, type: 3}
+  prefab: {fileID: 3709863785419225564, guid: 45aec9423d51be342aa6c842c5f5ee25, type: 3}
+  rarity: 1
   mainType: 10
-  subType: 5
-  scale: 2
+  subType: 0
+  scale: 1
   skillTree: {fileID: 11400000, guid: fde7d8055848d8944bf1eec29f0000c5, type: 2}
-  evolutionTree: []
+  evolutionTree:
+  - level: 36
+    pokemonSO: {fileID: 11400000, guid: 69aed7b6862be5242a3c111308317351, type: 2}
