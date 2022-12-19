@@ -86,7 +86,7 @@ public class ItemPanel : MonoBehaviour
 
     public void CreateItem()
     {
-        for(int i = 0; i < _itemList.Count; i++)
+        for(int i = 0; i < _itemDict.Count; i++)
         {
             Item item = Managers.Resource.Instantiate("UI/Item", _parent).GetComponent<Item>();
             item.SetItem(_itemDict[i].item, _itemDict[i].cnt);

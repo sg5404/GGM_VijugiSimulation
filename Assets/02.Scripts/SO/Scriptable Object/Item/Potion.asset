@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a47a5bc66237a24dbe6cbad89f0dfcf, type: 3}
-  m_Name: MonsterBall
+  m_Name: Potion
   m_EditorClassIdentifier: 
-  name: "\uBAAC\uC2A4\uD130\uBCFC"
-  description: "\uBAAC\uC2A4\uD130 \uBCFC\uC774\uB2E4!!!!!!!!!!!!!!!!!"
-  image: {fileID: 21300000, guid: 8397fd9b78286ae42a1e08980c6f2a3e, type: 3}
+  name: "\uC0C1\uCC98\uC57D"
+  description: Potion
+  image: {fileID: 21300000, guid: 841435299f99d844da30b42e73d5c0c4, type: 3}

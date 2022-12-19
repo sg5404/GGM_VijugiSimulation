@@ -13,6 +13,8 @@ public class PokeArea : MonoBehaviour
     private int currentLevel;
     private int pokeNum;
 
+    private float timer; // 이걸로 바꾸기
+
     private void OnTriggerStay(Collider other)
     {
         if (!other.CompareTag("Player")) return;
@@ -21,9 +23,9 @@ public class PokeArea : MonoBehaviour
 
         if (control == null) return;
         if (control.h + control.v < 0.1f) return;
-        control.timer += Time.deltaTime;
-        if (control.timer < 1f) return;
-        control.timer = 0;
+        timer += Time.deltaTime;
+        if (timer < 1f) return;
+        timer = 0;
         if (Random.Range(0, 100.0f) > pokePercent) return;
         SetPokeMon();
         Pokemon wildPokemon = new Pokemon(pokemonList[pokeNum], SetLevel());

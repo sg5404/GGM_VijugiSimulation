@@ -20,8 +20,8 @@ public class Player : Agent
             SetPokemonOfIndex(new Pokemon(_startPokemonInfo[i], 3), i);
         }
 
-        SetItem(_item, _cnt);
-        
+        //SetItem(_item, _cnt);
+
         //for(int i = 0; i < _pokemonList.Length; i++)
         //{
         //    Debug.Log($"{_pokemonList[i].Name}");

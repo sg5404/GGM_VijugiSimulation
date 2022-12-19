@@ -48,6 +48,11 @@ public class PokemonButton : MonoBehaviour
         }
     }
 
+    public Pokemon GetPokemon()
+    {
+        return _pokemon;
+    }
+
     public void AddEvent(UnityAction action)
     {
         _btn.onClick.RemoveAllListeners();

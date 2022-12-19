@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d6bbc89870a6042ba1574f3e538a0d, type: 3}
+  m_Name: "600\uC871 \uB2E8\uB370\uAE30 \uC2A4\uD0AC\uD2B8\uB9AC"
+  m_EditorClassIdentifier: 
+  pairs:
+  - level: 1
+    skill: {fileID: 11400000, guid: d7415ed8e84cb4944bf8d32f977cee61, type: 2}
+  - level: 1
+    skill: {fileID: 11400000, guid: 89342173b49ec354ba15a836ee49fdcd, type: 2}
+  - level: 1
+    skill: {fileID: 11400000, guid: 6629d8369bb277a449211d172b7f6b39, type: 2}
+  - level: 5
+    skill: {fileID: 11400000, guid: 8792e51da254ef7488b46590c9dfa526, type: 2}
+  - level: 7
+    skill: {fileID: 11400000, guid: f5eacf8b5a2a77a48992eeb28fb944b2, type: 2}
+  - level: 16
+    skill: {fileID: 11400000, guid: 30025156cd278e242bcf50ad11a6ba7d, type: 2}
+  - level: 21
+    skill: {fileID: 11400000, guid: 7c2330ca035455441a049a96fdd8e4ae, type: 2}
+  - level: 22
+    skill: {fileID: 11400000, guid: a721e78e15dc4b745bb1b4507c2dacb1, type: 2}
+  - level: 23
+    skill: {fileID: 11400000, guid: 3ef286e0410abe64d817e072903c234c, type: 2}
+  - level: 27
+    skill: {fileID: 11400000, guid: a038f13613aa18e4a9ef93b693408206, type: 2}
+  - level: 35
+    skill: {fileID: 11400000, guid: bf1132b9748f0a747bd69ae33ef1e3f9, type: 2}
+  - level: 41
+    skill: {fileID: 11400000, guid: 81fe77a63ff21a740b8e24dea46b378f, type: 2}
+  - level: 47
+    skill: {fileID: 11400000, guid: e9707bfa54ffc6e4cb16b269a4104ac5, type: 2}
+  - level: 55
+    skill: {fileID: 11400000, guid: 1f057b0d6bf60d9499953d874bfb930e, type: 2}
+  - level: 63
+    skill: {fileID: 11400000, guid: fef8be44fa0b56c4688a4e88e8d52ef9, type: 2}
+  - level: 72
+    skill: {fileID: 11400000, guid: e2ac0ba786c353f4e92b71dcc76bed65, type: 2}
+  - level: 85
+    skill: {fileID: 11400000, guid: 1e24c4c20d7726846a450aac3f16e444, type: 2}
+  - level: 97
+    skill: {fileID: 11400000, guid: f2ec4f515dccf594a8a07924db7d9162, type: 2}

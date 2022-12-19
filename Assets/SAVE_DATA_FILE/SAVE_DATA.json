@@ -6,10 +6,10 @@
                 "_info": {
                     "instanceID": 43494
                 },
-                "_individualValue": 31,
-                "_hp": 16,
-                "_maxHp": 16,
-                "_attack": 17,
+                "_individualValue": 16,
+                "_hp": 15,
+                "_maxHp": 15,
+                "_attack": 16,
                 "_block": 16,
                 "_speed": 17,
                 "_skillList": [
@@ -38,7 +38,7 @@
                 "_info": {
                     "instanceID": 43496
                 },
-                "_individualValue": 4,
+                "_individualValue": 6,
                 "_hp": 17,
                 "_maxHp": 17,
                 "_attack": 18,
@@ -46,13 +46,13 @@
                 "_speed": 19,
                 "_skillList": [
                     {
-                        "instanceID": 30412
+                        "instanceID": 43538
                     },
                     {
                         "instanceID": 43556
                     },
                     {
-                        "instanceID": 43538
+                        "instanceID": 43558
                     },
                     {
                         "instanceID": 43536
@@ -198,21 +198,9 @@
         "itemList": [
             {
                 "item": {
-                    "instanceID": 36424
-                },
-                "cnt": 145
-            },
-            {
-                "item": {
-                    "instanceID": 43246
-                },
-                "cnt": 15
-            },
-            {
-                "item": {
                     "instanceID": 43498
                 },
-                "cnt": 10
+                "cnt": 45
             }
         ],
         "position": {
@@ -427,20 +415,20 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 30334
+            "instanceID": 30332
         },
-        "_individualValue": 29,
-        "_hp": 22,
-        "_maxHp": 22,
-        "_attack": 23,
+        "_individualValue": 4,
+        "_hp": 21,
+        "_maxHp": 21,
+        "_attack": 25,
         "_block": 22,
-        "_speed": 24,
+        "_speed": 27,
         "_skillList": [
             {
                 "instanceID": 30376
             },
             {
-                "instanceID": 0
+                "instanceID": 30378
             },
             {
                 "instanceID": 0
@@ -449,12 +437,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 6,
+        "_level": 7,
         "_curExp": 0,
-        "_maxExp": 127,
-        "_CurAccExp": 216,
-        "_befAccExp": 125,
-        "_NexAccExp": 343,
-        "_name": "구구"
+        "_maxExp": 169,
+        "_CurAccExp": 343,
+        "_befAccExp": 216,
+        "_NexAccExp": 512,
+        "_name": "꼬렛"
     }
 }

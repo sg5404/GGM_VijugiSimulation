@@ -9,6 +9,6 @@ public class ItemSO : ScriptableObject
 {
     public new string name;
     public string description;
-    [ShowAssetPreview(32, 32)]
+    [ShowAssetPreview(64, 64)]
     public Sprite image;
 }

@@ -42,17 +42,22 @@ public class PlayerControl : MonoBehaviour
 
     void KeyMove()
     {
+        if (!isMoveAble) return;
+
         h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
 
-        if (!isMoveAble) return;
+        //Vector3 forward = transform.TransformDirection(Vector3.forward);
+        //Vector3 right = transform.TransformDirection(Vector3.right);
 
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
+        Vector3 moveDirection = new Vector3(h, 0, v);
+        moveDirection.Normalize();
 
-        Vector3 moveDirection = (forward * moveSpeed * v) + (right * moveSpeed * h);
-
-        rigid.velocity = moveDirection * Time.deltaTime;
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        if(moveDirection != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection), 0.8f);
+        }
 
         playerCam.transform.position = Vector3.Lerp(playerCam.transform.position, transform.position + topCameraPosOffset, 0.6f);
         playerCam.transform.LookAt(this.transform);
