@@ -5,7 +5,7 @@ using NaughtyAttributes;
 
 public class PokeArea : MonoBehaviour
 {
-    [SerializeField] private int pokePercent;
+    //[SerializeField] private int pokePercent;
     [SerializeField, MinValue(0), MaxValue(100)] private int pokePercent;
     [SerializeField] private List<PokemonInfoSO> pokemonList;
     [SerializeField, MinValue(1), MaxValue(100)] private int minLevel;
@@ -14,7 +14,7 @@ public class PokeArea : MonoBehaviour
     private int currentLevel;
     private int pokeNum;
 
-    private float timer; // �̰ɷ� �ٲٱ�
+    private float timer; // �̰ɷ� �ٲٱ�
 
     private void OnTriggerStay(Collider other)
     {
@@ -38,7 +38,7 @@ public class PokeArea : MonoBehaviour
         Managers.Scene.LoadScene(Define.Scene.Battle);
     }
 
-    PokemonInfoSO SetPokeMon() //?�켓�?지??
+    PokemonInfoSO SetPokeMon() //?�켓�?지??
     {
         //pokeNum = Random.Range(0, poke.Count);
         pokeNum = Random.Range(0, pokemonList.Count);

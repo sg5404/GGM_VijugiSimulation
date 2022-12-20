@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 241893352312384077}
   - component: {fileID: 241893352312384066}
   - component: {fileID: 241893352312384067}
+  - component: {fileID: 3157759615005074948}
   - component: {fileID: 241893352312384073}
   - component: {fileID: 241893352312384078}
   - component: {fileID: 3529959371845216539}
@@ -119,6 +120,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &3157759615005074948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241893352312384064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa57ef5effcd2e44825c04858021a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &241893352312384073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53aa8d9ff253ed40bd54d6ec86ff5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 500
+  moveSpeed: 5
   rotSpeed: 5
   topCameraPosOffset: {x: 0, y: 10, z: -5}
   h: 0
