@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEditor.Progress;
 
 public class ItemPanel : MonoBehaviour
@@ -91,6 +93,14 @@ public class ItemPanel : MonoBehaviour
             Item item = Managers.Resource.Instantiate("UI/Item", _parent).GetComponent<Item>();
             item.SetItem(_itemDict[i].item, _itemDict[i].cnt);
             _itemList.Add(item);
+        }
+    }
+
+    public void AddAllItemEvent(UnityAction action = null)
+    {
+        foreach(var item in _itemList)
+        {
+            item.AddEvent(action);
         }
     }
 

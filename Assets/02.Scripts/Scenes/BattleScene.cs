@@ -308,6 +308,7 @@ public class BattleScene : BaseScene
                 // 아이테 창 열기
                 SetActionPanel((int)ActionType.Item);
                 _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().SetList(_playerInfo.itemList);
+                _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().AddAllItemEvent(ThrowMonsterball);
                 break;
             case ActionType.Run:
                 // 도망 가능한지 여부 판단
@@ -343,6 +344,36 @@ public class BattleScene : BaseScene
                     SetInfoText("도망칠 수 없다!");
                 }
                 break;
+        }
+    }
+
+    private void ThrowMonsterball()
+    {
+    }
+
+    private IEnumerator ThrowMonsterballCoroutine()
+    {
+        SetInfoText($"{_playerInfo.Name}은(는) 몬스터볼을 던졌다!");
+        // 몬스터 볼 던지기 -> 닷트윈.온컴플릿트(() => 적 포켓몬 볼로 바꾸기);
+        yield return new WaitForSeconds(3f); // 대기하면서 포켓몬 볼 애니메이션
+        int rand = Random.Range(0, 101);
+        int ra = _enemyPokemon.Info.rarity switch
+        {
+            Define.PokeRarity.Common => 40,
+            Define.PokeRarity.Rare => 30,
+            Define.PokeRarity.unique => 20,
+            Define.PokeRarity.Legendary => 10,
+            _ => 40,
+        };
+
+        if (rand <= ra)
+        {
+            // 포획 성곡
+            
+        }
+        else
+        {
+            // 실패
         }
     }
 
