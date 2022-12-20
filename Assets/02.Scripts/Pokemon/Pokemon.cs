@@ -12,6 +12,14 @@ public enum AbilityType
     SPEED,
 }
 
+public enum DamageType
+{
+    GREAT, // 효과가 굉장했다!
+    MEDIOCRE, // 효과가 평범했다!
+    NOTGOOD, // 효과가 별로였다.
+    NO // 효과가 없다.
+}
+
 [System.Serializable]
 public class Pokemon
 {
@@ -52,6 +60,8 @@ public class Pokemon
     [SerializeField] protected string _name;
     public string Name => _name;
 
+
+
     //[{(종족값 * 2) + 개체값} * 레벨/100] + 10 + 레벨
 
     public Pokemon()
@@ -71,13 +81,13 @@ public class Pokemon
 
         int beforeLevel = _level - 1;
         _befAccExp = (beforeLevel * beforeLevel * beforeLevel);
-        _curExp = _befAccExp;
+        _curExp = 0;
         _CurAccExp = (_level * _level * _level);
         int nextLevel = _level + 1;
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
         _maxExp = _NexAccExp - _CurAccExp;
 
-        // 스킬 레벨에 따라 배움 처리
+        SkillCheck();
     }
 
     public Pokemon(Pokemon pokemon) 
@@ -96,7 +106,7 @@ public class Pokemon
         _NexAccExp = pokemon._NexAccExp;
         _maxExp = _NexAccExp - _CurAccExp;
 
-        // 스킬 레벨에 따라 배움 처리
+        SkillCheck();
     }
 
     #region Private Method
@@ -932,12 +942,15 @@ public class Pokemon
         int exp = _curExp - _maxExp;
         _level++;
         _curExp = 0;
-        _curExp += exp;
         _befAccExp = _CurAccExp;
         _CurAccExp = (_level * _level * _level);
         int nextLevel = _level + 1;
         _NexAccExp = (nextLevel * nextLevel * nextLevel);
         _maxExp = _NexAccExp - _CurAccExp;
+        AddExp(exp);
+
+        // 레빌이 만족하면 스킬 얻기
+        SkillCheck();
 
         SetPokemonInfo();
 
@@ -946,20 +959,37 @@ public class Pokemon
             if(e.level == _level)
             {
                 Evolution(e.pokemonSO);
+                return;
             }
         });
 
         // Update UI
     }
 
-    private bool IsEquipSkill()
+    private bool IsEquipSkill() // 빈 스킬공간 있음?
     {
-        return true; // 미래의 내가 해주겠지
+        for (int i = 0; i < MAX_SKILL_CNT; i++)
+        {
+            if (_skillList[i] == null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    private int GetEmptySkillIndex()
+    private int GetEmptySkillIndex() // 빈스킬 공간 인덱스
     {
-        return 0; // 미래의 내가 해주겠지 2
+        for (int i = 0; i < MAX_SKILL_CNT; i++)
+        {
+            if (_skillList[i] == null)
+            {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     private void Evolution(PokemonInfoSO pokemon)
@@ -969,15 +999,53 @@ public class Pokemon
         SetPokemonInfo();
     }
 
-    private void SkillCheck()
+    private bool IsGetSkill(SkillSO skill)
+    {
+        for(int i = 0; i < MAX_SKILL_CNT; i++)
+        {
+            if (_skillList[i] == skill)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void SkillCheck(bool isFirst = true)
     {
         // info SO에서 SkillTree 탐색하기
+        foreach(var skill in _info.skillTree.pairs)
+        {
+            if (IsGetSkill(skill.skill) == true) continue;
+
+            if(skill.level <= _level)
+            {
+                if (IsEquipSkill())
+                {
+                    SetSkill(skill.skill);
+                }
+                else
+                {
+                    if (isFirst == true)
+                    {
+                        int idx = Random.Range(0, MAX_SKILL_CNT);
+                        SetSkill(skill.skill, idx);
+                    }
+                }
+            }
+        }
+    }
+
+    private void SetSkill(SkillSO skill, int index)
+    {
+        _skillList[index] = skill;
     }
 
     #endregion
 
     #region Public Method
-    public void Damage(float amount, Define.PokeType type, bool isCritical = false)
+    public DamageType Damage (float amount, Define.PokeType type, bool isCritical = false)
     {
         // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2 * 자속 보정
         // amount = 위력 * 특수공격
@@ -986,12 +1054,23 @@ public class Pokemon
         int damage = (int)(((((((float)_level * 2f / 5f) + 2f) * amount / 50f) / (float)_block) + 2f) * (isCritical ? 2f : 1f) * typeCom * (mfx ? 2f : 1f));
         damage = Mathf.Max(damage, 1);
         this._hp -= damage;
+
+        return typeCom switch
+        {
+            0.25f => DamageType.NOTGOOD,
+            0.5f => DamageType.NOTGOOD,
+            1f => DamageType.MEDIOCRE,
+            2f => DamageType.GREAT,
+            4f => DamageType.GREAT,
+            0f => DamageType.NO,
+            _ => DamageType.MEDIOCRE,
+        };
     }
 
-    public void Damage(float power, float attack, Define.PokeType type, bool isCritical = false)
+    public DamageType Damage(float power, float attack, Define.PokeType type, bool isCritical = false)
     {
         // (((((레벨 × 2 ÷ 5) + 2) × 위력 × 특수공격 ÷ 50) ÷ 특수방어) + 2) * 급소* 상성1 * 상성2 * 자속 보정
-        Damage(power * attack, type, isCritical);
+        return Damage(power * attack, type, isCritical);
     }
 
     public void Heal(int heal)
@@ -1006,9 +1085,10 @@ public class Pokemon
 
     public void AddExp(int exp)
     {
-        _curExp += exp;
+        if (_level < 100)
+            _curExp += exp;
 
-        if(_curExp >= _maxExp)
+        if(_curExp >= _maxExp && _level < 100)
         {
             LevelUp();
         }
@@ -1016,6 +1096,8 @@ public class Pokemon
 
     public void SetSkill(SkillSO skill)
     {
+        if (IsGetSkill(skill) == true) return;
+
         if (IsEquipSkill() == true)
         {
             _skillList[GetEmptySkillIndex()] = skill;

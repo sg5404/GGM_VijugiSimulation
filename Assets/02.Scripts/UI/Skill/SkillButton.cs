@@ -31,15 +31,13 @@ public class SkillButton : MonoBehaviour
         if (_skill == null) return;
 
         BattleScene scene = Managers.Scene.CurrentScene as BattleScene;
+        if (scene == null) return;
         if (scene.IsPlayerTurn == false) return;
-         
-        bool isCritical = Random.value <= 0.06f ? true : false;
-        scene.EnemyPokemon.Damage(_skill.power, scene.PlayerPokemon.Attack, _skill.type, isCritical);
 
-        scene.UpdateUI();
-        scene.ChangeTurn();
-        scene.AllClosePanel();
+        scene.Attack(_skill);
     }
+
+    
 
     private void SetInfo(string name, Define.PokeType type)
     {

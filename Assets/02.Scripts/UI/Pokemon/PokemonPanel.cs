@@ -46,11 +46,17 @@ public class PokemonPanel : MonoBehaviour
             {
                 BattleScene scene = Managers.Scene.CurrentScene as BattleScene;
 
+                if (scene == null) return;
                 if (scene.IsPlayerTurn == false) return;
-                scene?.SwapPokemon(0, index); // i가 클로저ㅗ디서 계속 살아 있으니까 6으로 인식되는 듯
+                if (0 == index) return;
+                if (_pokemonList[index] == null) return;
+                if (_pokemonList[index].Info == null) return;
+                if (_pokemonBtnList[index].GetPokemon() == null) return;
+
+                scene.SwapPokemon(0, index);
                 SetPokeom(scene.PlayerInfo.PokemonList);
-                scene?.ChangeTurn();
-                scene?.AllClosePanel();
+                scene.ChangeTurn();
+                scene.AllClosePanel();
             });
         }
     }

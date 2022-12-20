@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9915f930327bdfb4e9277d1ee22858e4, type: 3}
+  m_Name: "\uBC84\uD130\uD480"
+  m_EditorClassIdentifier: 
+  habcds: {fileID: 11400000, guid: c6baa44ef77621b46ad3915f6572880a, type: 2}
+  name: "\uBC84\uD130\uD50C"
+  image: {fileID: 21300000, guid: d64f481efe42f8a4ca064a4cff21dd4a, type: 3}
+  prefab: {fileID: 954404189217225392, guid: 8ad432498c0831b419653087371c4acf, type: 3}
+  rarity: 1
+  mainType: 6
+  subType: 5
+  scale: 1
+  skillTree: {fileID: 11400000, guid: b3b625744b3ede34bb1ea646832f21d3, type: 2}
+  evolutionTree: []

@@ -32,7 +32,7 @@ public class Agent : MonoBehaviour
         AgentInfo info = new AgentInfo();
         info.PokemonList = this._pokemonList;
         //info.itemDict = this._itemDict;
-        this._itemList = info.itemList;
+        info.itemList = this._itemList;
 
         return info;
     }

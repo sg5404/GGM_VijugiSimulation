@@ -6,13 +6,15 @@ using NaughtyAttributes;
 public class PokeArea : MonoBehaviour
 {
     [SerializeField] private int pokePercent;
-    //[SerializeField] private List<PokeInformationSO> poke;
+    [SerializeField, MinValue(0), MaxValue(100)] private int pokePercent;
     [SerializeField] private List<PokemonInfoSO> pokemonList;
     [SerializeField, MinValue(1), MaxValue(100)] private int minLevel;
     [SerializeField, MinValue(1), MaxValue(100)] private int maxLevel;
 
     private int currentLevel;
     private int pokeNum;
+
+    private float timer; // ¿Ã∞…∑Œ πŸ≤Ÿ±‚
 
     private void OnTriggerStay(Collider other)
     {
@@ -22,9 +24,9 @@ public class PokeArea : MonoBehaviour
 
         if (control == null) return;
         if (control.h + control.v < 0.1f) return;
-        control.timer += Time.deltaTime;
-        if (control.timer < 1f) return;
-        control.timer = 0;
+        timer += Time.deltaTime;
+        if (timer < 1f) return;
+        timer = 0;
         if (Random.Range(0, 100.0f) > pokePercent) return;
 
         Pokemon wildPokemon = new Pokemon(SetPokeMon(), SetLevel());
@@ -36,7 +38,7 @@ public class PokeArea : MonoBehaviour
         Managers.Scene.LoadScene(Define.Scene.Battle);
     }
 
-    PokemonInfoSO SetPokeMon() //Ìè¨ÏºìÎ™¨ ÏßÄÏ†ï
+    PokemonInfoSO SetPokeMon() //?¨ÏºìÎ™?ÏßÄ??
     {
         //pokeNum = Random.Range(0, poke.Count);
         pokeNum = Random.Range(0, pokemonList.Count);

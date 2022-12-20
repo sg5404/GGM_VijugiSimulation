@@ -8,8 +8,6 @@ public class Player : Agent
     [SerializeField]
     private List<PokemonInfoSO> _startPokemonInfo;
     [SerializeField]
-    private SkillSO _skill;
-    [SerializeField]
     private ItemSO _item;
     public int _cnt = 5;
     // Debug Code
@@ -22,10 +20,8 @@ public class Player : Agent
             SetPokemonOfIndex(new Pokemon(_startPokemonInfo[i], 3), i);
         }
 
-        _pokemonList[0].SetSkill(_skill);
+        //SetItem(_item, _cnt);
 
-        SetItem(_item, _cnt);
-        
         //for(int i = 0; i < _pokemonList.Length; i++)
         //{
         //    Debug.Log($"{_pokemonList[i].Name}");
