@@ -3,17 +3,17 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 36356
+                    "instanceID": 32520
                 },
-                "_individualValue": 28,
-                "_hp": 16,
-                "_maxHp": 16,
+                "_individualValue": 6,
+                "_hp": 15,
+                "_maxHp": 15,
                 "_attack": 16,
-                "_block": 16,
+                "_block": 15,
                 "_speed": 17,
                 "_skillList": [
                     {
-                        "instanceID": 36360
+                        "instanceID": 32580
                     },
                     {
                         "instanceID": 0
@@ -35,9 +35,9 @@
             },
             {
                 "_info": {
-                    "instanceID": 36358
+                    "instanceID": 32518
                 },
-                "_individualValue": 19,
+                "_individualValue": 14,
                 "_hp": 18,
                 "_maxHp": 18,
                 "_attack": 18,
@@ -406,14 +406,14 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": -51674
+            "instanceID": 32514
         },
-        "_individualValue": 3,
-        "_hp": 21,
-        "_maxHp": 21,
-        "_attack": 19,
-        "_block": 20,
-        "_speed": 21,
+        "_individualValue": 13,
+        "_hp": 16,
+        "_maxHp": 16,
+        "_attack": 15,
+        "_block": 15,
+        "_speed": 16,
         "_skillList": [
             {
                 "instanceID": 0
@@ -428,12 +428,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 6,
-        "_curExp": 125,
-        "_maxExp": 127,
-        "_CurAccExp": 216,
-        "_befAccExp": 125,
-        "_NexAccExp": 343,
+        "_level": 3,
+        "_curExp": 8,
+        "_maxExp": 37,
+        "_CurAccExp": 27,
+        "_befAccExp": 8,
+        "_NexAccExp": 64,
         "_name": "캐터피"
     }
 }
