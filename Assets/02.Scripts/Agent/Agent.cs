@@ -6,12 +6,14 @@ public class Agent : MonoBehaviour
 {
     private const int maxPokemonCount = 6;
 
+    protected string _name;
     protected Pokemon[] _pokemonList = new Pokemon[maxPokemonCount];
     //protected Dictionary<ItemSO, int> _itemDict = new Dictionary<ItemSO, int>();
     protected List<ItemPair> _itemList = new List<ItemPair>();
 
     public Agent()
     {
+        _name = "∫Ò¡÷±‚";
         for(int i = 0; i < _pokemonList.Length; i++)
         {
             _pokemonList[i] = null;
@@ -22,17 +24,21 @@ public class Agent : MonoBehaviour
 
     public void SetInfo(AgentInfo info)
     {
+        this._name = info.Name;
         this._pokemonList = info.PokemonList;
         //this._itemDict = info.itemDict;
         this._itemList = info.itemList;
+        this.transform.position = info.position;
     }
 
     public AgentInfo GetInfo()
     {
         AgentInfo info = new AgentInfo();
+        info.Name = this._name;
         info.PokemonList = this._pokemonList;
         //info.itemDict = this._itemDict;
         info.itemList = this._itemList;
+        info.position = this.transform.position;
 
         return info;
     }

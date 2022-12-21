@@ -38,7 +38,7 @@ public class PokeArea : MonoBehaviour
         Managers.Scene.LoadScene(Define.Scene.Battle);
     }
 
-    PokemonInfoSO SetPokeMon() //?�켓�?지??
+    PokemonInfoSO SetPokeMon() //?�켓�?지??
     {
         //pokeNum = Random.Range(0, poke.Count);
         pokeNum = Random.Range(0, pokemonList.Count);

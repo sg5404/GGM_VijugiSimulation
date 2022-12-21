@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 241893352312384073}
   - component: {fileID: 241893352312384078}
   - component: {fileID: 3529959371845216539}
+  - component: {fileID: 6719667197623144637}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -149,6 +150,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69aed7b6862be5242a3c111308317351, type: 2}
   _item: {fileID: 11400000, guid: de03ab29f460b0a4780ad8d385ceb0b5, type: 2}
   _cnt: 5
+  OnMovementEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6719667197623144637}
+        m_TargetAssemblyTypeName: AgentMovenent, Assembly-CSharp
+        m_MethodName: Movenent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &241893352312384078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,17 +172,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241893352312384064}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b53aa8d9ff253ed40bd54d6ec86ff5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rotSpeed: 5
-  topCameraPosOffset: {x: 0, y: 10, z: -5}
   h: 0
   v: 0
-  timer: 0
 --- !u!114 &3529959371845216539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +192,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUsing: 0
+--- !u!114 &6719667197623144637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241893352312384064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659b0385c7b8de84cb0d47b195edf0ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 5
+  _runSpeedOffset: 1.5
+  _rotSpeed: 10
 --- !u!1 &500293007471264680
 GameObject:
   m_ObjectHideFlags: 0

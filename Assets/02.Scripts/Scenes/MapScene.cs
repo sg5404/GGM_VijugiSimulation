@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MapScene : BaseScene
 {
+    private CameraController _cc;
+
     private GameInfo _gameInfo;
 
     private Player _player;
@@ -20,7 +22,10 @@ public class MapScene : BaseScene
         _player = Managers.Resource.Instantiate("Player/Player").GetComponent<Player>();
 
         _player.SetInfo(_gameInfo.PlayerInfo);
-        _player.transform.position = _gameInfo.PlayerInfo.position;
+        _player.transform.position = new Vector3(_gameInfo.PlayerInfo.position.x, _gameInfo.PlayerInfo.position.y, _gameInfo.PlayerInfo.position.z);
+
+        _cc = Camera.main.GetComponent<CameraController>();
+        _cc.SetTarget(_player.gameObject);
     }
 
     public override void Clear()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Agent
 {
@@ -12,6 +13,8 @@ public class Player : Agent
     public int _cnt = 5;
     // Debug Code
 
+    public UnityEvent<float, float> OnMovementEvent = null;
+
     private void Start()
     {
         // Debug Code
@@ -20,15 +23,18 @@ public class Player : Agent
             SetPokemonOfIndex(new Pokemon(_startPokemonInfo[i], 3), i);
         }
 
-        //SetItem(_item, _cnt);
+        SetItem(_item, _cnt);
+    }
 
-        //for(int i = 0; i < _pokemonList.Length; i++)
-        //{
-        //    Debug.Log($"{_pokemonList[i].Name}");
-        //}
-
-        //Debug.Log($"isFull : {IsFullPokemonList()}");
-        //Debug.Log($"isEmpty : {IsEmptyPokemonList()}");
-
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            OnMovementEvent?.Invoke(Input.GetAxis("Horizontal") * 1.5f, Input.GetAxis("Vertical") * 1.5f);
+        }
+        else
+        {
+            OnMovementEvent?.Invoke(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
     }
 }

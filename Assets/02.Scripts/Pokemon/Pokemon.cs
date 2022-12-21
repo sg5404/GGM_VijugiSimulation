@@ -1014,6 +1014,8 @@ public class Pokemon
 
     private void SkillCheck(bool isFirst = true)
     {
+        if (_info.skillTree == null) return;
+        
         // info SO에서 SkillTree 탐색하기
         foreach(var skill in _info.skillTree.pairs)
         {
@@ -1028,6 +1030,11 @@ public class Pokemon
                 else
                 {
                     if (isFirst == true)
+                    {
+                        int idx = Random.Range(0, MAX_SKILL_CNT);
+                        SetSkill(skill.skill, idx);
+                    }
+                    else
                     {
                         int idx = Random.Range(0, MAX_SKILL_CNT);
                         SetSkill(skill.skill, idx);
@@ -1054,6 +1061,10 @@ public class Pokemon
         int damage = (int)(((((((float)_level * 2f / 5f) + 2f) * amount / 50f) / (float)_block) + 2f) * (isCritical ? 2f : 1f) * typeCom * (mfx ? 2f : 1f));
         damage = Mathf.Max(damage, 1);
         this._hp -= damage;
+        if(_hp < 0)
+        {
+            this._hp = 0;
+        }
 
         return typeCom switch
         {
@@ -1085,8 +1096,8 @@ public class Pokemon
 
     public void AddExp(int exp)
     {
-        if (_level < 100)
-            _curExp += exp;
+        //if (_level < 100)
+        _curExp += exp;
 
         if(_curExp >= _maxExp && _level < 100)
         {

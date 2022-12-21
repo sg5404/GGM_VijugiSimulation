@@ -1,6 +1,44 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//[System.Serializable]
+//public class JVector3
+//{
+//    [JsonProperty("x")]
+//    public float x;
+//    [JsonProperty("y")]
+//    public float y;
+//    [JsonProperty("z")]
+//    public float z;
+
+//    public JVector3()
+//    {
+//        x = y = z = 0;
+//    }
+
+//    public JVector3(float x, float y, float z)
+//    {
+//        this.x = x;
+//        this.y = y;
+//        this.z = z;
+//    }
+
+//    public JVector3(Transform transform)
+//    {
+//        this.x = transform.position.x;
+//        this.y = transform.position.y;
+//        this.z = transform.position.z;
+//    }
+
+//    public JVector3(Vector3 pos)
+//    {
+//        this.x = pos.x;
+//        this.y = pos.y;
+//        this.z = pos.z;
+//    }
+//}
 
 [System.Serializable]
 public class ItemPair

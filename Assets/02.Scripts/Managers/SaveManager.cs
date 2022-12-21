@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 using Unity.VisualScripting;
+using Newtonsoft.Json;
 
 public class SaveManager
 {

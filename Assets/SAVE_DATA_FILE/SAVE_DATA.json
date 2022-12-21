@@ -4,9 +4,9 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 32792
+                    "instanceID": 35394
                 },
-                "_individualValue": 12,
+                "_individualValue": 9,
                 "_hp": 15,
                 "_maxHp": 15,
                 "_attack": 16,
@@ -14,7 +14,7 @@
                 "_speed": 17,
                 "_skillList": [
                     {
-                        "instanceID": 32856
+                        "instanceID": 37396
                     },
                     {
                         "instanceID": 0
@@ -36,26 +36,26 @@
             },
             {
                 "_info": {
-                    "instanceID": 32790
+                    "instanceID": 37416
                 },
-                "_individualValue": 26,
-                "_hp": 18,
-                "_maxHp": 18,
+                "_individualValue": 7,
+                "_hp": 17,
+                "_maxHp": 17,
                 "_attack": 18,
-                "_block": 18,
+                "_block": 17,
                 "_speed": 19,
                 "_skillList": [
                     {
-                        "instanceID": 32870
+                        "instanceID": 37506
                     },
                     {
-                        "instanceID": 32872
+                        "instanceID": 37398
                     },
                     {
-                        "instanceID": 32874
+                        "instanceID": 37510
                     },
                     {
-                        "instanceID": 32858
+                        "instanceID": 37396
                     }
                 ],
                 "_level": 3,
@@ -195,11 +195,18 @@
                 "_name": ""
             }
         ],
-        "itemList": [],
+        "itemList": [
+            {
+                "item": {
+                    "instanceID": 50106
+                },
+                "cnt": 35
+            }
+        ],
         "position": {
-            "x": 0.0,
-            "y": 1.0,
-            "z": 0.0
+            "x": 46.988121032714847,
+            "y": 0.999997615814209,
+            "z": 20.666549682617189
         }
     },
     "EnemyInfo": {
@@ -408,17 +415,17 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 32792
+            "instanceID": 35394
         },
-        "_individualValue": 17,
-        "_hp": 19,
-        "_maxHp": 19,
-        "_attack": 21,
-        "_block": 20,
-        "_speed": 22,
+        "_individualValue": 25,
+        "_hp": 16,
+        "_maxHp": 16,
+        "_attack": 16,
+        "_block": 16,
+        "_speed": 17,
         "_skillList": [
             {
-                "instanceID": 32856
+                "instanceID": 37396
             },
             {
                 "instanceID": 0
@@ -430,12 +437,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 5,
+        "_level": 3,
         "_curExp": 0,
-        "_maxExp": 91,
-        "_CurAccExp": 125,
-        "_befAccExp": 64,
-        "_NexAccExp": 216,
+        "_maxExp": 37,
+        "_CurAccExp": 27,
+        "_befAccExp": 8,
+        "_NexAccExp": 64,
         "_name": "파이리"
     }
 }

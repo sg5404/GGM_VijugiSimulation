@@ -5,39 +5,18 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    private Transform _target;
+    private Vector3 _topCameraPosOffset = new Vector3(0, 10, -5);
 
-    [SerializeField]
-    private Vector3 _offset;
-    [SerializeField]
-    private float _moveSpeed;
-    [SerializeField]
-    private float _rotateSpeed;
+    private GameObject _target;
 
-    private float xAxis = 0f;
-    private float yAxis = 0f;
-
-    void LateUpdate()
+    public void SetTarget(GameObject target)
     {
-        //transform.LookAt(_target);
-        transform.position = Vector3.Lerp(transform.position, _target.position + _offset, _moveSpeed * Time.deltaTime);
-
-        xAxis = Input.GetAxis("Mouse X");
-        yAxis = Input.GetAxis("Mouse Y");
-
-        //transform.LookAt(_target.position);
-        if(yAxis != 0 || xAxis != 0)
-        {
-            Quaternion q = _target.rotation;
-            q.eulerAngles = new Vector3(q.eulerAngles.x + yAxis * _rotateSpeed, q.eulerAngles.y + xAxis * _rotateSpeed, q.eulerAngles.z);
-            
-        }
-
-        transform.rotation = Quaternion.Euler(yAxis, xAxis, 0);
+        _target = target;
     }
 
-    public void SetTarget(Transform target)
+    private void LateUpdate()
     {
-        this._target = target;
+        this.transform.position = Vector3.Lerp(this.transform.position, _target.transform.position + _topCameraPosOffset, 0.6f);
+        this.transform.LookAt(_target.transform);
     }
 }

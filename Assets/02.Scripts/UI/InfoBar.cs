@@ -38,10 +38,26 @@ public class InfoBar : MonoBehaviour
         _hp = hp;
         _maxHp = maxHp;
         _hpBar.value = (float)hp / maxHp;
+        if(hp <= 0)
+        {
+            _hpBar.transform.Find("Fill Area").gameObject.SetActive(false);
+        }
+        else
+        {
+            _hpBar.transform.Find("Fill Area").gameObject.SetActive(true);
+        }
 
         _exp = exp;
         _maxExp = maxExp;
         _expBar.value = (float)exp / maxExp;
+        if(exp <= 0)
+        {
+            _expBar.transform.Find("Fill Area").gameObject.SetActive(false);
+        }
+        else
+        {
+            _expBar.transform.Find("Fill Area").gameObject.SetActive(true);
+        }
     }
 
     public void SetInfo(UIInfo info)
