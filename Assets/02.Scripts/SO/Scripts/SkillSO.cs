@@ -11,6 +11,12 @@ public enum SkillRange
     Evenyone, // 나 포함 모두
 }
 
+public enum SkillTransform
+{
+    Me,
+    Enemy
+}
+
 [CreateAssetMenu(menuName = "SO/Creature/Pokemon/Skill/SkillData"), System.Serializable]
 public class SkillSO : ScriptableObject
 {
@@ -24,6 +30,7 @@ public class SkillSO : ScriptableObject
     public bool isInstantaneousDeath = false; // 일격필상!
     public SkillRange skillRange = SkillRange.OneEnemy; // 스킬 범위
 
-    [ShowAssetPreview]
+    public SkillTransform skillTransform;
+    [ShowAssetPreview(64, 64)]
     public GameObject skillEffectPrefab;
 }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 150
   attack: 50
-  block: 300
+  block: 400
   speed: 100

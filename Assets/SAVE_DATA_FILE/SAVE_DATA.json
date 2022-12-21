@@ -1,11 +1,12 @@
 {
     "PlayerInfo": {
+        "Name": "비주기",
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 32520
+                    "instanceID": 32792
                 },
-                "_individualValue": 6,
+                "_individualValue": 12,
                 "_hp": 15,
                 "_maxHp": 15,
                 "_attack": 16,
@@ -13,7 +14,7 @@
                 "_speed": 17,
                 "_skillList": [
                     {
-                        "instanceID": 32580
+                        "instanceID": 32856
                     },
                     {
                         "instanceID": 0
@@ -26,7 +27,7 @@
                     }
                 ],
                 "_level": 3,
-                "_curExp": 8,
+                "_curExp": 0,
                 "_maxExp": 37,
                 "_CurAccExp": 27,
                 "_befAccExp": 8,
@@ -35,9 +36,9 @@
             },
             {
                 "_info": {
-                    "instanceID": 32518
+                    "instanceID": 32790
                 },
-                "_individualValue": 14,
+                "_individualValue": 26,
                 "_hp": 18,
                 "_maxHp": 18,
                 "_attack": 18,
@@ -45,20 +46,20 @@
                 "_speed": 19,
                 "_skillList": [
                     {
-                        "instanceID": 0
+                        "instanceID": 32870
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 32872
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 32874
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 32858
                     }
                 ],
                 "_level": 3,
-                "_curExp": 8,
+                "_curExp": 0,
                 "_maxExp": 37,
                 "_CurAccExp": 27,
                 "_befAccExp": 8,
@@ -202,6 +203,7 @@
         }
     },
     "EnemyInfo": {
+        "Name": "비주기",
         "PokemonList": [
             {
                 "_info": {
@@ -406,17 +408,17 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 32514
+            "instanceID": 32792
         },
-        "_individualValue": 13,
-        "_hp": 16,
-        "_maxHp": 16,
-        "_attack": 15,
-        "_block": 15,
-        "_speed": 16,
+        "_individualValue": 17,
+        "_hp": 19,
+        "_maxHp": 19,
+        "_attack": 21,
+        "_block": 20,
+        "_speed": 22,
         "_skillList": [
             {
-                "instanceID": 0
+                "instanceID": 32856
             },
             {
                 "instanceID": 0
@@ -428,12 +430,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 3,
-        "_curExp": 8,
-        "_maxExp": 37,
-        "_CurAccExp": 27,
-        "_befAccExp": 8,
-        "_NexAccExp": 64,
-        "_name": "캐터피"
+        "_level": 5,
+        "_curExp": 0,
+        "_maxExp": 91,
+        "_CurAccExp": 125,
+        "_befAccExp": 64,
+        "_NexAccExp": 216,
+        "_name": "파이리"
     }
 }

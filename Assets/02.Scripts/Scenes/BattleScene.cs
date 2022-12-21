@@ -362,18 +362,22 @@ public class BattleScene : BaseScene
             Define.PokeRarity.Common => 40,
             Define.PokeRarity.Rare => 30,
             Define.PokeRarity.unique => 20,
-            Define.PokeRarity.Legendary => 10,
+            Define.PokeRarity.Legendary => 1,
             _ => 40,
         };
 
         if (rand <= ra)
         {
             // 포획 성곡
-            
+            // 내 남는 포켓몬 리스트에 넣기
+            // 남는 공간이 없다면 물어보고
+            // 포켓몬 교체
         }
         else
         {
             // 실패
+            // 다시 포켓몬으로 프리팹 바꾸기
+            SetInfoText($"아무것도 못하쥬?\n이지하죠. 강대희죠.");
         }
     }
 
