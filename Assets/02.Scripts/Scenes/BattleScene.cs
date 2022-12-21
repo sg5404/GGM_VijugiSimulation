@@ -90,7 +90,7 @@ public class BattleScene : BaseScene
 
         StartCoroutine(SpawnPokemon());
 
-        // ½ºÆù ÀÌÆåÆ® ³¡³­´ÙÀ½À¸·Î ¹Ì·ç±â
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿?
 
         _battleCoroutine = StartCoroutine(BattleCoroutine());
     }
@@ -138,7 +138,7 @@ public class BattleScene : BaseScene
 
     private void SpawnEffect(ref Poolable prefab, Action action = null)
     {
-        // ÀÌÆåÆ®
+        // ï¿½ï¿½ï¿½ï¿½Æ®
         prefab.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutBack).From();
 
         action?.Invoke();
@@ -146,11 +146,11 @@ public class BattleScene : BaseScene
 
     private void DestroyEffect(ref Poolable prefab, Action action = null)
     {
-        // ÀÌÆåÆ®
+        // ï¿½ï¿½ï¿½ï¿½Æ®
 
         //prefab.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutBack);
         prefab.transform.localScale = Vector3.one;
-        Managers.Pool.Push(prefab); // ÀÌ·³ ¾ÈµÇÁö
+        Managers.Pool.Push(prefab); // ï¿½Ì·ï¿½ ï¿½Èµï¿½ï¿½ï¿½
         SpawnPokemon(_playerPokemon, ref _playerPokemonPrefab, _playerPokemonPos, false);
 
         action?.Invoke();
@@ -169,7 +169,7 @@ public class BattleScene : BaseScene
         return info;
     }
 
-    //private void SetInfoText(string msg, float duraction = 0.8f, bool isClear = true, Action action = null) // ¹º°¡ ¹®Á¦ ÀÖÀ½
+    //private void SetInfoText(string msg, float duraction = 0.8f, bool isClear = true, Action action = null) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     //{
     //    if (_infoText.text == msg) return;
 
@@ -244,11 +244,11 @@ public class BattleScene : BaseScene
 
         if (_gameInfo.isWildPokemon)
         {
-            SetInfoText($"¾Ñ! ¾ß»ýÀÇ {_enemyPokemon.Name}ÀÌ ³ªÅ¸³µ´Ù!");
+            SetInfoText($"ï¿½ï¿½! ï¿½ß»ï¿½ï¿½ï¿½ {_enemyPokemon.Name}ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½!");
         }
         else
         {
-            SetInfoText($"{_enemyInfo.Name}ÀÌ ½ÂºÎ¸¦ °É¾î¿Ô´Ù!");
+            SetInfoText($"{_enemyInfo.Name}ï¿½ï¿½ ï¿½ÂºÎ¸ï¿½ ï¿½É¾ï¿½Ô´ï¿?");
         }
 
         while (true)
@@ -261,15 +261,15 @@ public class BattleScene : BaseScene
 
             // TODO : Enemy Action
             yield return new WaitForSeconds(0.5f);
-            SetInfoText($"{_enemyPokemon.Name}ÀÇ Â÷·Ê!");
+            SetInfoText($"{_enemyPokemon.Name}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!");
 
             yield return new WaitForSeconds(1f);
-            SetInfoText($"{_enemyPokemon.Name}Àº (»ç¿ëÇÑ ½ºÅ³ ÀÌ¸§)¸¦ »ç¿ëÇß´Ù.");
+            SetInfoText($"{_enemyPokemon.Name}ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½Å³ ï¿½Ì¸ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ß´ï¿?");
 
             ChangeTurn();
 
             yield return new WaitForSeconds(0.5f);
-            SetInfoText($"{_playerPokemon.Name}Àº(´Â) ¹«¾ùÀ» ÇÒ±î?");
+            SetInfoText($"{_playerPokemon.Name}ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò±ï¿½?");
         }
     }
 
@@ -294,25 +294,25 @@ public class BattleScene : BaseScene
             case ActionType.None:
                 break;
             case ActionType.Fight:
-                // ±â¼ú Ã¢ ¿­±â
-                // TODO : ±â¼ú »ç¿ë½Ã ÀÌÆåÆ®¿Í µ¥¹ÌÁö ÁÖ±â
+                // ï¿½ï¿½ï¿?Ã¢ ï¿½ï¿½ï¿½ï¿½
+                // TODO : ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
                 SetActionPanel((int)ActionType.Fight);
                 _actionPanelList[(int)ActionType.Fight].GetComponent<SkillPanel>().SetSkill(_playerPokemon.SkillList);
                 break;
             case ActionType.Pokemon:
-                // Æ÷ÄÏ¸ó Ã¢ ¿­±â
+                // ï¿½ï¿½ï¿½Ï¸ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½
                 SetActionPanel((int)ActionType.Pokemon);
                 _actionPanelList[(int)ActionType.Pokemon].GetComponent<PokemonPanel>().SetPokeom(_playerInfo.PokemonList);
                 break;
             case ActionType.Item:
-                // ¾ÆÀÌÅ× Ã¢ ¿­±â
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½
                 SetActionPanel((int)ActionType.Item);
                 _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().SetList(_playerInfo.itemList);
                 _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().AddAllItemEvent(ThrowMonsterball);
                 break;
             case ActionType.Run:
-                // µµ¸Á °¡´ÉÇÑÁö ¿©ºÎ ÆÇ´Ü
-                // ¹èÆ² Á¾·á½ÃÅ°±â
+                // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
+                // ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿?
                 bool isRun = false;
                 if(_playerPokemon.Level > _enemyPokemon.Level)
                 {
@@ -336,12 +336,12 @@ public class BattleScene : BaseScene
                 }
                 if(isRun == true)
                 {
-                    SetInfoText("¹«»çÈ÷ µµ¸ÁÃÆ´Ù.");
+                    SetInfoText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½.");
                     StartCoroutine(BattleEnd(1.5f));
                 }
                 else
                 {
-                    SetInfoText("µµ¸ÁÄ¥ ¼ö ¾ø´Ù!");
+                    SetInfoText("ï¿½ï¿½ï¿½ï¿½Ä¥ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!");
                 }
                 break;
         }
@@ -353,9 +353,9 @@ public class BattleScene : BaseScene
 
     private IEnumerator ThrowMonsterballCoroutine()
     {
-        SetInfoText($"{_playerInfo.Name}Àº(´Â) ¸ó½ºÅÍº¼À» ´øÁ³´Ù!");
-        // ¸ó½ºÅÍ º¼ ´øÁö±â -> ´åÆ®À©.¿ÂÄÄÇÃ¸´Æ®(() => Àû Æ÷ÄÏ¸ó º¼·Î ¹Ù²Ù±â);
-        yield return new WaitForSeconds(3f); // ´ë±âÇÏ¸é¼­ Æ÷ÄÏ¸ó º¼ ¾Ö´Ï¸ÞÀÌ¼Ç
+        SetInfoText($"{_playerInfo.Name}ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½Æ®ï¿½ï¿½.ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½Æ®(() => ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù±ï¿½);
+        yield return new WaitForSeconds(3f); // ï¿½ï¿½ï¿½ï¿½Ï¸é¼?ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
         int rand = Random.Range(0, 101);
         int ra = _enemyPokemon.Info.rarity switch
         {
@@ -378,6 +378,8 @@ public class BattleScene : BaseScene
             // ½ÇÆÐ
             // ´Ù½Ã Æ÷ÄÏ¸óÀ¸·Î ÇÁ¸®ÆÕ ¹Ù²Ù±â
             SetInfoText($"¾Æ¹«°Íµµ ¸øÇÏÁê?\nÀÌÁöÇÏÁÒ. °­´ëÈñÁÒ.");
+            // ï¿½ï¿½È¹ ï¿½ï¿½ï¿½ï¿½
+            
         }
     }
 
@@ -387,7 +389,7 @@ public class BattleScene : BaseScene
         _isPlayerTurn = false;
         _isBattleStart = false;
 
-        SetInfoText($"{_enemyPokemon.Name}Àº ¾²·¯Á³´Ù.");
+        SetInfoText($"{_enemyPokemon.Name}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.");
         yield return new WaitForSeconds(0.5f);
 
         _gameInfo.wildPokemon = null;
@@ -400,21 +402,21 @@ public class BattleScene : BaseScene
 
     public void Attack(SkillSO skill)
     {
-        // ¸íÁß È®·ü ºñ±³
+        // ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½
         int rand = Random.Range(0, 101);
         if (rand <= skill.accuracyRate)
         {
             bool isCritical = Random.value <= 0.06f ? true : false;
             DamageType type = _enemyPokemon.Damage(skill.power, _playerPokemon.Attack, skill.type, isCritical);
 
-            SetInfoText($"{PlayerPokemon.Name}ÀÇ {skill.skillName}!");
+            SetInfoText($"{PlayerPokemon.Name}ï¿½ï¿½ {skill.skillName}!");
             StartCoroutine(ChangeTurnCoroutine(type));
             UpdateUI();
             AllClosePanel();
         }
         else
         {
-            SetInfoText($"{PlayerPokemon.Name}ÀÇ {skill.skillName}Àº ºû³ª°¬´Ù!");
+            SetInfoText($"{PlayerPokemon.Name}ï¿½ï¿½ {skill.skillName}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
         }
     }
 
@@ -424,17 +426,17 @@ public class BattleScene : BaseScene
         {
             case DamageType.GREAT:
                 yield return new WaitForSeconds(0.5f);
-                SetInfoText("È¿°ú°¡ ±²ÀåÇß´Ù.");
+                SetInfoText("È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½.");
                 break;
             case DamageType.MEDIOCRE:
                 break;
             case DamageType.NOTGOOD:
                 yield return new WaitForSeconds(0.5f);
-                SetInfoText("È¿°ú°¡ º°·Î´Ù.");
+                SetInfoText("È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.");
                 break;
             case DamageType.NO:
                 yield return new WaitForSeconds(0.5f);
-                SetInfoText("È¿°ú°¡ ¾ø´Ù.");
+                SetInfoText("È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.");
                 break;
         }
 
@@ -445,7 +447,7 @@ public class BattleScene : BaseScene
 
             StartCoroutine(BattleVictory());
             yield break;
-            // °æÇèÄ¡ °ø½Ä?
+            // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½?
             // MAX((B2 - A2) * (A2 / 2), 1) + 5
         }
         ChangeTurn();
@@ -465,7 +467,7 @@ public class BattleScene : BaseScene
 
         _playerInfoPanel.SetInfo(SetInfo(_playerPokemon));
 
-        // ±³Ã¼ ÀÌÆåÆ®
+        // ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®
 
         DestroyEffect(ref _playerPokemonPrefab);
     }
@@ -490,7 +492,7 @@ public class BattleScene : BaseScene
 
     private IEnumerator BattleEnd(float delay)
     {
-        SetInfoText("¹«»çÈ÷ µµ¸ÁÃÆ´Ù.");
+        SetInfoText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½.");
         yield return new WaitForSeconds(delay);
         _gameInfo.isWildPokemon = false;
         _gameInfo.wildPokemon = null;
