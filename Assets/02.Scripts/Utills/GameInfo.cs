@@ -26,13 +26,13 @@ public class AgentInfo
 {
     public string Name;
     public Pokemon[] PokemonList = new Pokemon[6];
-    //public Dictionary<ItemSO, int> itemDict = new Dictionary<ItemSO, int>(); // µñ¼Å³Ê¸®´Â Á÷·ÄÈ­ ¾ÈµÊ
+    //public Dictionary<ItemSO, int> itemDict = new Dictionary<ItemSO, int>(); // ï¿½ï¿½Å³Ê¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½Èµï¿½
     public List<ItemPair> itemList = new List<ItemPair>();
     public Vector3 position = new Vector3(0, 1, 0);
 
     public AgentInfo()
     {
-        Name = "ºñÁÖ±â";
+        Name = "poke";
 
         for(int i = 0; i < 6; i++)
         {

@@ -1,11 +1,12 @@
 {
     "PlayerInfo": {
+        "Name": "poke",
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 32520
+                    "instanceID": 39136
                 },
-                "_individualValue": 6,
+                "_individualValue": 4,
                 "_hp": 15,
                 "_maxHp": 15,
                 "_attack": 16,
@@ -13,7 +14,7 @@
                 "_speed": 17,
                 "_skillList": [
                     {
-                        "instanceID": 32580
+                        "instanceID": 39200
                     },
                     {
                         "instanceID": 0
@@ -26,7 +27,7 @@
                     }
                 ],
                 "_level": 3,
-                "_curExp": 8,
+                "_curExp": 0,
                 "_maxExp": 37,
                 "_CurAccExp": 27,
                 "_befAccExp": 8,
@@ -35,9 +36,9 @@
             },
             {
                 "_info": {
-                    "instanceID": 32518
+                    "instanceID": 39134
                 },
-                "_individualValue": 14,
+                "_individualValue": 19,
                 "_hp": 18,
                 "_maxHp": 18,
                 "_attack": 18,
@@ -45,20 +46,20 @@
                 "_speed": 19,
                 "_skillList": [
                     {
-                        "instanceID": 0
+                        "instanceID": 39202
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 39216
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 39218
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 39200
                     }
                 ],
                 "_level": 3,
-                "_curExp": 8,
+                "_curExp": 0,
                 "_maxExp": 37,
                 "_CurAccExp": 27,
                 "_befAccExp": 8,
@@ -202,6 +203,7 @@
         }
     },
     "EnemyInfo": {
+        "Name": "poke",
         "PokemonList": [
             {
                 "_info": {
@@ -406,17 +408,17 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 32514
+            "instanceID": 39136
         },
-        "_individualValue": 13,
-        "_hp": 16,
-        "_maxHp": 16,
-        "_attack": 15,
-        "_block": 15,
-        "_speed": 16,
+        "_individualValue": 11,
+        "_hp": 21,
+        "_maxHp": 21,
+        "_attack": 22,
+        "_block": 21,
+        "_speed": 24,
         "_skillList": [
             {
-                "instanceID": 0
+                "instanceID": 39200
             },
             {
                 "instanceID": 0
@@ -428,12 +430,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 3,
-        "_curExp": 8,
-        "_maxExp": 37,
-        "_CurAccExp": 27,
-        "_befAccExp": 8,
-        "_NexAccExp": 64,
-        "_name": "캐터피"
+        "_level": 6,
+        "_curExp": 0,
+        "_maxExp": 127,
+        "_CurAccExp": 216,
+        "_befAccExp": 125,
+        "_NexAccExp": 343,
+        "_name": "파이리"
     }
 }
