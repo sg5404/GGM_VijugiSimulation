@@ -3248,9 +3248,9 @@ GameObject:
   - component: {fileID: -204201460203936887}
   - component: {fileID: -4907842082505697706}
   - component: {fileID: 935633081902864722}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: visugi
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
