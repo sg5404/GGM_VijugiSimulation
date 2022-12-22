@@ -64,6 +64,8 @@ public class AIBrain : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (_target == null) return;
+
         ConditionPair nextCondition = null;
         foreach (ConditionPair pair in GlobalTransition)
         {

@@ -16,6 +16,7 @@ public enum ActionType
     Pokemon,
     Item,
     Run,
+    PokemonChoice
 }
 
 public class BattleScene : BaseScene
@@ -59,6 +60,8 @@ public class BattleScene : BaseScene
     private Poolable _playerPokemonPrefab;
 
     private Coroutine _battleCoroutine = null;
+
+    private int _throwIndex = -1;
 
     protected override void Init()
     {
@@ -244,7 +247,7 @@ public class BattleScene : BaseScene
             SetInfoText($"{_enemyInfo.Name}이 승부를 걸어왔다!");
         }
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3f);
 
         while (true)
         {
@@ -379,7 +382,7 @@ public class BattleScene : BaseScene
             _enemyPokemonPrefab.transform.position = Vector3.one;
             Managers.Pool.Push(_enemyPokemonPrefab);
         });
-        _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().RemoveItem(0, 1);
+        _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().RemoveItem(0, 1); // 2씩 줌
         yield return new WaitForSeconds(3f);
         int rand = Random.Range(0, 101);
         int ra = _enemyPokemon.Info.rarity switch
@@ -425,6 +428,11 @@ public class BattleScene : BaseScene
 
             // 여기까지 왔으면 포켓몬이 꽉찾으니까 교체하기
             Debug.Log("남는 공간 없음");
+            SetInfoText("버릴 포켓몬을 선택하세요.");
+            _throwIndex = -1;
+            _actionPanelList[(int)ActionType.PokemonChoice].GetComponent<PokemonChoicePanel>().SetPokeom(_playerInfo.PokemonList);
+            yield return new WaitUntil(() => _throwIndex != -1);
+            // 선택 창 띄우기
         }
         else
         {
@@ -436,6 +444,11 @@ public class BattleScene : BaseScene
         }
         yield return new WaitForSeconds(0.5f);
         ChangeTurn();
+    }
+
+    public void ReturnThrowIndex(int i)
+    {
+        _throwIndex = i;
     }
 
     private IEnumerator BattleVictory()

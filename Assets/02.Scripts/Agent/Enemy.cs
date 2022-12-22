@@ -10,6 +10,9 @@ public class Enemy : Agent
     private List<PokemonInfoSO> _startPokemonInfo;
     [SerializeField]
     private int _pokemonLevel;
+    [SerializeField]
+    private string _battleStartText;
+    public string BattleStartText => _battleStartText;
 
     private void Start()
     {

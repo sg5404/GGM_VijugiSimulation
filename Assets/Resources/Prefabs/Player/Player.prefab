@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: 241893352312384078}
   - component: {fileID: 3529959371845216539}
   - component: {fileID: 6719667197623144637}
-  m_Layer: 0
+  - component: {fileID: 8589935945369470552}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -205,8 +206,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 5
-  _runSpeedOffset: 1.5
   _rotSpeed: 10
+--- !u!208 &8589935945369470552
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241893352312384064}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &500293007471264680
 GameObject:
   m_ObjectHideFlags: 0

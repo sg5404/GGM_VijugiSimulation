@@ -11,6 +11,9 @@ public class MapScene : BaseScene
 
     private Player _player;
 
+    [SerializeField]
+    private TextPanel _textPanel;
+
     protected override void Init()
     {
         base.Init();
@@ -26,6 +29,14 @@ public class MapScene : BaseScene
 
         _cc = Camera.main.GetComponent<CameraController>();
         _cc.SetTarget(_player.gameObject);
+
+        _textPanel.gameObject.SetActive(false);
+    }
+
+    public void SetText(string msg)
+    {
+        _textPanel.gameObject.SetActive(true);
+        _textPanel.SetText(msg);
     }
 
     public override void Clear()

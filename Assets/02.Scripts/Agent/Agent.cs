@@ -155,11 +155,6 @@ public class Agent : MonoBehaviour
         return -1;
     }
 
-    /// <summary>
-    /// 가득 차있는지? 버그 있음.
-    /// </summary>
-    /// <returns></returns>
-    [System.Obsolete]
     public bool IsEmptyPokemonList()
     {
         for(int i = 0; i < _pokemonList.Length; i++)
@@ -171,11 +166,6 @@ public class Agent : MonoBehaviour
         return true;
     }
 
-    /// <summary>
-    /// 비어 있는지? 버그 있음.s
-    /// </summary>
-    /// <returns></returns>
-    [System.Obsolete]
     public bool IsFullPokemonList()
     {
         for (int i = 0; i < _pokemonList.Length; i++)

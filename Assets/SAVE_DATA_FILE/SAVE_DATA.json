@@ -4,30 +4,30 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 37542
+                    "instanceID": 37696
                 },
-                "_individualValue": 1,
-                "_hp": 7,
+                "_individualValue": 10,
+                "_hp": 0,
                 "_maxHp": 17,
                 "_attack": 18,
                 "_block": 17,
                 "_speed": 19,
                 "_skillList": [
                     {
-                        "instanceID": 37632
+                        "instanceID": 34138
                     },
                     {
-                        "instanceID": 37524
+                        "instanceID": 37682
                     },
                     {
-                        "instanceID": 37636
+                        "instanceID": 37788
                     },
                     {
-                        "instanceID": 37522
+                        "instanceID": 37680
                     }
                 ],
                 "_level": 3,
-                "_curExp": 7,
+                "_curExp": 0,
                 "_maxExp": 37,
                 "_CurAccExp": 27,
                 "_befAccExp": 8,
@@ -36,17 +36,17 @@
             },
             {
                 "_info": {
-                    "instanceID": 35546
+                    "instanceID": 35704
                 },
-                "_individualValue": 24,
-                "_hp": 1,
+                "_individualValue": 30,
+                "_hp": 0,
                 "_maxHp": 16,
-                "_attack": 16,
+                "_attack": 17,
                 "_block": 16,
                 "_speed": 17,
                 "_skillList": [
                     {
-                        "instanceID": 37522
+                        "instanceID": 37680
                     },
                     {
                         "instanceID": 0
@@ -68,17 +68,17 @@
             },
             {
                 "_info": {
-                    "instanceID": 35546
+                    "instanceID": 0
                 },
-                "_individualValue": 19,
+                "_individualValue": 0,
                 "_hp": 0,
-                "_maxHp": 15,
-                "_attack": 16,
-                "_block": 16,
-                "_speed": 17,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
                 "_skillList": [
                     {
-                        "instanceID": 37522
+                        "instanceID": 0
                     },
                     {
                         "instanceID": 0
@@ -90,13 +90,13 @@
                         "instanceID": 0
                     }
                 ],
-                "_level": 3,
+                "_level": 0,
                 "_curExp": 0,
-                "_maxExp": 37,
-                "_CurAccExp": 27,
-                "_befAccExp": 8,
-                "_NexAccExp": 64,
-                "_name": "파이리"
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
             },
             {
                 "_info": {
@@ -198,115 +198,115 @@
         "itemList": [
             {
                 "item": {
-                    "instanceID": 50246
+                    "instanceID": 50578
                 },
-                "cnt": 4
+                "cnt": 5
             }
         ],
         "position": {
-            "x": -33.05140686035156,
-            "y": 0.9999947547912598,
-            "z": 107.70396423339844
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
         }
     },
     "EnemyInfo": {
-        "Name": "비주기",
+        "Name": "Gay♂",
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 0
+                    "instanceID": 34054
                 },
-                "_individualValue": 0,
-                "_hp": 0,
-                "_maxHp": 0,
-                "_attack": 0,
-                "_block": 0,
-                "_speed": 0,
+                "_individualValue": 5,
+                "_hp": 415,
+                "_maxHp": 415,
+                "_attack": 215,
+                "_block": 915,
+                "_speed": 315,
                 "_skillList": [
                     {
-                        "instanceID": 0
+                        "instanceID": 34134
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 34140
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 34108
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 34126
                     }
                 ],
-                "_level": 0,
+                "_level": 100,
                 "_curExp": 0,
-                "_maxExp": 0,
-                "_CurAccExp": 0,
-                "_befAccExp": 0,
-                "_NexAccExp": 0,
-                "_name": ""
+                "_maxExp": 30301,
+                "_CurAccExp": 1000000,
+                "_befAccExp": 970299,
+                "_NexAccExp": 1030301,
+                "_name": "딴떼끼"
             },
             {
                 "_info": {
-                    "instanceID": 0
+                    "instanceID": 34054
                 },
-                "_individualValue": 0,
-                "_hp": 0,
-                "_maxHp": 0,
-                "_attack": 0,
-                "_block": 0,
-                "_speed": 0,
+                "_individualValue": 22,
+                "_hp": 432,
+                "_maxHp": 432,
+                "_attack": 232,
+                "_block": 932,
+                "_speed": 332,
                 "_skillList": [
                     {
-                        "instanceID": 0
+                        "instanceID": 34138
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 34134
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 34140
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 34118
                     }
                 ],
-                "_level": 0,
+                "_level": 100,
                 "_curExp": 0,
-                "_maxExp": 0,
-                "_CurAccExp": 0,
-                "_befAccExp": 0,
-                "_NexAccExp": 0,
-                "_name": ""
+                "_maxExp": 30301,
+                "_CurAccExp": 1000000,
+                "_befAccExp": 970299,
+                "_NexAccExp": 1030301,
+                "_name": "딴떼끼"
             },
             {
                 "_info": {
-                    "instanceID": 0
+                    "instanceID": 34054
                 },
-                "_individualValue": 0,
-                "_hp": 0,
-                "_maxHp": 0,
-                "_attack": 0,
-                "_block": 0,
-                "_speed": 0,
+                "_individualValue": 23,
+                "_hp": 433,
+                "_maxHp": 433,
+                "_attack": 233,
+                "_block": 933,
+                "_speed": 333,
                 "_skillList": [
                     {
-                        "instanceID": 0
+                        "instanceID": 34140
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 34134
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 34136
                     },
                     {
-                        "instanceID": 0
+                        "instanceID": 34138
                     }
                 ],
-                "_level": 0,
+                "_level": 100,
                 "_curExp": 0,
-                "_maxExp": 0,
-                "_CurAccExp": 0,
-                "_befAccExp": 0,
-                "_NexAccExp": 0,
-                "_name": ""
+                "_maxExp": 30301,
+                "_CurAccExp": 1000000,
+                "_befAccExp": 970299,
+                "_NexAccExp": 1030301,
+                "_name": "딴떼끼"
             },
             {
                 "_info": {
@@ -407,22 +407,22 @@
         ],
         "itemList": [],
         "position": {
-            "x": 0.0,
-            "y": 1.0,
-            "z": 0.0
+            "x": 6.419781684875488,
+            "y": 1.0833333730697632,
+            "z": 1.467712640762329
         }
     },
-    "isWildPokemon": true,
+    "isWildPokemon": false,
     "wildPokemon": {
         "_info": {
-            "instanceID": 35548
+            "instanceID": 0
         },
-        "_individualValue": 4,
-        "_hp": 17,
-        "_maxHp": 17,
-        "_attack": 16,
-        "_block": 16,
-        "_speed": 17,
+        "_individualValue": 0,
+        "_hp": 0,
+        "_maxHp": 0,
+        "_attack": 0,
+        "_block": 0,
+        "_speed": 0,
         "_skillList": [
             {
                 "instanceID": 0
@@ -437,12 +437,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 4,
+        "_level": 0,
         "_curExp": 0,
-        "_maxExp": 61,
-        "_CurAccExp": 64,
-        "_befAccExp": 27,
-        "_NexAccExp": 125,
-        "_name": "캐터피"
+        "_maxExp": 0,
+        "_CurAccExp": 0,
+        "_befAccExp": 0,
+        "_NexAccExp": 0,
+        "_name": ""
     }
 }
