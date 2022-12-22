@@ -9,6 +9,20 @@ public class MenuScene : BaseScene
         SceneType = Define.Scene.Menu;
     }
 
+    public void LoadMapScene()
+    {
+        Managers.Scene.LoadScene(Define.Scene.Map);
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
     public override void Clear()
     {
 
