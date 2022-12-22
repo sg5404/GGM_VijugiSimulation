@@ -17,13 +17,13 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    void interaction() //상호작용
+    void interaction() //?�호?�용
     {
         RaycastHit hit;
         LayerMask layerMask = LayerMask.GetMask("Enemy") | LayerMask.GetMask("Objects");
         if (Physics.Raycast(transform.position, Vector3.forward, out hit, 20, layerMask))
         {
-            Debug.Log("물체 있음");
+            Debug.Log("물체 ?�음");
         }
     }
 }

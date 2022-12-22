@@ -73,7 +73,7 @@ public class ItemPanel : MonoBehaviour
         }
     }
 
-    public void RemveItem(ItemSO item, int cnt = 1)
+    public void RemoveItem(ItemSO item, int cnt = 1)
     {
         //if (_itemDict.ContainsKey(item))
         //{
@@ -86,6 +86,19 @@ public class ItemPanel : MonoBehaviour
         }
     }
 
+    public void RemoveItem(int index, int cnt = 1)
+    {
+        if (_itemDict[index] != null)
+        {
+            _itemDict[index].cnt -= cnt;
+
+            if (_itemDict[index].cnt <= 0)
+            {
+                _itemDict.RemoveAt(index);
+            }
+        }
+    }
+
     public void CreateItem()
     {
         for(int i = 0; i < _itemDict.Count; i++)
@@ -93,6 +106,7 @@ public class ItemPanel : MonoBehaviour
             Item item = Managers.Resource.Instantiate("UI/Item", _parent).GetComponent<Item>();
             item.SetItem(_itemDict[i].item, _itemDict[i].cnt);
             _itemList.Add(item);
+
         }
     }
 

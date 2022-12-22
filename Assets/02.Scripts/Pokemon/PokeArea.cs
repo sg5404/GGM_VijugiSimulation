@@ -19,11 +19,11 @@ public class PokeArea : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        PlayerControl control = other.GetComponent<PlayerControl>();
+        AgentMovenent control = other.GetComponent<AgentMovenent>();
         Player player = other.GetComponent<Player>();
 
         if (control == null) return;
-        if (control.h + control.v < 0.1f) return;
+        if (control.CurrentSpeed < 0.1f) return;
         timer += Time.deltaTime;
         if (timer < 1f) return;
         timer = 0;
@@ -36,6 +36,14 @@ public class PokeArea : MonoBehaviour
         info.wildPokemon = wildPokemon;
         Managers.Save.SaveJson(info);
         Managers.Scene.LoadScene(Define.Scene.Battle);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            timer = 0f;
+        }
     }
 
     PokemonInfoSO SetPokeMon() //?�켓�?지??

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,7 +24,10 @@ public class Player : Agent
             SetPokemonOfIndex(new Pokemon(_startPokemonInfo[i], 3), i);
         }
 
-        SetItem(_item, _cnt);
+        if(IsGetItem(_item) == false)
+        {
+            SetItem(_item, _cnt);
+        }
     }
 
     private void Update()

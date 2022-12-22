@@ -64,7 +64,20 @@ public class Agent : MonoBehaviour
         }
     }
 
-    private bool IsGetItem(ItemSO item)
+    public ItemSO GetItem(int index = 0)
+    {
+        if (IsGetItem(index))
+            return _itemList[index].item;
+
+        return null;
+    }
+
+    public bool IsGetItem(int index)
+    {
+        return _itemList[index] != null;
+    }
+
+    public bool IsGetItem(ItemSO item)
     {
         foreach(var i in _itemList)
         {

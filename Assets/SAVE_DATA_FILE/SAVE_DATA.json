@@ -4,17 +4,17 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 35394
+                    "instanceID": 35546
                 },
-                "_individualValue": 9,
-                "_hp": 15,
-                "_maxHp": 15,
+                "_individualValue": 28,
+                "_hp": 16,
+                "_maxHp": 16,
                 "_attack": 16,
-                "_block": 15,
+                "_block": 16,
                 "_speed": 17,
                 "_skillList": [
                     {
-                        "instanceID": 37396
+                        "instanceID": 37522
                     },
                     {
                         "instanceID": 0
@@ -36,26 +36,26 @@
             },
             {
                 "_info": {
-                    "instanceID": 37416
+                    "instanceID": 37542
                 },
-                "_individualValue": 7,
-                "_hp": 17,
-                "_maxHp": 17,
+                "_individualValue": 23,
+                "_hp": 18,
+                "_maxHp": 18,
                 "_attack": 18,
-                "_block": 17,
+                "_block": 18,
                 "_speed": 19,
                 "_skillList": [
                     {
-                        "instanceID": 37506
+                        "instanceID": 37632
                     },
                     {
-                        "instanceID": 37398
+                        "instanceID": 37634
                     },
                     {
-                        "instanceID": 37510
+                        "instanceID": 37636
                     },
                     {
-                        "instanceID": 37396
+                        "instanceID": 37524
                     }
                 ],
                 "_level": 3,
@@ -68,17 +68,17 @@
             },
             {
                 "_info": {
-                    "instanceID": 0
+                    "instanceID": 35546
                 },
-                "_individualValue": 0,
-                "_hp": 0,
-                "_maxHp": 0,
-                "_attack": 0,
-                "_block": 0,
-                "_speed": 0,
+                "_individualValue": 11,
+                "_hp": 17,
+                "_maxHp": 17,
+                "_attack": 18,
+                "_block": 17,
+                "_speed": 19,
                 "_skillList": [
                     {
-                        "instanceID": 0
+                        "instanceID": 37522
                     },
                     {
                         "instanceID": 0
@@ -90,13 +90,13 @@
                         "instanceID": 0
                     }
                 ],
-                "_level": 0,
+                "_level": 4,
                 "_curExp": 0,
-                "_maxExp": 0,
-                "_CurAccExp": 0,
-                "_befAccExp": 0,
-                "_NexAccExp": 0,
-                "_name": ""
+                "_maxExp": 61,
+                "_CurAccExp": 64,
+                "_befAccExp": 27,
+                "_NexAccExp": 125,
+                "_name": "파이리"
             },
             {
                 "_info": {
@@ -198,15 +198,15 @@
         "itemList": [
             {
                 "item": {
-                    "instanceID": 50106
+                    "instanceID": 50246
                 },
-                "cnt": 35
+                "cnt": 4
             }
         ],
         "position": {
-            "x": 46.988121032714847,
-            "y": 0.999997615814209,
-            "z": 20.666549682617189
+            "x": -30.770055770874025,
+            "y": 0.9999992847442627,
+            "z": 19.351436614990236
         }
     },
     "EnemyInfo": {
@@ -415,17 +415,17 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 35394
+            "instanceID": 35546
         },
-        "_individualValue": 25,
-        "_hp": 16,
-        "_maxHp": 16,
+        "_individualValue": 9,
+        "_hp": 15,
+        "_maxHp": 15,
         "_attack": 16,
-        "_block": 16,
+        "_block": 15,
         "_speed": 17,
         "_skillList": [
             {
-                "instanceID": 37396
+                "instanceID": 37522
             },
             {
                 "instanceID": 0

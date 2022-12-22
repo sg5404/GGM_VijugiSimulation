@@ -134,6 +134,8 @@ public class BattleScene : BaseScene
                 {
                     _isBattleStart = true;
                 }
+                GameObject effect = Managers.Resource.Instantiate("Effect/SpawnEffect");
+                effect.transform.position = pos.transform.position;
             });
     }
 
@@ -371,11 +373,15 @@ public class BattleScene : BaseScene
 
     private IEnumerator ThrowMonsterballCoroutine()
     {
+        AllClosePanel();
         SetInfoText($"{_playerInfo.Name}ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
         // Æ÷ÄÏ¸ó º¼·Î ¹Ù²Ù±â
         _enemyPokemonPrefab.transform.position = Vector3.one;
         Managers.Pool.Push(_enemyPokemonPrefab);
         Poolable monsterball =  Managers.Resource.Instantiate("Pokemon/Âî¸®¸®°ø").GetComponent<Poolable>();
+        monsterball.transform.position = _playerPokemonPos.position;
+        monsterball.transform.DOJump(_enemyPokemonPos.position, 1, 1, 0.3f);
+        _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().RemoveItem(0, 1);
         yield return new WaitForSeconds(3f); // ï¿½ï¿½ï¿½ï¿½Ï¸é¼?ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
         int rand = Random.Range(0, 101);
         int ra = _enemyPokemon.Info.rarity switch
@@ -392,11 +398,11 @@ public class BattleScene : BaseScene
             // Æ÷È¹ ¼º°î
             // ÀÌÆåÆ®
             monsterball.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.InBack);
-
+            Debug.Log("Æ÷È¹ ¼º°ø!");
             // ³» ³²´Â Æ÷ÄÏ¸ó ¸®½ºÆ®¿¡ ³Ö±â
             for(int i = 0; i < 6; i++)
             {
-                if (_playerInfo.PokemonList[i] == null)
+                if (_playerInfo.PokemonList[i].Info == null)
                 {
                     _playerInfo.PokemonList[i] = _enemyPokemon;
 
@@ -420,12 +426,13 @@ public class BattleScene : BaseScene
             }
 
             // ¿©±â±îÁö ¿ÔÀ¸¸é Æ÷ÄÏ¸óÀÌ ²ËÃ£À¸´Ï±î ±³Ã¼ÇÏ±â
+            Debug.Log("³²´Â °ø°£  ¾øÀ½");
         }
         else
         {
             // ½ÇÆÐ
             Managers.Pool.Push(monsterball);
-            SpawnPokemon(_playerPokemon, ref _playerPokemonPrefab, _playerPokemonPos, false);
+            SpawnPokemon(_enemyPokemon, ref _enemyPokemonPrefab, _enemyPokemonPos, true);
             SetInfoText($"¾Æ¹«°Íµµ ¸øÇÏÁê?\n½î EZÇÏÁÒ.");
             
         }
