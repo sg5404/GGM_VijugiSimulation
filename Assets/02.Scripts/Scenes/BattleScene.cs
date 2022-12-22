@@ -91,8 +91,6 @@ public class BattleScene : BaseScene
 
         StartCoroutine(SpawnPokemon());
 
-        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿?
-
         _battleCoroutine = StartCoroutine(BattleCoroutine());
     }
 
@@ -141,7 +139,6 @@ public class BattleScene : BaseScene
 
     private void SpawnEffect(ref Poolable prefab, Action action = null)
     {
-        // ï¿½ï¿½ï¿½ï¿½Æ®
         prefab.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutBack).From();
 
         action?.Invoke();
@@ -153,7 +150,7 @@ public class BattleScene : BaseScene
 
         //prefab.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutBack);
         prefab.transform.localScale = Vector3.one;
-        Managers.Pool.Push(prefab); // ï¿½Ì·ï¿½ ï¿½Èµï¿½ï¿½ï¿½
+        Managers.Pool.Push(prefab);
         SpawnPokemon(_playerPokemon, ref _playerPokemonPrefab, _playerPokemonPos, false);
 
         action?.Invoke();
@@ -172,7 +169,7 @@ public class BattleScene : BaseScene
         return info;
     }
 
-    //private void SetInfoText(string msg, float duraction = 0.8f, bool isClear = true, Action action = null) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    //private void SetInfoText(string msg, float duraction = 0.8f, bool isClear = true, Action action = null)
     //{
     //    if (_infoText.text == msg) return;
 
@@ -244,7 +241,7 @@ public class BattleScene : BaseScene
         }
         else
         {
-            SetInfoText($"{_enemyInfo.Name}°¡ ½ÂºÎ¸¦ °É¾î¿Ô´Ù!");
+            SetInfoText($"{_enemyInfo.Name}ÀÌ ½ÂºÎ¸¦ °É¾î¿Ô´Ù!");
         }
 
         yield return new WaitForSeconds(2.5f);
@@ -281,6 +278,8 @@ public class BattleScene : BaseScene
                 {
                     bool isCritical = Random.value <= 0.06f ? true : false;
                     DamageType type = _playerPokemon.Damage(skill.power, _enemyPokemon.Attack, skill.type, isCritical);
+                    GameObject hit = Managers.Resource.Instantiate("Effect/Hit");
+                    hit.transform.position = _playerPokemonPos.position + Vector3.up;
 
                     StartCoroutine(ChangeTurnCoroutine(type));
                     UpdateUI();
@@ -316,25 +315,19 @@ public class BattleScene : BaseScene
             case ActionType.None:
                 break;
             case ActionType.Fight:
-                // ï¿½ï¿½ï¿?Ã¢ ï¿½ï¿½ï¿½ï¿½
-                // TODO : ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
                 SetActionPanel((int)ActionType.Fight);
                 _actionPanelList[(int)ActionType.Fight].GetComponent<SkillPanel>().SetSkill(_playerPokemon.SkillList);
                 break;
             case ActionType.Pokemon:
-                // ï¿½ï¿½ï¿½Ï¸ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½
                 SetActionPanel((int)ActionType.Pokemon);
                 _actionPanelList[(int)ActionType.Pokemon].GetComponent<PokemonPanel>().SetPokeom(_playerInfo.PokemonList);
                 break;
             case ActionType.Item:
-                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½
                 SetActionPanel((int)ActionType.Item);
                 _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().SetList(_playerInfo.itemList);
                 _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().AddAllItemEvent(ThrowMonsterball);
                 break;
             case ActionType.Run:
-                // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
-                // ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿?
                 bool isRun = false;
                 if(_playerPokemon.Level > _enemyPokemon.Level)
                 {
@@ -358,7 +351,6 @@ public class BattleScene : BaseScene
                 }
                 if(isRun == true)
                 {
-                    //SetInfoText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½.");
                     StartCoroutine(BattleEnd(1.5f));
                 }
                 else
@@ -377,7 +369,7 @@ public class BattleScene : BaseScene
     private IEnumerator ThrowMonsterballCoroutine()
     {
         AllClosePanel();
-        SetInfoText($"{_playerInfo.Name}ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
+        SetInfoText($"{_playerInfo.Name}Àº ¸ó½ºÅÍº¼À» ´øÁ³´Ù!");
         // Æ÷ÄÏ¸ó º¼·Î ¹Ù²Ù±â
         
         Poolable monsterball =  Managers.Resource.Instantiate("Pokemon/Âî¸®¸®°ø").GetComponent<Poolable>();
@@ -388,7 +380,7 @@ public class BattleScene : BaseScene
             Managers.Pool.Push(_enemyPokemonPrefab);
         });
         _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().RemoveItem(0, 1);
-        yield return new WaitForSeconds(3f); // ï¿½ï¿½ï¿½ï¿½Ï¸é¼?ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
+        yield return new WaitForSeconds(3f);
         int rand = Random.Range(0, 101);
         int ra = _enemyPokemon.Info.rarity switch
         {
@@ -412,7 +404,7 @@ public class BattleScene : BaseScene
                 {
                     _playerInfo.PokemonList[i] = _enemyPokemon;
 
-                    SetInfoText($"½Å³­´Ù!\n{_enemyPokemon.Name}À»(¸¦) Æ÷È¹Çß´Ù!");
+                    SetInfoText($"½Å³­´Ù!\n{_enemyPokemon.Name}À»(¸¦) ºÙÀâ¾Ò´Ù!");
 
                     StopCoroutine(_battleCoroutine);
                     _isPlayerTurn = false;
@@ -432,14 +424,14 @@ public class BattleScene : BaseScene
             }
 
             // ¿©±â±îÁö ¿ÔÀ¸¸é Æ÷ÄÏ¸óÀÌ ²ËÃ£À¸´Ï±î ±³Ã¼ÇÏ±â
-            Debug.Log("³²´Â °ø°£  ¾øÀ½");
+            Debug.Log("³²´Â °ø°£ ¾øÀ½");
         }
         else
         {
             // ½ÇÆÐ
             Managers.Pool.Push(monsterball);
             SpawnPokemon(_enemyPokemon, ref _enemyPokemonPrefab, _enemyPokemonPos, true);
-            SetInfoText($"¾Æ¹«°Íµµ ¸øÇÏÁê?\n½î EZÇÏÁÒ.");
+            SetInfoText($"¾Æ½±´Ù!\nÁ¶±Ý¸¸ ´õ ÇÏ¸é ÀâÀ» ¼ö ÀÖ¾ú´Âµ¥!");
             
         }
         yield return new WaitForSeconds(0.5f);
@@ -452,13 +444,16 @@ public class BattleScene : BaseScene
         _isPlayerTurn = false;
         _isBattleStart = false;
 
-        SetInfoText($"{_enemyPokemon.Name}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.");
-        yield return new WaitForSeconds(0.5f);
-
+        SetInfoText($"{_enemyPokemon.Name}À» ¾²·¯Æ®·È´Ù!");
+        yield return new WaitForSeconds(1f);
+        int exp = Mathf.Max((_enemyPokemon.Level - _playerPokemon.Level) * (_playerPokemon.Level / 2), 1) + 5;
+        _playerPokemon.AddExp(exp);
+        UpdateUI();
+        yield return new WaitForSeconds(1f);
+        SetInfoText($"{exp}ÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.");
+        yield return new WaitForSeconds(1f);
         _gameInfo.wildPokemon = null;
         _playerInfo.PokemonList[0] = _playerPokemon;
-        Debug.Log(_playerPokemon.CurExp);
-        Debug.Log(_playerInfo.PokemonList[0].CurExp);
         _gameInfo.PlayerInfo = _playerInfo;
         Managers.Save.SaveJson(_gameInfo);
 
@@ -476,6 +471,7 @@ public class BattleScene : BaseScene
 
         _gameInfo.wildPokemon = null;
         _playerInfo.PokemonList[0] = _playerPokemon; // °æÇèÄ¡°¡ ¾È³Ñ¾î °£´Ù.
+        _playerInfo.position = new Vector3(0, 1, 0);
         _gameInfo.PlayerInfo = _playerInfo;
         Managers.Save.SaveJson(_gameInfo);
 
@@ -484,21 +480,23 @@ public class BattleScene : BaseScene
 
     public void Attack(SkillSO skill)
     {
-        // ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½
         int rand = Random.Range(0, 101);
         if (rand <= skill.accuracyRate)
         {
             bool isCritical = Random.value <= 0.06f ? true : false;
             DamageType type = _enemyPokemon.Damage(skill.power, _playerPokemon.Attack, skill.type, isCritical);
+            GameObject hit = Managers.Resource.Instantiate("Effect/Hit");
+            hit.transform.position = _enemyPokemonPos.position + Vector3.up;
+            hit.transform.position = _enemyPokemonPos.position + Vector3.up;
 
-            SetInfoText($"{PlayerPokemon.Name}ï¿½ï¿½ {skill.skillName}!");
+            SetInfoText($"{PlayerPokemon.Name}ÀÇ {skill.skillName}!");
             StartCoroutine(ChangeTurnCoroutine(type));
             UpdateUI();
             AllClosePanel();
         }
         else
         {
-            SetInfoText($"{PlayerPokemon.Name}ï¿½ï¿½ {skill.skillName}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
+            SetInfoText($"{PlayerPokemon.Name}ÀÇ {skill.skillName}Àº ºø³ª°¬´Ù!");
         }
     }
 
@@ -524,13 +522,8 @@ public class BattleScene : BaseScene
 
         if (_enemyPokemon.Hp <= 0)
         {
-            int exp = Mathf.Max((_enemyPokemon.Level - _playerPokemon.Level) * (_playerPokemon.Level / 2), 1) + 5;
-            _playerPokemon.AddExp(exp);
-            UpdateUI();
-
             StartCoroutine(BattleVictory());
             yield break;
-            // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½?
             // MAX((B2 - A2) * (A2 / 2), 1) + 5
         }
         else if(_playerPokemon.Hp <= 0)
@@ -578,8 +571,6 @@ public class BattleScene : BaseScene
         _playerPokemon = _playerInfo.PokemonList[0];
 
         _playerInfoPanel.SetInfo(SetInfo(_playerPokemon));
-
-        // ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®
 
         DestroyEffect(ref _playerPokemonPrefab);
     }

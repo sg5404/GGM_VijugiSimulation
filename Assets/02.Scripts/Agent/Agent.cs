@@ -164,7 +164,7 @@ public class Agent : MonoBehaviour
     {
         for(int i = 0; i < _pokemonList.Length; i++)
         {
-            if (_pokemonList[i] != null)
+            if (_pokemonList[i].Info != null)
                 return false;
         }
 

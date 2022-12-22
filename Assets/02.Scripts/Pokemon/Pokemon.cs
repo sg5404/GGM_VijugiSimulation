@@ -1061,6 +1061,7 @@ public class Pokemon
         int damage = (int)(((((((float)_level * 2f / 5f) + 2f) * amount / 50f) / (float)_block) + 2f) * (isCritical ? 2f : 1f) * typeCom * (mfx ? 2f : 1f));
         damage = Mathf.Max(damage, 1);
         this._hp -= damage;
+
         if(_hp < 0)
         {
             this._hp = 0;
@@ -1115,7 +1116,18 @@ public class Pokemon
         }
         else
         {
-            // ½ºÅ³ ¹è¿ï²¨³Ä Ã¢ ¶Ù¿ì°í ¾ËÀßµü ¤·¤»?
+            // ±ÍÂúÀ¸´Ï±î ·£´ý »èÁ¦ ¤»¤»
+            int idx = -1;
+            for(int i = 0; i < 4; i++)
+            {
+                if (_skillList[i] != null)
+                {
+                    idx++;
+                }
+            }
+
+            int rand = Random.Range(0, idx);
+            _skillList[rand] = skill;
         }
     }
 

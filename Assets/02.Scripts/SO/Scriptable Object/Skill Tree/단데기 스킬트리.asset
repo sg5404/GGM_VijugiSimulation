@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d6bbc89870a6042ba1574f3e538a0d, type: 3}
   m_Name: "\uB2E8\uB370\uAE30 \uC2A4\uD0AC\uD2B8\uB9AC"
   m_EditorClassIdentifier: 
-  pairs: []
+  pairs:
+  - level: 1
+    skill: {fileID: 11400000, guid: 8441ae580f0b0f3449b2aaa166ce13e4, type: 2}
+  - level: 1
+    skill: {fileID: 11400000, guid: 5447d1390e0f2f84ca545572774ffd6c, type: 2}

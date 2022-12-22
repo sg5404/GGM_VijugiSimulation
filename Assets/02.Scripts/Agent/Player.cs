@@ -19,9 +19,13 @@ public class Player : Agent
     private void Start()
     {
         // Debug Code
-        for(int i = 0; i < _startPokemonInfo.Count; i++)
+
+        if (IsEmptyPokemonList())
         {
-            SetPokemonOfIndex(new Pokemon(_startPokemonInfo[i], 3), i);
+            for (int i = 0; i < _startPokemonInfo.Count; i++)
+            {
+                SetPokemonOfIndex(new Pokemon(_startPokemonInfo[i], 3), i);
+            }
         }
 
         if(IsGetItem(_item) == false)
