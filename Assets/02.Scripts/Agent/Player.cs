@@ -32,6 +32,8 @@ public class Player : Agent
         {
             SetItem(_item, _cnt);
         }
+
+        transform.position = new Vector3(0, 1, -100);
     }
 
     private void Update()
