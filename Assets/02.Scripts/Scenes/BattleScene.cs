@@ -240,12 +240,14 @@ public class BattleScene : BaseScene
 
         if (_gameInfo.isWildPokemon)
         {
-            SetInfoText($"ï¿½ï¿½! ï¿½ß»ï¿½ï¿½ï¿½ {_enemyPokemon.Name}ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½!");
+            SetInfoText($"¾ß»ýÀÇ {_enemyPokemon.Name}ÀÌ ³ªÅ¸³µ´Ù!");
         }
         else
         {
-            SetInfoText($"{_enemyInfo.Name}ï¿½ï¿½ ï¿½ÂºÎ¸ï¿½ ï¿½É¾ï¿½Ô´ï¿?");
+            SetInfoText($"{_enemyInfo.Name}°¡ ½ÂºÎ¸¦ °É¾î¿Ô´Ù!");
         }
+
+        yield return new WaitForSeconds(2.5f);
 
         while (true)
         {
@@ -257,10 +259,9 @@ public class BattleScene : BaseScene
 
             // TODO : Enemy Action
             yield return new WaitForSeconds(0.5f);
-            SetInfoText($"{_enemyPokemon.Name}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!");
+            SetInfoText($"{_enemyPokemon.Name}ÀÇ ÅÏ!");
 
             yield return new WaitForSeconds(1f);
-            SetInfoText($"{_enemyPokemon.Name}ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½Å³ ï¿½Ì¸ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ß´ï¿?");
             int rand = 0;
             int idx = 0;
             for(int i = 0; i < 4; i++)
@@ -275,18 +276,18 @@ public class BattleScene : BaseScene
             SkillSO skill = _enemyPokemon.SkillList[rand];
             if (skill != null)
             {
+                SetInfoText($"{_enemyPokemon.Name}ÀÇ {skill.skillName}!");
                 if (cri <= skill.accuracyRate)
                 {
                     bool isCritical = Random.value <= 0.06f ? true : false;
                     DamageType type = _playerPokemon.Damage(skill.power, _enemyPokemon.Attack, skill.type, isCritical);
 
-                    SetInfoText($"{_enemyPokemon.Name}ï¿½ï¿½ {skill.skillName}!");
                     StartCoroutine(ChangeTurnCoroutine(type));
                     UpdateUI();
                 }
                 else
                 {
-                    SetInfoText($"{_enemyPokemon.Name}ï¿½ï¿½ {skill.skillName}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
+                    SetInfoText($"{_enemyPokemon.Name}ÀÇ {skill.skillName}ºø³ª°¬´Ù!");
                 }
             }
             else
@@ -295,8 +296,10 @@ public class BattleScene : BaseScene
                 ChangeTurn();
             }
 
+            yield return new WaitForSeconds(1f);
+            SetInfoText($"{_playerPokemon.Name}ÀÇ ÅÏ!");
             yield return new WaitForSeconds(0.5f);
-            SetInfoText($"{_playerPokemon.Name}ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò±ï¿½?");
+            SetInfoText($"{_playerPokemon.Name}Àº ¹«¾ùÀ» ÇÒ±î?");
         }
     }
 
@@ -355,12 +358,12 @@ public class BattleScene : BaseScene
                 }
                 if(isRun == true)
                 {
-                    SetInfoText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½.");
+                    //SetInfoText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½.");
                     StartCoroutine(BattleEnd(1.5f));
                 }
                 else
                 {
-                    SetInfoText("ï¿½ï¿½ï¿½ï¿½Ä¥ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!");
+                    SetInfoText("µµ¸ÁÄ¥ ¼ö ¾ø´Ù!");
                 }
                 break;
         }

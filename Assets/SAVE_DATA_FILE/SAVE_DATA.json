@@ -6,12 +6,12 @@
                 "_info": {
                     "instanceID": 35546
                 },
-                "_individualValue": 14,
+                "_individualValue": 2,
                 "_hp": 15,
                 "_maxHp": 15,
                 "_attack": 16,
-                "_block": 16,
-                "_speed": 17,
+                "_block": 15,
+                "_speed": 16,
                 "_skillList": [
                     {
                         "instanceID": 37522
@@ -38,7 +38,7 @@
                 "_info": {
                     "instanceID": 37542
                 },
-                "_individualValue": 21,
+                "_individualValue": 27,
                 "_hp": 18,
                 "_maxHp": 18,
                 "_attack": 18,
@@ -204,9 +204,9 @@
             }
         ],
         "position": {
-            "x": -34.27663803100586,
-            "y": 0.9999990463256836,
-            "z": 32.639862060546878
+            "x": -30.022048950195314,
+            "y": 0.9999982118606567,
+            "z": 48.54457092285156
         }
     },
     "EnemyInfo": {
@@ -415,20 +415,20 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 35548
+            "instanceID": 35546
         },
-        "_individualValue": 17,
-        "_hp": 20,
-        "_maxHp": 20,
-        "_attack": 18,
-        "_block": 19,
-        "_speed": 20,
+        "_individualValue": 29,
+        "_hp": 24,
+        "_maxHp": 24,
+        "_attack": 26,
+        "_block": 25,
+        "_speed": 28,
         "_skillList": [
             {
-                "instanceID": 0
+                "instanceID": 37522
             },
             {
-                "instanceID": 0
+                "instanceID": 37524
             },
             {
                 "instanceID": 0
@@ -437,12 +437,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 5,
+        "_level": 7,
         "_curExp": 0,
-        "_maxExp": 91,
-        "_CurAccExp": 125,
-        "_befAccExp": 64,
-        "_NexAccExp": 216,
-        "_name": "캐터피"
+        "_maxExp": 169,
+        "_CurAccExp": 343,
+        "_befAccExp": 216,
+        "_NexAccExp": 512,
+        "_name": "파이리"
     }
 }
