@@ -19,6 +19,7 @@ public class MenuScene : BaseScene
         else
         {
             Managers.Scene.LoadScene(Define.Scene.Choice);
+
         }
     }
 

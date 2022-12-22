@@ -6,34 +6,12 @@ using UnityEngine.Events;
 
 public class Player : Agent
 {
-    // Debug Code
-    [SerializeField]
-    private List<PokemonInfoSO> _startPokemonInfo;
-    [SerializeField]
-    private ItemSO _item;
-    public int _cnt = 5;
-    // Debug Code
-
     public UnityEvent<float, float> OnMovementEvent = null;
+    public UnityEvent<bool> OnRunEvent = null;
 
     private void Start()
     {
-        // Debug Code
-
-        if (IsEmptyPokemonList())
-        {
-            for (int i = 0; i < _startPokemonInfo.Count; i++)
-            {
-                SetPokemonOfIndex(new Pokemon(_startPokemonInfo[i], 3), i);
-            }
-        }
-
-        if(IsGetItem(_item) == false)
-        {
-            SetItem(_item, _cnt);
-        }
-
-        transform.position = new Vector3(0, 1, -100);
+        transform.position = new Vector3(0, 0, -100);
     }
 
     private void Update()
@@ -41,10 +19,12 @@ public class Player : Agent
         if (Input.GetKey(KeyCode.LeftShift))
         {
             OnMovementEvent?.Invoke(Input.GetAxis("Horizontal") * 1.5f, Input.GetAxis("Vertical") * 1.5f);
+            OnRunEvent?.Invoke(true);
         }
         else
         {
             OnMovementEvent?.Invoke(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            OnRunEvent?.Invoke(false);
         }
     }
 }

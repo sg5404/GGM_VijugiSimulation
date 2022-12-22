@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659b0385c7b8de84cb0d47b195edf0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 5
+  _moveSpeed: 1
   _rotSpeed: 10
 --- !u!208 &8589935945369470552
 NavMeshObstacle:

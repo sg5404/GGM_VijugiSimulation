@@ -3246,8 +3246,10 @@ GameObject:
   - component: {fileID: -2787247039142222426}
   - component: {fileID: -140132346587714258}
   - component: {fileID: -204201460203936887}
+  - component: {fileID: 7440609439873702247}
   - component: {fileID: -4907842082505697706}
   - component: {fileID: 935633081902864722}
+  - component: {fileID: 3441607294226338858}
   m_Layer: 7
   m_Name: visugi
   m_TagString: Player
@@ -3313,9 +3315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87c4468c65c0d24aa6bb9e9423ebef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPokemonInfo: []
-  _item: {fileID: 11400000, guid: de03ab29f460b0a4780ad8d385ceb0b5, type: 2}
-  _cnt: 30
   OnMovementEvent:
     m_PersistentCalls:
       m_Calls:
@@ -3331,6 +3330,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7440609439873702247}
+        m_TargetAssemblyTypeName: AgentAnimation, Assembly-CSharp
+        m_MethodName: MovementAnimation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRunEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7440609439873702247}
+        m_TargetAssemblyTypeName: AgentAnimation, Assembly-CSharp
+        m_MethodName: DashAnimation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7440609439873702247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713645901117557799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edae38bc29b581a4a80a3c198053a242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!208 &-4907842082505697706
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -3361,6 +3399,26 @@ CapsuleCollider:
   m_Height: 150
   m_Direction: 1
   m_Center: {x: 0, y: 80, z: 0}
+--- !u!95 &3441607294226338858
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713645901117557799}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 91a4adc45ccfabb468eeab1e49bcb8a1, type: 3}
+  m_Controller: {fileID: 9100000, guid: 49f3ae7730651c94ba89e01c4bc7c6b5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6862195602517726103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,7 +3506,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7434194615313550113}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3464,7 +3522,7 @@ Transform:
   - {fileID: 6505363208396098414}
   m_Father: {fileID: 6224108606156887709}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7565303427412801228
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,11 @@ public class ChoiceScene : BaseScene
     [SerializeField]
     private int _startLevel;
 
+    [SerializeField]
+    private ItemSO _startItem;
+    [SerializeField]
+    private int _cnt;
+
     protected override void Init()
     {
         SceneType = Define.Scene.Choice;
@@ -21,6 +26,7 @@ public class ChoiceScene : BaseScene
     public void ChoicePokemon(int i)
     {
         _gameInfo.PlayerInfo.PokemonList[0] = new Pokemon(_pokemonInfoList[i], _startLevel);
+        _gameInfo.PlayerInfo.itemList.Add(new ItemPair(_startItem, _cnt));
         Managers.Save.DeleteFile();
         Managers.Save.SaveJson(_gameInfo);
         Managers.Scene.LoadScene(Define.Scene.Map);
