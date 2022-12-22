@@ -6,9 +6,9 @@
                 "_info": {
                     "instanceID": 35546
                 },
-                "_individualValue": 28,
-                "_hp": 16,
-                "_maxHp": 16,
+                "_individualValue": 14,
+                "_hp": 15,
+                "_maxHp": 15,
                 "_attack": 16,
                 "_block": 16,
                 "_speed": 17,
@@ -38,7 +38,7 @@
                 "_info": {
                     "instanceID": 37542
                 },
-                "_individualValue": 23,
+                "_individualValue": 21,
                 "_hp": 18,
                 "_maxHp": 18,
                 "_attack": 18,
@@ -49,13 +49,13 @@
                         "instanceID": 37632
                     },
                     {
-                        "instanceID": 37634
+                        "instanceID": 37524
                     },
                     {
                         "instanceID": 37636
                     },
                     {
-                        "instanceID": 37524
+                        "instanceID": 37522
                     }
                 ],
                 "_level": 3,
@@ -204,9 +204,9 @@
             }
         ],
         "position": {
-            "x": -30.770055770874025,
-            "y": 0.9999992847442627,
-            "z": 19.351436614990236
+            "x": -34.27663803100586,
+            "y": 0.9999990463256836,
+            "z": 32.639862060546878
         }
     },
     "EnemyInfo": {
@@ -415,17 +415,17 @@
     "isWildPokemon": true,
     "wildPokemon": {
         "_info": {
-            "instanceID": 35546
+            "instanceID": 35548
         },
-        "_individualValue": 9,
-        "_hp": 15,
-        "_maxHp": 15,
-        "_attack": 16,
-        "_block": 15,
-        "_speed": 17,
+        "_individualValue": 17,
+        "_hp": 20,
+        "_maxHp": 20,
+        "_attack": 18,
+        "_block": 19,
+        "_speed": 20,
         "_skillList": [
             {
-                "instanceID": 37522
+                "instanceID": 0
             },
             {
                 "instanceID": 0
@@ -437,12 +437,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 3,
+        "_level": 5,
         "_curExp": 0,
-        "_maxExp": 37,
-        "_CurAccExp": 27,
-        "_befAccExp": 8,
-        "_NexAccExp": 64,
-        "_name": "파이리"
+        "_maxExp": 91,
+        "_CurAccExp": 125,
+        "_befAccExp": 64,
+        "_NexAccExp": 216,
+        "_name": "캐터피"
     }
 }

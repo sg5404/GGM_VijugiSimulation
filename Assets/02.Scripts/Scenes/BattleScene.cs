@@ -376,11 +376,14 @@ public class BattleScene : BaseScene
         AllClosePanel();
         SetInfoText($"{_playerInfo.Name}ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
         // Æ÷ÄÏ¸ó º¼·Î ¹Ù²Ù±â
-        _enemyPokemonPrefab.transform.position = Vector3.one;
-        Managers.Pool.Push(_enemyPokemonPrefab);
+        
         Poolable monsterball =  Managers.Resource.Instantiate("Pokemon/Âî¸®¸®°ø").GetComponent<Poolable>();
         monsterball.transform.position = _playerPokemonPos.position;
-        monsterball.transform.DOJump(_enemyPokemonPos.position, 1, 1, 0.3f);
+        monsterball.transform.DOJump(_enemyPokemonPos.position, 6, 1, 0.7f).OnComplete(() =>
+        {
+            _enemyPokemonPrefab.transform.position = Vector3.one;
+            Managers.Pool.Push(_enemyPokemonPrefab);
+        });
         _actionPanelList[(int)ActionType.Item].GetComponent<ItemPanel>().RemoveItem(0, 1);
         yield return new WaitForSeconds(3f); // ï¿½ï¿½ï¿½ï¿½Ï¸é¼?ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
         int rand = Random.Range(0, 101);
