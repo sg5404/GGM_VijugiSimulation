@@ -22,7 +22,7 @@ public class MapScene : BaseScene
 
         _gameInfo = Managers.Save.LoadJsonFile<GameInfo>();
 
-        _player = Managers.Resource.Instantiate("Player/Player").GetComponent<Player>();
+        _player = Managers.Resource.Instantiate("Player/visugi").GetComponent<Player>();
 
         _player.SetInfo(_gameInfo.PlayerInfo);
         _player.transform.position = new Vector3(_gameInfo.PlayerInfo.position.x, _gameInfo.PlayerInfo.position.y, _gameInfo.PlayerInfo.position.z);
