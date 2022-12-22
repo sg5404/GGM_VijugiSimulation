@@ -28,6 +28,7 @@ public class Item : MonoBehaviour
 
     public void AddEvent(UnityAction action)
     {
+        _btn.onClick.RemoveAllListeners();
         _btn.onClick.AddListener(action);
     }
 }

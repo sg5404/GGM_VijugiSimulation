@@ -367,6 +367,7 @@ public class BattleScene : BaseScene
     private void ThrowMonsterball()
     {
         StartCoroutine(ThrowMonsterballCoroutine());
+        Debug.Log("볼 던지기");
     }
 
     private IEnumerator ThrowMonsterballCoroutine()
@@ -444,6 +445,7 @@ public class BattleScene : BaseScene
         }
         yield return new WaitForSeconds(0.5f);
         ChangeTurn();
+        //StopCoroutine(ThrowMonsterballCoroutine());
     }
 
     public void ReturnThrowIndex(int i)
