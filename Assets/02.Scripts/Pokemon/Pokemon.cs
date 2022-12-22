@@ -14,10 +14,10 @@ public enum AbilityType
 
 public enum DamageType
 {
-    GREAT, // È¿°ú°¡ ±²ÀåÇß´Ù!
-    MEDIOCRE, // È¿°ú°¡ Æò¹üÇß´Ù!
-    NOTGOOD, // È¿°ú°¡ º°·Î¿´´Ù.
-    NO // È¿°ú°¡ ¾ø´Ù.
+    GREAT, // È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½!
+    MEDIOCRE, // È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ß´ï¿?
+    NOTGOOD, // È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½.
+    NO // È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 }
 
 [System.Serializable]
@@ -28,8 +28,8 @@ public class Pokemon
     public PokemonInfoSO Info => _info;
 
     [SerializeField]
-    // 0 ~ 31±îÁö
-    protected int _individualValue = 0; // °³Ã¼°ª
+    // 0 ~ 31ï¿½ï¿½ï¿½ï¿½
+    protected int _individualValue = 0; // ï¿½ï¿½Ã¼ï¿½ï¿½
 
     [SerializeField] protected int _hp;
     [SerializeField] protected int _maxHp;
@@ -49,20 +49,20 @@ public class Pokemon
     [SerializeField] protected int _level;
     public int Level => _level;
 
-    [SerializeField] protected int _curExp; // ÇöÀç °æÇèÄ¡ ·®
+    [SerializeField] protected int _curExp; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½
     public int CurExp => _curExp;
-    [SerializeField] protected int _maxExp; // ·¹º§¾÷À» À§ÇØ ¹ú¾î¾ßÇÒ °æÇèÄ¡ ·®
+    [SerializeField] protected int _maxExp; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½
     public int MaxExp => _maxExp;
-    [SerializeField] protected int _CurAccExp; // ÇöÀç ·¹º§ ´©Àû °æÇèÄ¡ ·® (ÁÖÀÇ ¡ØÇöÀç±îÁö ¾òÀº °æÇèÄ¡·® ¾Æ´Ô¡Ø)
-    [SerializeField] protected int _befAccExp; // ÀÌÀü ·¹º§ ´©Àû °æÇèÄ¡ ·®
-    [SerializeField] protected int _NexAccExp; // ´ÙÀ½ ·¹ºô ´©Àû °æÇèÄ¡ ·®
+    [SerializeField] protected int _CurAccExp; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Æ´Ô¡ï¿½)
+    [SerializeField] protected int _befAccExp; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½
+    [SerializeField] protected int _NexAccExp; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½
 
     [SerializeField] protected string _name;
     public string Name => _name;
 
 
 
-    //[{(Á¾Á·°ª * 2) + °³Ã¼°ª} * ·¹º§/100] + 10 + ·¹º§
+    //[{(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ * 2) + ï¿½ï¿½Ã¼ï¿½ï¿½} * ï¿½ï¿½ï¿½ï¿½/100] + 10 + ï¿½ï¿½ï¿½ï¿½
 
     public Pokemon()
     {
@@ -138,7 +138,7 @@ public class Pokemon
         return AbilityFormula((float)value);
     }
 
-    // thisType: °ø°Ý¹Þ´Â ÂÊ, skillType: °ø°ÝÇÏ´Â ÂÊ
+    // thisType: ï¿½ï¿½ï¿½Ý¹Þ´ï¿½ ï¿½ï¿½, skillType: ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½
     private float GetValue(Define.PokeType thisType, Define.PokeType skillType) 
     {
         switch (skillType)
@@ -949,7 +949,7 @@ public class Pokemon
         _maxExp = _NexAccExp - _CurAccExp;
         AddExp(exp);
 
-        // ·¹ºôÀÌ ¸¸Á·ÇÏ¸é ½ºÅ³ ¾ò±â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿?
         SkillCheck();
 
         SetPokemonInfo();
@@ -966,7 +966,7 @@ public class Pokemon
         // Update UI
     }
 
-    private bool IsEquipSkill() // ºó ½ºÅ³°ø°£ ÀÖÀ½?
+    private bool IsEquipSkill() // ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?
     {
         for (int i = 0; i < MAX_SKILL_CNT; i++)
         {
@@ -979,7 +979,7 @@ public class Pokemon
         return false;
     }
 
-    private int GetEmptySkillIndex() // ºó½ºÅ³ °ø°£ ÀÎµ¦½º
+    private int GetEmptySkillIndex() // ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
     {
         for (int i = 0; i < MAX_SKILL_CNT; i++)
         {
@@ -1016,7 +1016,6 @@ public class Pokemon
     {
         if (_info.skillTree == null) return;
         
-        // info SO¿¡¼­ SkillTree Å½»öÇÏ±â
         foreach(var skill in _info.skillTree.pairs)
         {
             if (IsGetSkill(skill.skill) == true) continue;
@@ -1054,8 +1053,8 @@ public class Pokemon
     #region Public Method
     public DamageType Damage (float amount, Define.PokeType type, bool isCritical = false)
     {
-        // (((((·¹º§ ¡¿ 2 ¡À 5) + 2) ¡¿ À§·Â ¡¿ Æ¯¼ö°ø°Ý ¡À 50) ¡À Æ¯¼ö¹æ¾î) + 2) * ±Þ¼Ò* »ó¼º1 * »ó¼º2 * ÀÚ¼Ó º¸Á¤
-        // amount = À§·Â * Æ¯¼ö°ø°Ý
+        // (((((ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 2 ï¿½ï¿½ 5) + 2) ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 50) ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿? + 2) * ï¿½Þ¼ï¿½* ï¿½ï¿½1 * ï¿½ï¿½2 * ï¿½Ú¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+        // amount = ï¿½ï¿½ï¿½ï¿½ * Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         float typeCom = TypeCompatibility(type);
         bool mfx = (type == _info.mainType) || (type == _info.subType);
         int damage = (int)(((((((float)_level * 2f / 5f) + 2f) * amount / 50f) / (float)_block) + 2f) * (isCritical ? 2f : 1f) * typeCom * (mfx ? 2f : 1f));
@@ -1081,16 +1080,26 @@ public class Pokemon
 
     public DamageType Damage(float power, float attack, Define.PokeType type, bool isCritical = false)
     {
-        // (((((·¹º§ ¡¿ 2 ¡À 5) + 2) ¡¿ À§·Â ¡¿ Æ¯¼ö°ø°Ý ¡À 50) ¡À Æ¯¼ö¹æ¾î) + 2) * ±Þ¼Ò* »ó¼º1 * »ó¼º2 * ÀÚ¼Ó º¸Á¤
+        // (((((ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 2 ï¿½ï¿½ 5) + 2) ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 50) ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿? + 2) * ï¿½Þ¼ï¿½* ï¿½ï¿½1 * ï¿½ï¿½2 * ï¿½Ú¼ï¿½ ï¿½ï¿½ï¿½ï¿½
         return Damage(power * attack, type, isCritical);
     }
 
-    public void Heal(int heal)
+    public void Heal(int heal, Pokemon poke)
     {
-        this._hp += heal;
-        this._hp = Mathf.Min(_hp, _maxHp);
+        poke._hp += heal;
+        poke._hp = Mathf.Min(_hp, _maxHp);
 
-        // ÀÌ°Å ´Ù¸¥ÂÊÀ¸·Î ¿Å±â±â
+        // ï¿½Ì°ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½ï¿?
+        Debug.Log("?¤í–‰");
+    }
+
+    public void BattleHeal(int heal, Pokemon poke)
+    {
+        poke._hp += heal;
+        poke._hp = Mathf.Min(_hp, _maxHp);
+
+        // ï¿½Ì°ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½ï¿?
+        Debug.Log("?¤í–‰");
         BattleScene scene = Managers.Scene.CurrentScene as BattleScene;
         scene.UpdateUI();
     }
@@ -1116,7 +1125,6 @@ public class Pokemon
         }
         else
         {
-            // ±ÍÂúÀ¸´Ï±î ·£´ý »èÁ¦ ¤»¤»
             int idx = -1;
             for(int i = 0; i < 4; i++)
             {
