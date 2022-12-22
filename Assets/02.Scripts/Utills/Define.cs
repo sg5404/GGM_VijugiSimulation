@@ -44,7 +44,8 @@ public class Define
         Unknown,
         Map,
         Battle,
-        Menu
+        Menu,
+        Choice
     }
 
     public enum Sound

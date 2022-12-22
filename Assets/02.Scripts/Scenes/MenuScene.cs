@@ -11,7 +11,15 @@ public class MenuScene : BaseScene
 
     public void LoadMapScene()
     {
-        Managers.Scene.LoadScene(Define.Scene.Map);
+        GameInfo info = Managers.Save.LoadJsonFile<GameInfo>();
+        if (info.PlayerInfo.PokemonList[0].Info != null)
+        {
+            Managers.Scene.LoadScene(Define.Scene.Map);
+        }
+        else
+        {
+            Managers.Scene.LoadScene(Define.Scene.Choice);
+        }
     }
 
     public void QuitGame()

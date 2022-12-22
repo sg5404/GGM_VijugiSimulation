@@ -71,11 +71,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - colorMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 93637f1cd5963f240a3569f3f99be2f9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - dhfParamMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6ad529de9ae702548b0c67e4939a00d8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - terrainNormalMap:

@@ -4,17 +4,17 @@
         "PokemonList": [
             {
                 "_info": {
-                    "instanceID": 39136
+                    "instanceID": 30580
                 },
-                "_individualValue": 4,
-                "_hp": 15,
-                "_maxHp": 15,
-                "_attack": 16,
-                "_block": 15,
+                "_individualValue": 31,
+                "_hp": 16,
+                "_maxHp": 16,
+                "_attack": 17,
+                "_block": 16,
                 "_speed": 17,
                 "_skillList": [
                     {
-                        "instanceID": 39200
+                        "instanceID": 30616
                     },
                     {
                         "instanceID": 0
@@ -36,35 +36,35 @@
             },
             {
                 "_info": {
-                    "instanceID": 39134
+                    "instanceID": 0
                 },
-                "_individualValue": 19,
-                "_hp": 18,
-                "_maxHp": 18,
-                "_attack": 18,
-                "_block": 18,
-                "_speed": 19,
+                "_individualValue": 0,
+                "_hp": 0,
+                "_maxHp": 0,
+                "_attack": 0,
+                "_block": 0,
+                "_speed": 0,
                 "_skillList": [
                     {
-                        "instanceID": 39202
+                        "instanceID": 0
                     },
                     {
-                        "instanceID": 39216
+                        "instanceID": 0
                     },
                     {
-                        "instanceID": 39218
+                        "instanceID": 0
                     },
                     {
-                        "instanceID": 39200
+                        "instanceID": 0
                     }
                 ],
-                "_level": 3,
+                "_level": 0,
                 "_curExp": 0,
-                "_maxExp": 37,
-                "_CurAccExp": 27,
-                "_befAccExp": 8,
-                "_NexAccExp": 64,
-                "_name": "리자몽"
+                "_maxExp": 0,
+                "_CurAccExp": 0,
+                "_befAccExp": 0,
+                "_NexAccExp": 0,
+                "_name": ""
             },
             {
                 "_info": {
@@ -405,20 +405,20 @@
             "z": 0.0
         }
     },
-    "isWildPokemon": true,
+    "isWildPokemon": false,
     "wildPokemon": {
         "_info": {
-            "instanceID": 39136
+            "instanceID": 0
         },
-        "_individualValue": 11,
-        "_hp": 21,
-        "_maxHp": 21,
-        "_attack": 22,
-        "_block": 21,
-        "_speed": 24,
+        "_individualValue": 0,
+        "_hp": 0,
+        "_maxHp": 0,
+        "_attack": 0,
+        "_block": 0,
+        "_speed": 0,
         "_skillList": [
             {
-                "instanceID": 39200
+                "instanceID": 0
             },
             {
                 "instanceID": 0
@@ -430,12 +430,12 @@
                 "instanceID": 0
             }
         ],
-        "_level": 6,
+        "_level": 0,
         "_curExp": 0,
-        "_maxExp": 127,
-        "_CurAccExp": 216,
-        "_befAccExp": 125,
-        "_NexAccExp": 343,
-        "_name": "파이리"
+        "_maxExp": 0,
+        "_CurAccExp": 0,
+        "_befAccExp": 0,
+        "_NexAccExp": 0,
+        "_name": ""
     }
 }

@@ -372,6 +372,7 @@ public class BattleScene : BaseScene
     private IEnumerator ThrowMonsterballCoroutine()
     {
         AllClosePanel();
+
         SetInfoText($"{_playerInfo.Name}은 몬스터볼을 던졌다!");
         // 포켓몬 볼로 바꾸기
         
