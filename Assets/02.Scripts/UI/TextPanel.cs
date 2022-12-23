@@ -7,7 +7,7 @@ public class TextPanel : MonoBehaviour
 {
     private Text _text;
 
-    private void Start()
+    private void OnEnable()
     {
         _text = GetComponentInChildren<Text>();
     }

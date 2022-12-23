@@ -64,9 +64,9 @@ public class AgentInfo
 {
     public string Name;
     public Pokemon[] PokemonList = new Pokemon[6];
-    //public Dictionary<ItemSO, int> itemDict = new Dictionary<ItemSO, int>(); // ��ųʸ��� ����ȭ �ȵ�
+    //public Dictionary<ItemSO, int> itemDict = new Dictionary<ItemSO, int>(); // ��ųʸ���?����ȭ �ȵ�
     public List<ItemPair> itemList = new List<ItemPair>();
-    public Vector3 position = new Vector3(0, 1, 0);
+    public Vector3 position = new Vector3(0, 0, 0);
 
     public AgentInfo()
     {

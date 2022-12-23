@@ -14,12 +14,12 @@ public class IdleAction : AIState
 
     public override void OnStateEnter()
     {
-        _agent.isStopped = true;
+        //_agent.isStopped = true;
     }
 
     public override void OnStateLeave()
     {
-        _agent.isStopped = false;
+        //_agent.isStopped = false;
     }
 
     public override void TakeAAction()

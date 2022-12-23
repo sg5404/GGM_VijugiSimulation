@@ -10,9 +10,13 @@ public class MapScene : BaseScene
     private GameInfo _gameInfo;
 
     private Player _player;
+    public Player Player => _player;
 
     [SerializeField]
     private TextPanel _textPanel;
+
+    [SerializeField]
+    private List<Enemy> _trainerList;
 
     protected override void Init()
     {
@@ -26,6 +30,11 @@ public class MapScene : BaseScene
 
         _player.SetInfo(_gameInfo.PlayerInfo);
         _player.transform.position = new Vector3(_gameInfo.PlayerInfo.position.x, _gameInfo.PlayerInfo.position.y, _gameInfo.PlayerInfo.position.z);
+
+        foreach(var t in _trainerList)
+        {
+            t.transform.Find("AI").GetComponent<AIBrain>().SetTarget(_player.gameObject);
+        }
 
         _cc = Camera.main.GetComponent<CameraController>();
         _cc.SetTarget(_player.gameObject);
@@ -41,10 +50,10 @@ public class MapScene : BaseScene
 
     public override void Clear()
     {
-        if(_player != null)
-        {
-            Managers.Pool.Push(_player.GetComponent<Poolable>());
-            _player = null;
-        }
+        //if(_player != null)
+        //{
+        //    Managers.Pool.Push(_player.GetComponent<Poolable>());
+        //    _player = null;
+        //}
     }
 }
