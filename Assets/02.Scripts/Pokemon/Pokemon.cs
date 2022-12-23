@@ -29,8 +29,9 @@ public class Pokemon
 
     [SerializeField]
     // 0 ~ 31ï¿½ï¿½ï¿½ï¿½
-    protected int _individualValue = 0; // ï¿½ï¿½Ã¼ï¿½ï¿½
+    protected int _individualValue = 0; // ï¿½ï¿½Ã¼ï¿½ï¿½ 
 
+    public Sprite Image;
     [SerializeField] protected int _hp;
     [SerializeField] protected int _maxHp;
     public int Hp => _hp;
@@ -76,6 +77,12 @@ public class Pokemon
         _individualValue = SetIV();
         SetPokemonInfo();
         _hp = _maxHp;
+        Image = info.image;
+
+        //if(image == null)
+        //{
+        //    Debug.Log("»çÁø ¾øÀ½");
+        //}
 
         _name = _info.name;
 
@@ -97,6 +104,7 @@ public class Pokemon
         _individualValue = pokemon._individualValue;
         SetPokemonInfo();
         _maxHp = pokemon._maxHp;
+        Image = pokemon.Info.image;
 
         _name = _info.name;
 

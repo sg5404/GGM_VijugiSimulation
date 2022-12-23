@@ -88,6 +88,7 @@ public class ItemPanel : MonoBehaviour
 
     public void RemoveItem(int index, int cnt = 1)
     {
+        Debug.Log("º¼ »ç¿ë");
         if (_itemDict[index] != null)
         {
             _itemDict[index].cnt -= cnt;
