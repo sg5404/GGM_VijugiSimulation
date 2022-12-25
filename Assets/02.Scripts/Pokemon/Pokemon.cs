@@ -1092,10 +1092,10 @@ public class Pokemon
         return Damage(power * attack, type, isCritical);
     }
 
-    public void Heal(int heal, Pokemon poke)
+    public void Heal(int heal)
     {
-        poke._hp += heal;
-        poke._hp = Mathf.Min(_hp, _maxHp);
+        this._hp += heal;
+        this._hp = Mathf.Min(_hp, _maxHp);
 
         // �̰� �ٸ������� �ű��?
         Debug.Log("?�행");

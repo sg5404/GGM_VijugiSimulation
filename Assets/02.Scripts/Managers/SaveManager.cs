@@ -35,6 +35,11 @@ public class SaveManager
         SaveJson<T>(_path, _fileName, value);
     }
 
+    public void SaveJson<T>(string fileName, T value)
+    {
+        SaveJson<T>(_path, fileName, value);
+    }
+
     public T LoadJsonFile<T>(string loadPath, string fileName) where T : new()
     {
         if (File.Exists(string.Format("{0}/{1}.json", loadPath, fileName)))
@@ -53,6 +58,11 @@ public class SaveManager
     public T LoadJsonFile<T>() where T : new()
     {
         return LoadJsonFile<T>(_path, _fileName);
+    }
+
+    public T LoadJsonFile<T>(string fileName) where T : new()
+    {
+        return LoadJsonFile<T>(_path, fileName);
     }
 
     public bool DeleteFile(string path, string fileName)

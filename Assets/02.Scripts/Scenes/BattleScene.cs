@@ -278,7 +278,8 @@ public class BattleScene : BaseScene
                 SetInfoText($"{_enemyPokemon.Name}의 {skill.skillName}!");
                 if (cri <= skill.accuracyRate)
                 {
-                    bool isCritical = Random.value <= 0.06f ? true : false;
+                    //bool isCritical = Random.value <= 0.06f ? true : false;
+                    bool isCritical = Random.value <= 0.1f ? true : false;
                     DamageType type = _playerPokemon.Damage(skill.power, _enemyPokemon.Attack, skill.type, isCritical);
                     GameObject hit = Managers.Resource.Instantiate("Effect/Hit");
                     hit.transform.position = _playerPokemonPos.position + Vector3.up;
@@ -289,6 +290,7 @@ public class BattleScene : BaseScene
                 else
                 {
                     SetInfoText($"{_enemyPokemon.Name}의 {skill.skillName}은 빗나갔다!");
+                    ChangeTurn();
                 }
             }
             else
@@ -374,7 +376,6 @@ public class BattleScene : BaseScene
         AllClosePanel();
 
         SetInfoText($"{_playerInfo.Name}은 몬스터볼을 던졌다!");
-        // 포켓몬 볼로 바꾸기
         
         Poolable monsterball =  Managers.Resource.Instantiate("Pokemon/찌리리공").GetComponent<Poolable>();
         monsterball.transform.position = _playerPokemonPos.position;
@@ -496,13 +497,15 @@ public class BattleScene : BaseScene
         SetInfoText($"{_playerInfo.Name}은(는) 패배헸다.\n{_playerInfo.Name}은(는) 눈 앞이 깜깜해졌다.");
         yield return new WaitForSeconds(0.5f);
 
-        _gameInfo.wildPokemon = null;
-        _playerInfo.PokemonList[0] = _playerPokemon; // 경험치가 안넘어 간다.
-        _playerInfo.position = new Vector3(0, 1, 0);
-        _gameInfo.PlayerInfo = _playerInfo;
-        Managers.Save.SaveJson(_gameInfo);
+        //_gameInfo.wildPokemon = null;
+        //_playerInfo.PokemonList[0] = _playerPokemon;
+        //_playerInfo.position = new Vector3(0, 1, 0);
+        //_gameInfo.PlayerInfo = _playerInfo;
+        //Managers.Save.SaveJson(_gameInfo);
+        Managers.Save.DeleteFile();
+        Managers.Scene.LoadScene(Define.Scene.Menu);
 
-        Managers.Scene.LoadScene(Define.Scene.Map);
+        //Managers.Scene.LoadScene(Define.Scene.Map);
     }
 
     public void Attack(SkillSO skill)
@@ -591,7 +594,6 @@ public class BattleScene : BaseScene
         if (fIdx == sIdx) return;
         if (_playerInfo.PokemonList[fIdx] == null || _playerInfo.PokemonList[sIdx] == null) return;
 
-        // agent 안에 만들기  
         Pokemon temp = _playerInfo.PokemonList[fIdx];
         _playerInfo.PokemonList[fIdx] = _playerInfo.PokemonList[sIdx];
         _playerInfo.PokemonList[sIdx] = temp;

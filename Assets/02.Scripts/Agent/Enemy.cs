@@ -15,12 +15,18 @@ public class Enemy : Agent
     private int _pokemonLevel;
     [SerializeField]
     private string _battleStartText;
+
+    [SerializeField]
+    private float _battleCoolTime = 60f;
     public string BattleStartText => _battleStartText;
 
     public UnityEvent<float, float> OnMovementEvent;
 
     private NavMeshAgent _agent;
     private FieldOfView _fov;
+
+    private float _timer = 0f;
+    private int _id;
 
     private void Start()
     {
@@ -35,6 +41,21 @@ public class Enemy : Agent
         _name = enemyName;
     }
 
+    public void SetID(int i)
+    {
+        _id = i;
+    }
+
+    public float GetTime()
+    {
+        return _timer;
+    }
+
+    public void SetTIme(float time)
+    {
+        _timer = time;
+    }
+
     public IEnumerator Battle()
     {
         GameInfo gameInfo = new GameInfo();
@@ -46,16 +67,25 @@ public class Enemy : Agent
         scene?.SetText(BattleStartText);
 
         yield return new WaitForSeconds(1f);
-        Managers.Scene.LoadScene(Define.Scene.Battle);
+        scene.TrainerBattle();
     }
 
     private void Update()
     {
         OnMovementEvent?.Invoke(_agent.isStopped == true ? 1 : 0, _agent.isStopped == true ? 1 : 0);
 
-        if (_fov.SearchEneny)
+        if (_timer > 0)
         {
-            StartCoroutine(Battle());
+            _timer -= Time.deltaTime;
+        }
+
+        if (_timer <= 0f)
+        {
+            if (_fov.SearchEneny)
+            {
+                _timer = _battleCoolTime;
+                StartCoroutine(Battle());
+            }
         }
     }
 }

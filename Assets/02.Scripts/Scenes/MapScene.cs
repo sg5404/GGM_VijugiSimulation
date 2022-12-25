@@ -11,6 +11,7 @@ public class MapScene : BaseScene
     private bool isPanelOn = false;
 
     private GameInfo _gameInfo = new GameInfo();
+    private EnemyInfo _trainerInfo = new EnemyInfo();
     private AgentInfo _agentInfo = new AgentInfo();
     private Pokemon _pokemon = new Pokemon();
 
@@ -37,7 +38,10 @@ public class MapScene : BaseScene
     {
         base.Init();
 
+        SceneType = Define.Scene.Map;
+
         _gameInfo = Managers.Save.LoadJsonFile<GameInfo>();
+        _trainerInfo = Managers.Save.LoadJsonFile<EnemyInfo>("SAVE_DATA_ENEMY");
 
         continueBtn.onClick.AddListener(ContinueGame);
         quitBtn.onClick.AddListener(AplicationQuit);
@@ -45,9 +49,19 @@ public class MapScene : BaseScene
 
         ContinueGame();
 
-        SceneType = Define.Scene.Map;
+        if(_trainerInfo.EnemyBattleCoolTime.Count <= 0)
+        {
+            for(int i = 0; i < _trainerList.Count; i++)
+            {
+                _trainerInfo.EnemyBattleCoolTime.Add(0f);
+            }
+        }
 
-        _gameInfo = Managers.Save.LoadJsonFile<GameInfo>();
+        for (int i = 0; i < _trainerList.Count; i++)
+        {
+            _trainerList[i].SetID(i);
+            _trainerList[i].SetTIme(_trainerInfo.EnemyBattleCoolTime[i]);
+        }
 
         _player = Managers.Resource.Instantiate("Player/visugi").GetComponent<Player>();
 
@@ -80,6 +94,25 @@ public class MapScene : BaseScene
             allFalse();
             PokemonInfoLoad();
         }
+    }
+
+    public void TrainerBattle()
+    {
+        //GameInfo gameInfo = new GameInfo();
+        //MapScene scene = Managers.Scene.CurrentScene as MapScene;
+        //gameInfo.PlayerInfo = scene.Player.GetInfo();
+        //gameInfo.EnemyInfo = this.GetInfo();
+        //gameInfo.isWildPokemon = false;
+        //Managers.Save.SaveJson(gameInfo);
+        //scene?.SetText(BattleStartText);
+        EnemyInfo info = new EnemyInfo();
+        for(int i = 0; i < _trainerList.Count; i++)
+        {
+            info.EnemyBattleCoolTime.Add(_trainerList[i].GetTime());
+        }
+        Managers.Save.SaveJson<EnemyInfo>("SAVE_DATA_ENEMY", info);
+
+        Managers.Scene.LoadScene(Define.Scene.Battle);
     }
 
     public void SetText(string msg)

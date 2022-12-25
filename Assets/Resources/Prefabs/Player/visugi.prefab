@@ -3250,6 +3250,7 @@ GameObject:
   - component: {fileID: -4907842082505697706}
   - component: {fileID: 935633081902864722}
   - component: {fileID: 3441607294226338858}
+  - component: {fileID: 1822325230249865345}
   m_Layer: 7
   m_Name: visugi
   m_TagString: Player
@@ -3315,7 +3316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87c4468c65c0d24aa6bb9e9423ebef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebug: 0
+  isDebug: 1
   _pokemon: {fileID: 11400000, guid: 4be0ce22786786140b8858d47053fda5, type: 2}
   item: {fileID: 11400000, guid: de03ab29f460b0a4780ad8d385ceb0b5, type: 2}
   OnMovementEvent:
@@ -3422,6 +3423,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1822325230249865345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713645901117557799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa57ef5effcd2e44825c04858021a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionRange: 5
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &6862195602517726103
 GameObject:
   m_ObjectHideFlags: 0

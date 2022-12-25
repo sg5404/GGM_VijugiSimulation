@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
+    [SerializeField]
+    private float _interactionRange = 5f;
+    [SerializeField]
+    private LayerMask _layerMask;
+
     GameInfo gameInfo = new GameInfo();
-    AgentInfo agentInfo = new AgentInfo();
-    Pokemon pokemon = new Pokemon();
+
     void Start()
     {
         gameInfo = Managers.Save.LoadJsonFile<GameInfo>();
@@ -14,25 +18,37 @@ public class Interaction : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        Collider[] colls = Physics.OverlapSphere(transform.position, _interactionRange, _layerMask);
+        if (colls.Length > 0)
         {
-            interaction_Nurse();
-        }
-    }
+            // ±âº¸µå µş±ïµş±ï ¶ç¿ì±â
 
-    void interaction_Nurse() //ìƒí˜¸ì‘ìš©
-    {
-        RaycastHit hit;
-        LayerMask layerMask = LayerMask.GetMask("Nurse");
-        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 20, layerMask))
-        {
-            agentInfo = gameInfo.PlayerInfo;
-            Debug.Log(agentInfo.PokemonList[0].Name);
-            foreach (Pokemon poke in agentInfo.PokemonList)
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                pokemon.Heal(poke.MaxHp, poke);
-                //ì—¬ê¸°ì— ìƒëŒ€ê°€ ìˆì—ˆì„ë•Œ ìƒëŒ€ì˜ ë§í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸ë¥¼ ë°›ì•„ì™€ì„œ í•¨ìˆ˜ ì‹¤í–‰
+                interaction_Nurse(); // ÇÔÁ¤À¸·Î ¹Ù²Ù±â
             }
         }
+
+        
     }
+
+    void interaction_Nurse() //?í˜¸?‘ìš©
+    {
+        foreach (Pokemon poke in gameInfo.PlayerInfo.PokemonList)
+        {
+            poke.Heal(poke.MaxHp);
+            //?¬ê¸°???ë?ê°€ ?ˆì—ˆ?„ë•Œ ?ë???ë§í•˜???¤í¬ë¦½íŠ¸ë¥?ë°›ì•„?€???¨ìˆ˜ ?¤í–‰
+        }
+
+
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, _interactionRange);
+        Gizmos.color = Color.white;
+    }
+#endif
 }

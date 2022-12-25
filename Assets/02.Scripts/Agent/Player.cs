@@ -24,7 +24,7 @@ public class Player : Agent
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            OnMovementEvent?.Invoke(Input.GetAxis("Horizontal") * 1.5f, Input.GetAxis("Vertical") * 1.5f);
+            OnMovementEvent?.Invoke(Input.GetAxis("Horizontal") * 2f, Input.GetAxis("Vertical") * 2f);
             OnRunEvent?.Invoke(true);
         }
         else
