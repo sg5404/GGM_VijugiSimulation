@@ -14,8 +14,8 @@ public enum ActionType
     Fight,
     Pokemon,
     Item,
+    PokemonChoice,
     Run,
-    PokemonChoice
 }
 
 public class BattleScene : BaseScene
@@ -395,7 +395,8 @@ public class BattleScene : BaseScene
             _ => 40,
         };
 
-        if (rand <= ra)
+        //if (rand <= ra)
+        if (true)
         {
             // 포획 성곡
             // 이펙트
@@ -431,9 +432,14 @@ public class BattleScene : BaseScene
             Debug.Log("남는 공간 없음");
             SetInfoText("버릴 포켓몬을 선택하세요.");
             _throwIndex = -1;
+            _actionPanelList[(int)ActionType.PokemonChoice].SetActive(true);
             _actionPanelList[(int)ActionType.PokemonChoice].GetComponent<PokemonChoicePanel>().SetPokeom(_playerInfo.PokemonList);
             yield return new WaitUntil(() => _throwIndex != -1);
-            // 선택 창 띄우기
+            _playerInfo.PokemonList[_throwIndex] = _enemyPokemon;
+
+            StopCoroutine(_battleCoroutine);
+            _isPlayerTurn = false;
+            _isBattleStart = false;
         }
         else
         {
@@ -446,6 +452,13 @@ public class BattleScene : BaseScene
         yield return new WaitForSeconds(0.5f);
         ChangeTurn();
         //StopCoroutine(ThrowMonsterballCoroutine());
+
+        _gameInfo.wildPokemon = null;
+        _playerInfo.PokemonList[0] = _playerPokemon;
+        _gameInfo.PlayerInfo = _playerInfo;
+        Managers.Save.SaveJson(_gameInfo);
+
+        Managers.Scene.LoadScene(Define.Scene.Map);
     }
 
     public void ReturnThrowIndex(int i)
@@ -579,6 +592,7 @@ public class BattleScene : BaseScene
         if (fIdx == sIdx) return;
         if (_playerInfo.PokemonList[fIdx] == null || _playerInfo.PokemonList[sIdx] == null) return;
 
+        // agent 안에 만들기  
         Pokemon temp = _playerInfo.PokemonList[fIdx];
         _playerInfo.PokemonList[fIdx] = _playerInfo.PokemonList[sIdx];
         _playerInfo.PokemonList[sIdx] = temp;

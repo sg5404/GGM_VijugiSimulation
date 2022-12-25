@@ -52,9 +52,9 @@ public class MapScene : BaseScene
         _player = Managers.Resource.Instantiate("Player/visugi").GetComponent<Player>();
 
         _player.SetInfo(_gameInfo.PlayerInfo);
-        _player.transform.position = new Vector3(_gameInfo.PlayerInfo.position.x, _gameInfo.PlayerInfo.position.y, _gameInfo.PlayerInfo.position.z);
+        _player.transform.position = _gameInfo.PlayerInfo.position;
 
-        foreach(var t in _trainerList)
+        foreach (var t in _trainerList)
         {
             t.transform.Find("AI").GetComponent<AIBrain>().SetTarget(_player.gameObject);
         }

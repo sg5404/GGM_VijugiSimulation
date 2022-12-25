@@ -66,11 +66,11 @@ public class AgentInfo
     public Pokemon[] PokemonList = new Pokemon[6];
     //public Dictionary<ItemSO, int> itemDict = new Dictionary<ItemSO, int>(); // ï¿½ï¿½Å³Ê¸ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½È­ ï¿½Èµï¿½
     public List<ItemPair> itemList = new List<ItemPair>();
-    public Vector3 position = new Vector3(0, 0, 0);
+    public Vector3 position = new Vector3(0, 0, -100);
 
     public AgentInfo()
     {
-        Name = "poke";
+        Name = "ºñÁÖ±â";
 
         for(int i = 0; i < 6; i++)
         {
@@ -78,7 +78,7 @@ public class AgentInfo
         }
         //itemDict = new Dictionary<ItemSO, int>();
         itemList = new List<ItemPair>();
-        position = new Vector3(0, 1, 0);
+        position = new Vector3(0, 0, -100);
     }
 }
 
