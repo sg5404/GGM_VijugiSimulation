@@ -14,8 +14,8 @@ public enum ActionType
     Fight,
     Pokemon,
     Item,
-    PokemonChoice,
     Run,
+    PokemonChoice,
 }
 
 public class BattleScene : BaseScene
@@ -339,7 +339,11 @@ public class BattleScene : BaseScene
                 }
                 else if(_playerPokemon.Level < _enemyPokemon.Level)
                 {
-                    isRun = false;
+                    float rand = Random.value;
+                    if (rand <= 0.2f)
+                        isRun = true;
+                    else
+                        isRun = false;
                 }
                 else
                 {
@@ -440,6 +444,13 @@ public class BattleScene : BaseScene
             StopCoroutine(_battleCoroutine);
             _isPlayerTurn = false;
             _isBattleStart = false;
+
+            _gameInfo.wildPokemon = null;
+            _playerInfo.PokemonList[0] = _playerPokemon;
+            _gameInfo.PlayerInfo = _playerInfo;
+            Managers.Save.SaveJson(_gameInfo);
+
+            Managers.Scene.LoadScene(Define.Scene.Map);
         }
         else
         {
@@ -451,14 +462,6 @@ public class BattleScene : BaseScene
         }
         yield return new WaitForSeconds(0.5f);
         ChangeTurn();
-        //StopCoroutine(ThrowMonsterballCoroutine());
-
-        _gameInfo.wildPokemon = null;
-        _playerInfo.PokemonList[0] = _playerPokemon;
-        _gameInfo.PlayerInfo = _playerInfo;
-        Managers.Save.SaveJson(_gameInfo);
-
-        Managers.Scene.LoadScene(Define.Scene.Map);
     }
 
     public void ReturnThrowIndex(int i)
@@ -497,15 +500,11 @@ public class BattleScene : BaseScene
         SetInfoText($"{_playerInfo.Name}Àº(´Â) ÆÐ¹èÂg´Ù.\n{_playerInfo.Name}Àº(´Â) ´« ¾ÕÀÌ ±ô±ôÇØÁ³´Ù.");
         yield return new WaitForSeconds(0.5f);
 
-        //_gameInfo.wildPokemon = null;
-        //_playerInfo.PokemonList[0] = _playerPokemon;
-        //_playerInfo.position = new Vector3(0, 1, 0);
-        //_gameInfo.PlayerInfo = _playerInfo;
-        //Managers.Save.SaveJson(_gameInfo);
+        // Fade Out È¿°ú
+        // °ÔÀÓ ¿À¹ö ¶ç¿ì±â?
+
         Managers.Save.DeleteFile();
         Managers.Scene.LoadScene(Define.Scene.Menu);
-
-        //Managers.Scene.LoadScene(Define.Scene.Map);
     }
 
     public void Attack(SkillSO skill)
@@ -625,6 +624,8 @@ public class BattleScene : BaseScene
 
     private IEnumerator BattleEnd(float delay)
     {
+        StopCoroutine(_battleCoroutine);
+
         SetInfoText("¹«»çÈ÷ µµ¸ÁÃÆ´Ù.");
         yield return new WaitForSeconds(delay);
         _gameInfo.isWildPokemon = false;

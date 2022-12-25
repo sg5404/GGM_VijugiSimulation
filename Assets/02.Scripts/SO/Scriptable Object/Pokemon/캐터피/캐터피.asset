@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   habcds: {fileID: 11400000, guid: caadd26d9a9c3f54497198bdff07d1cc, type: 2}
   name: "\uCE90\uD130\uD53C"
-  image: {fileID: 1770321913, guid: c51ea24e346a8494fb043b4eebeca92b, type: 3}
+  image: {fileID: 21300000, guid: 5dc7c64cdfab1724e87e153812e43957, type: 3}
   prefab: {fileID: 6570004940771334773, guid: 4f7aa96bbfb58c74fa69cd13e378d3be, type: 3}
   rarity: 0
   mainType: 6
   subType: 0
   scale: 0
-  skillTree: {fileID: 0}
+  skillTree: {fileID: 11400000, guid: cb16a3be497345f4c8d452fb23a19284, type: 2}
   evolutionTree:
   - level: 7
     pokemonSO: {fileID: 11400000, guid: d0045742bf67a484085af712599ae3b8, type: 2}

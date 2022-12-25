@@ -61,6 +61,26 @@ public class Enemy : Agent
         GameInfo gameInfo = new GameInfo();
         MapScene scene = Managers.Scene.CurrentScene as MapScene;
         gameInfo.PlayerInfo = scene.Player.GetInfo();
+        bool isDead = true;
+        for(int i = 0; i < gameInfo.PlayerInfo.PokemonList.Length; i++)
+        {
+            if (gameInfo.PlayerInfo.PokemonList[i].Info != null)
+            {
+                if(gameInfo.PlayerInfo.PokemonList[i].Hp > 0)
+                {
+                    isDead = false;
+                }
+            }
+        }
+
+        if(isDead == true)
+        {
+            // Game Over
+            scene?.SetText("포켓몬도 없는 녀석이.. 어딜 돌아다녀!");
+            yield return new WaitForSeconds(1f);
+            Managers.Save.DeleteFile();
+            Managers.Scene.LoadScene(Define.Scene.Menu);
+        }
         gameInfo.EnemyInfo = this.GetInfo();
         gameInfo.isWildPokemon = false;
         Managers.Save.SaveJson(gameInfo);
@@ -83,6 +103,7 @@ public class Enemy : Agent
         {
             if (_fov.SearchEneny)
             {
+                // 플레이어 포켓몬 예외 처리해야..하나? 어쩌피 죽으면 메튜로 돌아가는데... 그래도 해야겠지...
                 _timer = _battleCoolTime;
                 StartCoroutine(Battle());
             }

@@ -15,5 +15,9 @@ MonoBehaviour:
   pairs:
   - level: 1
     skill: {fileID: 11400000, guid: e7420f774eaee1a4392e055d483fa9d4, type: 2}
-  - level: 15
+  - level: 18
+    skill: {fileID: 11400000, guid: 8441ae580f0b0f3449b2aaa166ce13e4, type: 2}
+  - level: 7
+    skill: {fileID: 11400000, guid: d7415ed8e84cb4944bf8d32f977cee61, type: 2}
+  - level: 18
     skill: {fileID: 11400000, guid: d7415ed8e84cb4944bf8d32f977cee61, type: 2}

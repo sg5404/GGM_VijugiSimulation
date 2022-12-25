@@ -1195,6 +1195,7 @@ MonoBehaviour:
   - {fileID: 866637609}
   - {fileID: 578980931}
   - {fileID: 1977060332}
+  - {fileID: 0}
   - {fileID: 565252084}
   _playerPokemonPos: {fileID: 1765335745}
   _enemyPokemonPos: {fileID: 597739800}
