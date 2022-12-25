@@ -288,7 +288,7 @@ public class BattleScene : BaseScene
                 }
                 else
                 {
-                    SetInfoText($"{_enemyPokemon.Name}ÀÇ {skill.skillName}ºø³ª°¬´Ù!");
+                    SetInfoText($"{_enemyPokemon.Name}ÀÇ {skill.skillName}Àº ºø³ª°¬´Ù!");
                 }
             }
             else
@@ -395,8 +395,7 @@ public class BattleScene : BaseScene
             _ => 40,
         };
 
-        //if (rand <= ra)
-        if (true)
+        if (rand <= ra)
         {
             // Æ÷È¹ ¼º°î
             // ÀÌÆåÆ®
