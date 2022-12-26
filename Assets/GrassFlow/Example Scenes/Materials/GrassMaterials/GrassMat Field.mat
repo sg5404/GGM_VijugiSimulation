@@ -8,10 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GrassMat Field
-  m_Shader: {fileID: 4800000, guid: 604930fc04ccaaf42ac31b2ea0f8e3d8, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0aea4da630b5e2946b07ddc7df3e8dff, type: 3}
   m_ValidKeywords:
   - BILLBOARD
   - RENDERMODE_MESH
+  - _RECEIVE_SHADOWS_OFF
   m_InvalidKeywords:
   - RENDERMODE_TERRAIN
   - UNITY_EDITOR
@@ -88,10 +89,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Depth_Pass: 0
+    - Depth_Pass: 1
     - Forward_Add: 0
     - Global_Keywords: 0
-    - Pipe_Type: 0
+    - Pipe_Type: 1
     - Render_Path: 0
     - Render_Type: 0
     - Rendermode: 0
@@ -116,6 +117,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ReceiveShadows: 0
     - _Rendermode: 0
     - _SEMI_TRANSPARENT: 0
     - _SmoothnessTextureChannel: 0
