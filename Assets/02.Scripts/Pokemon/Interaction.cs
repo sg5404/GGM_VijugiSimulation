@@ -25,7 +25,9 @@ public class Interaction : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                interaction_Nurse(); // ÇÔÁ¤À¸·Î ¹Ù²Ù±â
+                GameObject heal = Managers.Resource.Instantiate("Effect/Heal");
+                heal.transform.position = this.transform.position;
+                interaction_Nurse();
             }
         }
 
@@ -37,8 +39,10 @@ public class Interaction : MonoBehaviour
         foreach (Pokemon poke in gameInfo.PlayerInfo.PokemonList)
         {
             poke.Heal(poke.MaxHp);
-            //?¬ê¸°???ë?ê°€ ?ˆì—ˆ?„ë•Œ ?ë???ë§í•˜???¤í¬ë¦½íŠ¸ë¥?ë°›ì•„?€???¨ìˆ˜ ?¤í–‰
         }
+        Managers.Save.SaveJson<GameInfo>(gameInfo);
+
+        MapScene scene = Managers.Scene.CurrentScene as MapScene;
 
 
     }

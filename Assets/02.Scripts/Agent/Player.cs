@@ -22,16 +22,8 @@ public class Player : Agent
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            OnMovementEvent?.Invoke(Input.GetAxis("Horizontal") * 2f, Input.GetAxis("Vertical") * 2f);
-            OnRunEvent?.Invoke(true);
-        }
-        else
-        {
-            OnMovementEvent?.Invoke(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            OnRunEvent?.Invoke(false);
-        }
+        OnMovementEvent?.Invoke(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        OnRunEvent?.Invoke(false);
 
         if (isDebug == true)
         {

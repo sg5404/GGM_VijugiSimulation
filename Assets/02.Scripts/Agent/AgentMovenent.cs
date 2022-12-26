@@ -21,7 +21,13 @@ public class AgentMovenent : MonoBehaviour
         moveDirection = new Vector3(this.h, 0, this.v);
         moveDirection.Normalize();
 
-        transform.position += moveDirection * _moveSpeed * Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            transform.position += moveDirection * _moveSpeed * 2f * Time.deltaTime;
+        }
+        else
+        {
+            transform.position += moveDirection * _moveSpeed * Time.deltaTime;
+        }
         if (moveDirection != Vector3.zero)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection), 0.8f);

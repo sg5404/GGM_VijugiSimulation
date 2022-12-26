@@ -3316,7 +3316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87c4468c65c0d24aa6bb9e9423ebef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebug: 1
+  isDebug: 0
   _pokemon: {fileID: 11400000, guid: 4be0ce22786786140b8858d47053fda5, type: 2}
   item: {fileID: 11400000, guid: de03ab29f460b0a4780ad8d385ceb0b5, type: 2}
   OnMovementEvent:

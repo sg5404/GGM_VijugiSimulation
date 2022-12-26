@@ -79,6 +79,12 @@ public class MapScene : BaseScene
         _textPanel.gameObject.SetActive(false);
     }
 
+    public void LoadData()
+    {
+        _gameInfo = Managers.Save.LoadJsonFile<GameInfo>();
+        _player.SetInfo(_gameInfo.PlayerInfo);
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -123,7 +129,8 @@ public class MapScene : BaseScene
 
     public override void Clear()
     {
-        //if(_player != null)
+        // 왜 오류나지
+        //if (_player != null)
         //{
         //    Managers.Pool.Push(_player.GetComponent<Poolable>());
         //    _player = null;
@@ -144,6 +151,10 @@ public class MapScene : BaseScene
 
     void AplicationQuit()
     {
+        _gameInfo.PlayerInfo.position = _player.transform.position;
+        _gameInfo.PlayerInfo = _player.GetInfo();
+        Managers.Save.SaveJson<GameInfo>(_gameInfo);
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

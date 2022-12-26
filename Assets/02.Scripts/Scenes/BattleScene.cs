@@ -526,6 +526,7 @@ public class BattleScene : BaseScene
         else
         {
             SetInfoText($"{PlayerPokemon.Name}의 {skill.skillName}은 빗나갔다!");
+            ChangeTurn();
         }
     }
 
@@ -551,6 +552,7 @@ public class BattleScene : BaseScene
 
         if (_enemyPokemon.Hp <= 0)
         {
+            // 그냥 단판으로
             StartCoroutine(BattleVictory());
             yield break;
             // MAX((B2 - A2) * (A2 / 2), 1) + 5

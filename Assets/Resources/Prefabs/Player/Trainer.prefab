@@ -1867,6 +1867,7 @@ GameObject:
   - component: {fileID: 7874086322982035361}
   - component: {fileID: 8768598795003868081}
   - component: {fileID: 8382688985050919571}
+  - component: {fileID: -3515503820469121288}
   m_Layer: 0
   m_Name: Trainer
   m_TagString: Untagged
@@ -1960,6 +1961,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6ca210a2923e8fc41ab855ece814c324, type: 2}
   _pokemonLevel: 3
   _battleStartText: I'm Gay
+  _battleCoolTime: 60
   OnMovementEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2027,6 +2029,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3515503820469121288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739064077929821170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d232a801ea9f8ca4d9fe3c4793929df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUsing: 0
 --- !u!1 &5739064078770151701
 GameObject:
   m_ObjectHideFlags: 0
